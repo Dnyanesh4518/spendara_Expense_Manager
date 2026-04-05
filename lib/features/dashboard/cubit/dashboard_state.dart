@@ -1,0 +1,62 @@
+part of 'dashboard_cubit.dart';
+
+enum DashboardStatus { initial, loading, success, error }
+
+class DashboardState extends Equatable {
+  final double balance;
+  final double totalIncome;
+  final double totalExpenses;
+  final List<double> weeklySpending; // 7 values, Mon→Sun
+  final List<TransactionModel> recentTransactions;
+  final double savingsProgress;
+  final DashboardStatus status;
+  final String userName;
+  final String userEmail;
+
+  const DashboardState({
+    this.balance = 0,
+    this.totalIncome = 0,
+    this.totalExpenses = 0,
+    this.weeklySpending = const [],
+    this.recentTransactions = const [],
+    this.savingsProgress = 0,
+    this.status = DashboardStatus.initial,
+    this.userName = '',
+    this.userEmail = '',
+  });
+
+  DashboardState copyWith({
+    double? balance,
+    double? totalIncome,
+    double? totalExpenses,
+    List<double>? weeklySpending,
+    List<TransactionModel>? recentTransactions,
+    double? savingsProgress,
+    DashboardStatus? status,
+    String? userName,
+    String? userEmail,
+  }) => DashboardState(
+    balance: balance ?? this.balance,
+    totalIncome: totalIncome ?? this.totalIncome,
+    totalExpenses: totalExpenses ?? this.totalExpenses,
+    weeklySpending: weeklySpending ?? this.weeklySpending,
+    recentTransactions: recentTransactions ?? this.recentTransactions,
+    savingsProgress: savingsProgress ?? this.savingsProgress,
+    status: status ?? this.status,
+    userName: userName ?? this.userName,
+    userEmail: userEmail ?? this.userEmail,
+  );
+
+  @override
+  List<Object?> get props => [
+    balance,
+    totalIncome,
+    totalExpenses,
+    weeklySpending,
+    recentTransactions,
+    savingsProgress,
+    status,
+    userName,
+    userEmail,
+  ];
+}

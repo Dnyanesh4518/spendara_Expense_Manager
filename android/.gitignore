@@ -1,0 +1,116 @@
+# ── Flutter / Dart ────────────────────────────────────────────
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+.vscode/
+.classpath
+.project
+.settings/
+.ccls-cache
+
+# Flutter/Dart build outputs
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+
+# Dart generated files
+# (comment out if you WANT to commit generated files)
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# ── Localization generated files ──────────────────────────────
+# Uncomment if you generate these locally and don't want to commit
+# lib/l10n/generated/
+
+# ── Android ───────────────────────────────────────────────────
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties          # ← signing keys — never commit
+**/*.keystore                       # ← keystore files — never commit
+**/*.jks                            # ← keystore files — never commit
+
+# ── iOS ───────────────────────────────────────────────────────
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/.saved_state/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Podfile.lock
+
+# Xcode
+**/ios/xcuserdata/
+**/*.xcscmblueprint
+**/*.xccheckout
+
+# ── macOS ─────────────────────────────────────────────────────
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/ephemeral/
+
+# ── Web ───────────────────────────────────────────────────────
+**/web/flutter_bootstrap.js
+
+# ── Windows ───────────────────────────────────────────────────
+**/windows/flutter/generated_plugin_registrant.cc
+**/windows/flutter/generated_plugin_registrant.h
+**/windows/flutter/generated_plugins.cmake
+
+# ── Linux ─────────────────────────────────────────────────────
+**/linux/flutter/generated_plugin_registrant.cc
+**/linux/flutter/generated_plugin_registrant.h
+**/linux/flutter/generated_plugins.cmake
+
+# ── Secrets & Keys (CRITICAL — never commit these) ───────────
+.env
+.env.*
+!.env.example
+google-services.json                # ← if contains real API keys
+GoogleService-Info.plist            # ← if contains real API keys
+**/android/app/google-services.json
+**/ios/Runner/GoogleService-Info.plist
+
+# ── Hive ─────────────────────────────────────────────────────
+# Local database files (device storage, not project files)
+*.hive
+*.lock
+
+# ── Packages ─────────────────────────────────────────────────
+pubspec.lock   # ← keep this commented out for apps (uncomment for packages)
