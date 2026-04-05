@@ -444,4 +444,28 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'বাকি';
+
+  @override
+  String get howMuchToAdd => 'কত যোগ করবেন?';
+
+  @override
+  String get maxYouCanAddIs => 'আপনি সর্বোচ্চ যত যোগ করতে পারবেন তা হল';
+
+  @override
+  String get quickAdd => 'দ্রুত যোগ করুন';
+
+  @override
+  String get toGoal => 'লক্ষ্যে';
+
+  @override
+  String get language => 'ভাষা';
+
+  @override
+  String get selectLanguage => 'ভাষা বেছে নিন';
+
+  @override
+  String get target => 'লক্ষ্য';
 }

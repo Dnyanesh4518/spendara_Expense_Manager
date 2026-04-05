@@ -143,5 +143,13 @@
   "noSpendingDataThisWeek": "ಈ ವಾರ ಖರ್ಚಿನ ಡೇಟಾ ಇಲ್ಲ",
   "lastWeek": "ಕಳೆದ ವಾರ",
   "currencySymbol": "₹",
-  "currencyLocale": "en_IN"
+  "currencyLocale": "en_IN",
+  "remaining": "ಉಳಿದಿರುವ",
+  "howMuchToAdd": "ಎಷ್ಟು ಸೇರಿಸಬೇಕು?",
+  "maxYouCanAddIs": "ನೀವು ಸೇರಿಸಬಹುದಾದ ಗರಿಷ್ಠ ಮೊತ್ತ",
+  "quickAdd": "ತ್ವರಿತ ಸೇರ್ಪಡೆ",
+  "toGoal": "ಗುರಿಗೆ",
+  "language": "ಭಾಷೆ",
+  "selectLanguage": "ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ",
+  "target": "ಗುರಿ"
 }

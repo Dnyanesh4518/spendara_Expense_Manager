@@ -444,4 +444,28 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'ಉಳಿದಿರುವ';
+
+  @override
+  String get howMuchToAdd => 'ಎಷ್ಟು ಸೇರಿಸಬೇಕು?';
+
+  @override
+  String get maxYouCanAddIs => 'ನೀವು ಸೇರಿಸಬಹುದಾದ ಗರಿಷ್ಠ ಮೊತ್ತ';
+
+  @override
+  String get quickAdd => 'ತ್ವರಿತ ಸೇರ್ಪಡೆ';
+
+  @override
+  String get toGoal => 'ಗುರಿಗೆ';
+
+  @override
+  String get language => 'ಭಾಷೆ';
+
+  @override
+  String get selectLanguage => 'ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ';
+
+  @override
+  String get target => 'ಗುರಿ';
 }

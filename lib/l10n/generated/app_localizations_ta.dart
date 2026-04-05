@@ -446,4 +446,28 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'மீதமுள்ளது';
+
+  @override
+  String get howMuchToAdd => 'எவ்வளவு சேர்க்கணும்?';
+
+  @override
+  String get maxYouCanAddIs => 'நீங்கள் சேர்க்கக்கூடிய அதிகபட்சம்';
+
+  @override
+  String get quickAdd => 'விரைவாக சேர்';
+
+  @override
+  String get toGoal => 'இலக்கில்';
+
+  @override
+  String get language => 'மொழி';
+
+  @override
+  String get selectLanguage => 'மொழியை தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get target => 'இலக்கு';
 }

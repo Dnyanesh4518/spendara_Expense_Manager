@@ -143,5 +143,13 @@
   "noSpendingDataThisWeek": "ଏହି ସପ୍ତାହ ଖର୍ଚ ଡାଟା ନାହିଁ",
   "lastWeek": "ଗତ ସପ୍ତାହ",
   "currencySymbol": "₹",
-  "currencyLocale": "en_IN"
+  "currencyLocale": "en_IN",
+  "remaining": "ବାକି",
+  "howMuchToAdd": "କେତେ ଯୋଡ଼ିବେ?",
+  "maxYouCanAddIs": "ଆପଣ ସର୍ବାଧିକ ଯୋଡ଼ି ପାରିବେ",
+  "quickAdd": "ଶୀଘ୍ର ଯୋଡ଼ନ୍ତୁ",
+  "toGoal": "ଲକ୍ଷ୍ୟରେ",
+  "language": "ଭାଷା",
+  "selectLanguage": "ଭାଷା ବାଛନ୍ତୁ",
+  "target": "ଲକ୍ଷ୍ୟ"
 }

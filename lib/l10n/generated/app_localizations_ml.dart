@@ -445,4 +445,28 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'ബാക്കി';
+
+  @override
+  String get howMuchToAdd => 'എത്ര ചേർക്കണം?';
+
+  @override
+  String get maxYouCanAddIs => 'നിങ്ങൾക്ക് ചേർക്കാവുന്ന പരമാവധി';
+
+  @override
+  String get quickAdd => 'വേഗം ചേർക്കുക';
+
+  @override
+  String get toGoal => 'ലക്ഷ്യത്തിലേക്ക്';
+
+  @override
+  String get language => 'ഭാഷ';
+
+  @override
+  String get selectLanguage => 'ഭാഷ തിരഞ്ഞെടുക്കുക';
+
+  @override
+  String get target => 'ലക്ഷ്യം';
 }

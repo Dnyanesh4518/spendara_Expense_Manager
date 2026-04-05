@@ -1,3 +1,4 @@
+import 'package:Spendara/core/utils/currency_formatter.dart';
 import 'package:flutter/material.dart';
 
 import '../features/goals/cubit/goal_cubit.dart';
@@ -41,8 +42,8 @@ class OverviewCard extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           Text(
-            'of ₹${state.totalTarget.toStringAsFixed(0)}'
-            '${appLocalizations?.across}a ${state.goals.length} ${appLocalizations?.goal} ${state.goals.length == 1 ? '' : 's'}',
+            '${context.formatter.format(state.totalTarget)} '
+            '${appLocalizations?.across} ${state.goals.length} ${appLocalizations?.goal} ${state.goals.length == 1 ? '' : 's'}',
             style: tt.bodySmall?.copyWith(color: Colors.white70),
           ),
           const SizedBox(height: 16),

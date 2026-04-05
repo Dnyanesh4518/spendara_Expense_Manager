@@ -117,7 +117,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Remove Ads (1hr)',
+                  '🚫Ads(1hr)',
                   style: theme.textTheme.labelSmall?.copyWith(
                     color: AppColors.primary,
                     fontWeight: FontWeight.w600,

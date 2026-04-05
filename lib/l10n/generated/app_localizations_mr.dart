@@ -444,4 +444,28 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'शिल्लक';
+
+  @override
+  String get howMuchToAdd => 'किती जोडायचे?';
+
+  @override
+  String get maxYouCanAddIs => 'जास्तीत जास्त जोडता येणारी रक्कम आहे';
+
+  @override
+  String get quickAdd => 'झटपट जोडा';
+
+  @override
+  String get toGoal => 'ध्येयासाठी';
+
+  @override
+  String get language => 'भाषा';
+
+  @override
+  String get selectLanguage => 'भाषा निवडा';
+
+  @override
+  String get target => 'उद्दिष्ट';
 }

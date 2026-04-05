@@ -446,4 +446,28 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get currencyLocale => 'es';
+
+  @override
+  String get remaining => 'restante';
+
+  @override
+  String get howMuchToAdd => '¿Cuánto deseas agregar?';
+
+  @override
+  String get maxYouCanAddIs => 'El máximo que puedes agregar es';
+
+  @override
+  String get quickAdd => 'Agregar rápido';
+
+  @override
+  String get toGoal => 'a la meta';
+
+  @override
+  String get language => 'Idioma';
+
+  @override
+  String get selectLanguage => 'Seleccionar idioma';
+
+  @override
+  String get target => 'Meta';
 }

@@ -444,4 +444,28 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'మిగిలినది';
+
+  @override
+  String get howMuchToAdd => 'ఎంత జోడించాలి?';
+
+  @override
+  String get maxYouCanAddIs => 'మీరు జోడించగల గరిష్ట మొత్తం';
+
+  @override
+  String get quickAdd => 'త్వరగా జోడించు';
+
+  @override
+  String get toGoal => 'లక్ష్యానికి';
+
+  @override
+  String get language => 'భాష';
+
+  @override
+  String get selectLanguage => 'భాష ఎంచుకోండి';
+
+  @override
+  String get target => 'లక్ష్యం';
 }

@@ -445,4 +445,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'remaining';
+
+  @override
+  String get howMuchToAdd => 'How much to add?';
+
+  @override
+  String get maxYouCanAddIs => 'Max you can add is';
+
+  @override
+  String get quickAdd => 'Quick add';
+
+  @override
+  String get toGoal => 'to goal';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get selectLanguage => 'Select Language';
+
+  @override
+  String get target => 'Target';
 }

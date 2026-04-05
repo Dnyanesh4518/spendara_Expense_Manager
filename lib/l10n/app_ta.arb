@@ -143,5 +143,13 @@
   "noSpendingDataThisWeek": "இந்த வாரம் செலவு தரவு இல்லை",
   "lastWeek": "கடந்த வாரம்",
   "currencySymbol": "₹",
-  "currencyLocale": "en_IN"
+  "currencyLocale": "en_IN",
+  "remaining": "மீதமுள்ளது",
+  "howMuchToAdd": "எவ்வளவு சேர்க்கணும்?",
+  "maxYouCanAddIs": "நீங்கள் சேர்க்கக்கூடிய அதிகபட்சம்",
+  "quickAdd": "விரைவாக சேர்",
+  "toGoal": "இலக்கில்",
+  "language": "மொழி",
+  "selectLanguage": "மொழியை தேர்ந்தெடுக்கவும்",
+  "target": "இலக்கு"
 }

@@ -196,7 +196,8 @@ class _AddEditGoalScreenState extends State<AddEditGoalScreen> {
               controller: _titleCtrl,
               textCapitalization: TextCapitalization.sentences,
               maxLength: 40,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                hintStyle: Theme.of(context).textTheme.bodySmall,
                 hintText: 'e.g. Emergency fund, Vacation...',
                 counterText: '',
               ),
@@ -209,8 +210,8 @@ class _AddEditGoalScreenState extends State<AddEditGoalScreen> {
             const SizedBox(height: 20),
 
             // ── Target + already saved row ─────────────────
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Wrap(
+              crossAxisAlignment: WrapCrossAlignment.start,
               children: [
                 Expanded(
                   child: Column(
@@ -230,7 +231,10 @@ class _AddEditGoalScreenState extends State<AddEditGoalScreen> {
                             RegExp(r'^\d+\.?\d{0,2}'),
                           ),
                         ],
-                        decoration: const InputDecoration(hintText: '50,000'),
+                        decoration: InputDecoration(
+                          hintText: '50,000',
+                          hintStyle: Theme.of(context).textTheme.bodySmall,
+                        ),
                         onChanged: (_) => setState(() {}),
                         validator: (v) {
                           if (v == null || v.trim().isEmpty) return 'Required';
@@ -261,7 +265,10 @@ class _AddEditGoalScreenState extends State<AddEditGoalScreen> {
                             RegExp(r'^\d+\.?\d{0,2}'),
                           ),
                         ],
-                        decoration: const InputDecoration(hintText: '0'),
+                        decoration: InputDecoration(
+                          hintText: '0',
+                          hintStyle: Theme.of(context).textTheme.bodySmall,
+                        ),
                         onChanged: (_) => setState(() {}),
                         validator: (v) {
                           if (v == null || v.trim().isEmpty) return null;

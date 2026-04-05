@@ -1,3 +1,4 @@
+import 'package:Spendara/core/utils/currency_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -149,17 +150,17 @@ class _DepositSheetState extends State<DepositSheet> {
               ),
               const SizedBox(height: 6),
               Text(
-                '₹${remaining.toStringAsFixed(0)} remaining',
+                '${context.formatter.format(remaining)}${appLocalizations?.remaining ?? 'remaining'}',
 
-                /// TODO add Localization
                 style: tt.bodySmall?.copyWith(color: _color),
               ),
               const SizedBox(height: 24),
 
               // ── Amount input ─────────────────────────────
-              Text('How much to add?', style: tt.headlineSmall),
-
-              /// TOdo add Localization
+              Text(
+                appLocalizations?.howMuchToAdd ?? "how much to Add?",
+                style: tt.headlineSmall,
+              ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _ctrl,
@@ -222,18 +223,15 @@ class _DepositSheetState extends State<DepositSheet> {
                   final n = double.tryParse(v.replaceAll(',', ''));
                   if (n == null || n <= 0) return 'Must be greater than 0';
                   if (n > remaining) {
-                    return 'Max you can add is ₹${remaining.toStringAsFixed(0)}';
-
-                    /// TODO Add Localization
+                    return '${appLocalizations!.maxYouCanAddIs} ${appLocalizations.currencySymbol}${remaining.toStringAsFixed(0)}';
                   }
                   return null;
                 },
               ),
               const SizedBox(height: 16),
 
-              Text('Quick add', style: tt.bodySmall),
+              Text(appLocalizations!.quickAdd, style: tt.bodySmall),
 
-              /// TODO Add Localization
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
@@ -256,7 +254,7 @@ class _DepositSheetState extends State<DepositSheet> {
                         ),
                       ),
                       child: Text(
-                        '₹${s.toStringAsFixed(0)}  ($pct%)',
+                        '${context.formatter.format(s)}  ($pct%)',
                         style: tt.labelSmall?.copyWith(
                           color: _color,
                           fontWeight: FontWeight.w600,
@@ -290,10 +288,9 @@ class _DepositSheetState extends State<DepositSheet> {
                       )
                     : Text(
                         _ctrl.text.isEmpty
-                            ? appLocalizations?.addFunds ?? 'Add funds'
-                            : '${appLocalizations?.addFunds}₹${_ctrl.text}  to goal',
+                            ? appLocalizations.addFunds
+                            : '${appLocalizations.addFunds} ${appLocalizations.currencySymbol}${_ctrl.text}',
 
-                        /// TODO add Localization
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

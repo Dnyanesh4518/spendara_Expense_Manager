@@ -445,4 +445,28 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'ବାକି';
+
+  @override
+  String get howMuchToAdd => 'କେତେ ଯୋଡ଼ିବେ?';
+
+  @override
+  String get maxYouCanAddIs => 'ଆପଣ ସର୍ବାଧିକ ଯୋଡ଼ି ପାରିବେ';
+
+  @override
+  String get quickAdd => 'ଶୀଘ୍ର ଯୋଡ଼ନ୍ତୁ';
+
+  @override
+  String get toGoal => 'ଲକ୍ଷ୍ୟରେ';
+
+  @override
+  String get language => 'ଭାଷା';
+
+  @override
+  String get selectLanguage => 'ଭାଷା ବାଛନ୍ତୁ';
+
+  @override
+  String get target => 'ଲକ୍ଷ୍ୟ';
 }

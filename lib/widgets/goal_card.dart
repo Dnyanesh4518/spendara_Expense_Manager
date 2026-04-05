@@ -1,3 +1,5 @@
+import 'package:Spendara/core/utils/currency_formatter.dart';
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 import '../core/theme/app_colors.dart';
@@ -17,6 +19,7 @@ class GoalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     final tt = Theme.of(context).textTheme;
     final color =
         Constants.goalColors[goal.colorValue % Constants.goalColors.length];
@@ -33,8 +36,8 @@ class GoalCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: isComplete
-              ? color.withOpacity(0.5)
-              : Theme.of(context).colorScheme.outline.withOpacity(0.4),
+              ? color.withValues(alpha: 0.5)
+              : Theme.of(context).colorScheme.outline.withValues(alpha: 0.4),
           width: isComplete ? 1.5 : 1,
         ),
       ),
@@ -47,7 +50,7 @@ class GoalCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.12),
+                  color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(icon, color: color, size: 20),
@@ -60,10 +63,12 @@ class GoalCard extends StatelessWidget {
                     Text(goal.title, style: tt.labelLarge),
                     Text(
                       isComplete
-                          ? '🎉 Goal achieved!'
+                          ? appLocalizations?.goalAchieved ??
+                                '🎉 Goal achieved!'
                           : daysLeft <= 0
-                          ? 'Deadline passed'
-                          : '$daysLeft day${daysLeft == 1 ? '' : 's'} left',
+                          ? appLocalizations?.deadlinePassed ??
+                                'deadline passed'
+                          : '$daysLeft ${appLocalizations?.daysLeft ?? 'days left'}${daysLeft == 1 ? '' : 's'} ${appLocalizations!.left}',
                       style: tt.bodySmall?.copyWith(
                         color: isComplete
                             ? color
@@ -83,7 +88,7 @@ class GoalCard extends StatelessWidget {
                   size: 18,
                   color: Theme.of(
                     context,
-                  ).colorScheme.onSurface.withOpacity(0.4),
+                  ).colorScheme.onSurface.withValues(alpha: 0.4),
                 ),
                 onPressed: onEdit,
                 visualDensity: VisualDensity.compact,
@@ -96,7 +101,7 @@ class GoalCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.12),
+                  color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -117,7 +122,7 @@ class GoalCard extends StatelessWidget {
             child: LinearProgressIndicator(
               value: progress,
               minHeight: 8,
-              backgroundColor: color.withOpacity(0.12),
+              backgroundColor: color.withValues(alpha: 0.12),
               valueColor: AlwaysStoppedAnimation(color),
             ),
           ),
@@ -131,13 +136,13 @@ class GoalCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '₹${goal.savedAmount.toStringAsFixed(0)} saved',
+                      '${context.formatter.format(goal.savedAmount)} ${appLocalizations?.savedLabel ?? 'saved'}',
                       style: tt.labelLarge?.copyWith(color: color),
                     ),
                     Text(
                       isComplete
-                          ? 'Target: ₹${goal.targetAmount.toStringAsFixed(0)}'
-                          : '₹${remaining.toStringAsFixed(0)} to go',
+                          ? '${appLocalizations!.target}: ${context.formatter.format(goal.targetAmount)}'
+                          : '${context.formatter.format(remaining)} ${appLocalizations?.toGo ?? 'to go'}',
                       style: tt.bodySmall,
                     ),
                   ],
@@ -147,7 +152,7 @@ class GoalCard extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: onDeposit,
                   icon: const Icon(Icons.add, size: 16),
-                  label: const Text('Add funds'),
+                  label: Text(appLocalizations?.addFunds ?? 'Add funds'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: color,
                     foregroundColor: Colors.white,
@@ -174,11 +179,11 @@ class GoalCard extends StatelessWidget {
                     vertical: 8,
                   ),
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.12),
+                    color: color.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
-                    'Complete ✓',
+                    '${appLocalizations?.complete ?? 'complete'} ✓',
                     style: tt.labelSmall?.copyWith(
                       color: color,
                       fontWeight: FontWeight.w600,

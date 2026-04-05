@@ -983,6 +983,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'en_IN'**
   String get currencyLocale;
+
+  /// No description provided for @remaining.
+  ///
+  /// In en, this message translates to:
+  /// **'remaining'**
+  String get remaining;
+
+  /// No description provided for @howMuchToAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'How much to add?'**
+  String get howMuchToAdd;
+
+  /// No description provided for @maxYouCanAddIs.
+  ///
+  /// In en, this message translates to:
+  /// **'Max you can add is'**
+  String get maxYouCanAddIs;
+
+  /// No description provided for @quickAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick add'**
+  String get quickAdd;
+
+  /// No description provided for @toGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'to goal'**
+  String get toGoal;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguage;
+
+  /// No description provided for @target.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get target;
 }
 
 class _AppLocalizationsDelegate

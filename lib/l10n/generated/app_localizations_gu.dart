@@ -444,4 +444,28 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'બાકી';
+
+  @override
+  String get howMuchToAdd => 'કેટલું ઉમેરવું છે?';
+
+  @override
+  String get maxYouCanAddIs => 'તમે વધુમાં વધુ ઉમેરી શકો તે છે';
+
+  @override
+  String get quickAdd => 'ઝડપી ઉમેરો';
+
+  @override
+  String get toGoal => 'ધ્યેય માટે';
+
+  @override
+  String get language => 'ભાષા';
+
+  @override
+  String get selectLanguage => 'ભાષા પસંદ કરો';
+
+  @override
+  String get target => 'લક્ષ્ય';
 }

@@ -445,4 +445,28 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'शेष';
+
+  @override
+  String get howMuchToAdd => 'कितना जोड़ना है?';
+
+  @override
+  String get maxYouCanAddIs => 'अधिकतम जितना जोड़ सकते हैं वह है';
+
+  @override
+  String get quickAdd => 'त्वरित जोड़ें';
+
+  @override
+  String get toGoal => 'लक्ष्य में';
+
+  @override
+  String get language => 'भाषा';
+
+  @override
+  String get selectLanguage => 'भाषा चुनें';
+
+  @override
+  String get target => 'लक्ष्य';
 }

@@ -143,5 +143,13 @@
   "noSpendingDataThisWeek": "Sin datos de gasto esta semana",
   "lastWeek": "Semana pasada",
   "currencySymbol": "$",
-  "currencyLocale": "es"
+  "currencyLocale": "es",
+  "remaining": "restante",
+  "howMuchToAdd": "¿Cuánto deseas agregar?",
+  "maxYouCanAddIs": "El máximo que puedes agregar es",
+  "quickAdd": "Agregar rápido",
+  "toGoal": "a la meta",
+  "language": "Idioma",
+  "selectLanguage": "Seleccionar idioma",
+  "target": "Meta"
 }

@@ -86,9 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const Icon(Icons.language_outlined),
                   const SizedBox(width: 12),
                   Text(
-                    'Select Language',
-
-                    /// Todo add localizations
+                    AppLocalizations.of(ctx)!.selectLanguage,
                     style: Theme.of(ctx).textTheme.titleLarge,
                   ),
                 ],
@@ -334,9 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: colorScheme.primary,
                 ),
                 title: Text(
-                  'Language',
-
-                  /// TODO add localization for this
+                  appLocalizations!.language,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: AppColors.textPrimary.withValues(alpha: 0.7),
                   ),
@@ -448,4 +444,5 @@ const List<_Language> _languages = [
   _Language('pa', 'Punjabi', 'ਪੰਜਾਬੀ'),
   _Language('es', 'Spanish', 'Español'),
   _Language('ur', 'Urdu', 'اردو'),
+  _Language('or', 'Odia', 'ଓଡିଆ'),
 ];

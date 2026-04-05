@@ -444,4 +444,28 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'ਬਾਕੀ';
+
+  @override
+  String get howMuchToAdd => 'ਕਿੰਨਾ ਜੋੜਨਾ ਹੈ?';
+
+  @override
+  String get maxYouCanAddIs => 'ਤੁਸੀਂ ਵੱਧ ਤੋਂ ਵੱਧ ਜੋੜ ਸਕਦੇ ਹੋ';
+
+  @override
+  String get quickAdd => 'ਜਲਦੀ ਜੋੜੋ';
+
+  @override
+  String get toGoal => 'ਟੀਚੇ ਵਿੱਚ';
+
+  @override
+  String get language => 'ਭਾਸ਼ਾ';
+
+  @override
+  String get selectLanguage => 'ਭਾਸ਼ਾ ਚੁਣੋ';
+
+  @override
+  String get target => 'ਟੀਚਾ';
 }

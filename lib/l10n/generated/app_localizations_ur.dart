@@ -445,4 +445,28 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get currencyLocale => 'en_IN';
+
+  @override
+  String get remaining => 'باقی';
+
+  @override
+  String get howMuchToAdd => 'کتنا شامل کریں؟';
+
+  @override
+  String get maxYouCanAddIs => 'آپ زیادہ سے زیادہ شامل کر سکتے ہیں';
+
+  @override
+  String get quickAdd => 'فوری اضافہ';
+
+  @override
+  String get toGoal => 'ہدف میں';
+
+  @override
+  String get language => 'زبان';
+
+  @override
+  String get selectLanguage => 'زبان منتخب کریں';
+
+  @override
+  String get target => 'ہدف';
 }
