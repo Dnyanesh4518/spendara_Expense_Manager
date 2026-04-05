@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #connectivity
+  connectivity_plus: ^7.1.0
+
   #localization
   flutter_localizations:
     sdk: flutter
