@@ -26,10 +26,10 @@
 
 Spendara is a personal finance companion app — not a banking app. It is designed for regular everyday use: logging what you spend, setting savings targets, and understanding your money habits through clear visual summaries. All data is stored locally on the device. No login, no server, no data sharing.
 
-**Platform:** Android (primary), iOS compatible  
+**Platform:** Android (primary), iOS compatible(not production ready)  
 **Framework:** Flutter 3.x  
 **Language:** Dart  
-**Min SDK:** Android 5.0 (API 21)
+**Min SDK:** Android 8.0 (API 26)
 
 ---
 
