@@ -213,12 +213,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   prefixIcon: Icon(Icons.email_outlined),
                 ),
                 validator: (v) {
-                  if (v == null || v.trim().isEmpty)
+                  if (v == null || v.trim().isEmpty) {
                     return appLocalizations?.emailRequired ??
                         'Email is required';
-                  if (!v.contains('@'))
+                  }
+                  if (!v.contains('@')) {
                     return appLocalizations?.enterValidEmail ??
                         'Enter valid email';
+                  }
                   return null;
                 },
               ),
@@ -280,11 +282,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ── Avatar + Name ─────────────────────────────────────────
             Center(
               child: Column(
                 children: [
@@ -311,22 +312,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-
-            const SizedBox(height: 32),
-            const Divider(),
             const SizedBox(height: 24),
-
+            const Divider(),
+            const SizedBox(height: 12),
             _InfoTile(
               icon: Icons.person_outline_rounded,
               label: appLocalizations?.name ?? 'Name',
               value: _user?.name ?? '—',
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 6),
             _InfoTile(
               icon: Icons.email_outlined,
               label: appLocalizations?.email ?? 'Email',
               value: _user?.email ?? '—',
             ),
+            const SizedBox(height: 6),
             Card(
               child: ListTile(
                 leading: Icon(
@@ -357,7 +357,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
 
-            const SizedBox(height: 32),
+            const SizedBox(height: 18),
 
             // ── In-content Banner Ad (Medium Rectangle 300×250) ───────
             BlocBuilder<AdFreeCubit, AdFreeState>(

@@ -38,6 +38,7 @@ void main() async {
   // Open boxes
   await TransactionRepository.init();
   await GoalRepository.init();
+  await AdFreeCubit.init();
 
   setupDI();
 
@@ -76,7 +77,7 @@ class FinanceApp extends StatelessWidget {
         BlocProvider<InsightsCubit>(
           create: (_) => getIt<InsightsCubit>()..load(),
         ),
-        BlocProvider(create: (_) => AdFreeCubit()),
+        BlocProvider(create: (_) => AdFreeCubit()..restore()),
         BlocProvider(create: (_) => LocaleCubit()),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
