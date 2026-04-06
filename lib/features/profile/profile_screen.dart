@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
 import '../../constants/ad_constants.dart';
-import '../../core/theme/app_colors.dart';
 import '../../data/models/user_model.dart';
 import '../../features/ads/cubit/ad_free_cubit.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -333,22 +332,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 title: Text(
                   appLocalizations!.language,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: AppColors.textPrimary.withValues(alpha: 0.7),
-                  ),
+                  style: theme.textTheme.bodyLarge,
                 ),
                 subtitle: Text(
                   currentLang.nativeName,
-                  style: theme.textTheme.bodyLarge,
+                  style: theme.textTheme.bodySmall,
                 ),
                 trailing: Icon(
                   Icons.chevron_right_rounded,
                   color: colorScheme.onSurface.withValues(alpha: 0.4),
                 ),
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 4,
-                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                 onTap: _showLanguagePicker, // ← opens language sheet
               ),
             ),
@@ -410,13 +404,7 @@ class _InfoTile extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Icon(icon, color: theme.colorScheme.primary),
-        title: Text(
-          label,
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: AppColors.textPrimary.withValues(alpha: 0.7),
-          ),
-        ),
-        subtitle: Text(value, style: theme.textTheme.bodyLarge),
+        title: Text(value, style: theme.textTheme.bodyLarge),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       ),
     );
