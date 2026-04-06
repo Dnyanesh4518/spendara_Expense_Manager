@@ -96,10 +96,10 @@ class _InsightsScreenState extends State<InsightsScreen> {
                 sliver: SliverList(
                   delegate: SliverChildListDelegate([
                     // ── Smart summary card (all modes) ────────────
-                    if (state.smartSummary.isNotEmpty) ...[
-                      SmartSummaryCard(summary: state.smartSummary),
-                      const SizedBox(height: 20),
-                    ],
+                    // if (state.smartSummary.isNotEmpty) ...[
+                    //   SmartSummaryCard(summary: state.smartSummary),
+                    //   const SizedBox(height: 20),
+                    // ],
 
                     // ── Content switches on viewMode ──────────────
                     AnimatedSwitcher(
@@ -150,7 +150,7 @@ class _InsightsScreenState extends State<InsightsScreen> {
           state: state,
           l10n: l10n,
           onCategoryTap: (value) {
-            cubit.selectCategory(value, context);
+            cubit.selectCategory(value);
           },
         );
       case ViewMode.trends:
@@ -178,6 +178,7 @@ class _FilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return Container(
       color: Theme.of(context).appBarTheme.backgroundColor,
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
@@ -193,7 +194,7 @@ class _FilterBar extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: _FilterChip(
-                    label: _rangeLabel(range, state),
+                    label: _rangeLabel(range, state, appLocalizations),
                     selected: selected,
                     onTap: () => onTimeRangeTap(range),
                   ),
@@ -210,7 +211,7 @@ class _FilterBar extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 6),
                   child: _ViewModeChip(
-                    label: _modeLabel(mode),
+                    label: _modeLabel(mode, appLocalizations),
                     icon: _modeIcon(mode),
                     selected: selected,
                     onTap: () => onViewModeTap(mode),
@@ -224,7 +225,11 @@ class _FilterBar extends StatelessWidget {
     );
   }
 
-  String _rangeLabel(TimeRange r, InsightsState s) {
+  String _rangeLabel(
+    TimeRange r,
+    InsightsState s,
+    AppLocalizations? appLocalization,
+  ) {
     if (r == TimeRange.custom &&
         s.timeRange == TimeRange.custom &&
         s.customStart != null &&
@@ -235,19 +240,22 @@ class _FilterBar extends StatelessWidget {
       return fmt;
     }
     return switch (r) {
-      TimeRange.week => 'Week',
-      TimeRange.month => 'Month',
-      TimeRange.year => 'Year',
+      TimeRange.week => appLocalization?.week ?? 'week',
+      TimeRange.month => appLocalization?.month ?? 'Month',
+      TimeRange.year => appLocalization?.year ?? 'Year',
       TimeRange.custom => 'Custom',
+
+      /// TODO add Localization
     };
   }
 
-  String _modeLabel(ViewMode m) => switch (m) {
-    ViewMode.overview => 'Overview',
-    ViewMode.category => 'Category',
-    ViewMode.trends => 'Trends',
-    ViewMode.forecast => 'Forecast',
-  };
+  String _modeLabel(ViewMode m, AppLocalizations? appLocalization) =>
+      switch (m) {
+        ViewMode.overview => appLocalization?.overview ?? 'Overview',
+        ViewMode.category => appLocalization?.category ?? 'Category',
+        ViewMode.trends => appLocalization?.trends ?? 'Trends',
+        ViewMode.forecast => appLocalization?.forecast ?? 'Forecast',
+      };
 
   IconData _modeIcon(ViewMode m) => switch (m) {
     ViewMode.overview => Icons.grid_view_rounded,
@@ -387,7 +395,7 @@ class _OverviewContent extends StatelessWidget {
         // Comparison chart adapts to selected time range
         SectionHeader(
           title: state.timeRange == TimeRange.year
-              ? 'This year vs last year'
+              ? l10n?.thisYearVsLastYear ?? 'This year vs last year'
               : l10n?.thisWeekVsLastWeek ?? 'This week vs last week',
         ),
         const SizedBox(height: 12),
@@ -443,7 +451,7 @@ class _CategoryContent extends StatelessWidget {
 
         // ── Alert badges for >20% spike categories ─────────────
         if (state.alertCategories.isNotEmpty) ...[
-          SectionHeader(title: 'Spending alerts'),
+          SectionHeader(title: l10n?.spendingAlerts ?? 'Spending alerts'),
           const SizedBox(height: 10),
           ...state.alertCategories.map((cat) {
             final curAmt = state.expensesByCategory[cat] ?? 0;
@@ -466,7 +474,8 @@ class _CategoryContent extends StatelessWidget {
         // ── Top 5 category history (6 periods bar chart) ───────
         if (state.top5CategoryHistory.isNotEmpty) ...[
           SectionHeader(
-            title: 'Top categories — last 6 ${_periodWord(state.timeRange)}s',
+            title:
+                '${l10n!.topCategoriesLast} ${_periodWord(state.timeRange, l10n)}',
           ),
           const SizedBox(height: 12),
           CategoryHistoryChart(state: state),
@@ -474,19 +483,20 @@ class _CategoryContent extends StatelessWidget {
         ],
 
         // ── Drill-down (tap category in the list below) ────────
-        SectionHeader(title: 'Tap a category to explore'),
+        SectionHeader(title: l10n!.tapACategoryToExplore),
         const SizedBox(height: 12),
         DrillDownCategoryList(state: state, onCategoryTap: onCategoryTap),
       ],
     );
   }
 
-  String _periodWord(TimeRange r) => switch (r) {
-    TimeRange.week => 'week',
-    TimeRange.month => 'month',
-    TimeRange.year => 'year',
-    TimeRange.custom => 'period',
-  };
+  String _periodWord(TimeRange r, AppLocalizations? appLocalization) =>
+      switch (r) {
+        TimeRange.week => appLocalization?.week ?? 'week',
+        TimeRange.month => appLocalization?.month ?? 'Month',
+        TimeRange.year => appLocalization?.year ?? 'Year',
+        TimeRange.custom => appLocalization?.period ?? 'period',
+      };
 }
 
 // ──────────────────────────────────────────────────────────────────
@@ -501,13 +511,14 @@ class _TrendsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // ── Spending velocity (month view only) ────────────────
         if (state.timeRange == TimeRange.month &&
             state.spendingVelocity > 0) ...[
-          SectionHeader(title: 'Spending velocity'),
+          SectionHeader(title: appLocalizations!.spendingVelocity),
           const SizedBox(height: 12),
           SpendingVelocityCard(state: state),
           const SizedBox(height: 24),
@@ -515,7 +526,7 @@ class _TrendsContent extends StatelessWidget {
 
         // ── Day-of-week heatmap ────────────────────────────────
         if (state.dayOfWeekTotals.isNotEmpty) ...[
-          SectionHeader(title: 'Spending by day of week'),
+          SectionHeader(title: appLocalizations!.spendingByDayOfWeek),
           const SizedBox(height: 12),
           DayHeatmapWidget(totals: state.dayOfWeekTotals),
           const SizedBox(height: 24),
@@ -523,7 +534,7 @@ class _TrendsContent extends StatelessWidget {
 
         // ── Anomaly alerts ─────────────────────────────────────
         if (state.anomalies.isNotEmpty) ...[
-          SectionHeader(title: 'Anomaly alerts'),
+          SectionHeader(title: appLocalizations!.anomalyAlerts),
           const SizedBox(height: 12),
           ...state.anomalies.map(
             (a) => Padding(
@@ -536,7 +547,7 @@ class _TrendsContent extends StatelessWidget {
 
         // ── Biggest single-day spike ───────────────────────────
         if (state.biggestSpikeDay != '—' && state.biggestSpikeAmount > 0) ...[
-          SectionHeader(title: 'Biggest spend day'),
+          SectionHeader(title: appLocalizations!.biggestSpendDay),
           const SizedBox(height: 12),
           BiggestSpikeDayCard(state: state),
         ],
@@ -557,25 +568,26 @@ class _ForecastContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // ── Projected month spend ──────────────────────────────
         if (state.spendingVelocity > 0) ...[
-          SectionHeader(title: 'Month projection'),
+          SectionHeader(title: appLocalizations!.monthProjection),
           const SizedBox(height: 12),
           SpendingVelocityCard(state: state),
           const SizedBox(height: 24),
         ],
 
         // ── 12-month savings rate trend ────────────────────────
-        SectionHeader(title: 'Savings rate — last 12 months'),
+        SectionHeader(title: appLocalizations!.savingsRateLast12Months),
         const SizedBox(height: 12),
         SavingsRateTrendChart(state: state),
         const SizedBox(height: 24),
 
         // ── This year monthly vs last year ────────────────────
-        SectionHeader(title: 'Year-over-year monthly spend'),
+        SectionHeader(title: appLocalizations.yearOverYearMonthlySpend),
         const SizedBox(height: 12),
         YearlyCompareChart(state: state),
       ],

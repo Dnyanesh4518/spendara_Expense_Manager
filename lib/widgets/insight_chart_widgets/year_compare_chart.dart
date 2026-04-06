@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
 import '../../core/theme/app_colors.dart';
 import '../../features/insights/cubit/insights_cubit.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'empty_box.dart';
 
 class YearlyCompareChart extends StatelessWidget {
@@ -19,9 +20,12 @@ class YearlyCompareChart extends StatelessWidget {
     final now = DateTime.now();
     final thisY = state.thisYearMonthly;
     final lastY = state.lastYearMonthly;
-    final months = Constants.weekDayLabels(context);
+    final months = Constants.monthLabels(context);
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
-    if (thisY.isEmpty) return emptyBox(context, 'No yearly data yet');
+    if (thisY.isEmpty) {
+      return emptyBox(context, appLocalizations!.noYearlyDataYet);
+    }
 
     final allVals = [...thisY, ...lastY].where((v) => v > 0);
     final maxY = allVals.isEmpty ? 100.0 : allVals.reduce(max) * 1.3;

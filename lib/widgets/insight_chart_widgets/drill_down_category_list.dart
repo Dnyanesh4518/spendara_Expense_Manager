@@ -5,6 +5,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/utils/currency_formatter.dart';
 import '../../features/insights/cubit/insights_cubit.dart';
 import '../../features/transaction/model/transaction_model.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'empty_box.dart';
 
 class DrillDownCategoryList extends StatelessWidget {
@@ -19,10 +20,11 @@ class DrillDownCategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     final categories = state.expensesByCategory.entries.toList();
 
     if (categories.isEmpty) {
-      return emptyBox(context, 'No category data for this period');
+      return emptyBox(context, appLocalizations!.noCategoryDataForThisPeriod);
     }
 
     return Column(
@@ -84,6 +86,7 @@ class _CategoryRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = Theme.of(context).textTheme;
     final fmt = CurrencyFormatter.of(context);
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 260),
@@ -221,7 +224,7 @@ class _CategoryRow extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      'No transactions in this period',
+                      appLocalizations!.noTransactionsInThisPeriod,
                       style: tt.bodySmall?.copyWith(
                         color: Theme.of(
                           context,

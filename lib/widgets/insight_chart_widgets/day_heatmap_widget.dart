@@ -88,7 +88,7 @@ class DayHeatmapWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Highest: ${days[totals.indexOf(maxVal)]} '
+                '${appLocalizations?.highestLabel} ${days[totals.indexOf(maxVal)]} '
                 '(${fmt.compact(maxVal)})',
                 style: tt.bodySmall?.copyWith(
                   fontWeight: FontWeight.w600,
@@ -103,7 +103,7 @@ class DayHeatmapWidget extends StatelessWidget {
                   _legendBox(AppColors.expense),
                   const SizedBox(width: 4),
                   Text(
-                    'Low → High',
+                    appLocalizations!.lowToHigh,
                     style: tt.bodySmall?.copyWith(fontSize: 10),
                   ),
                 ],

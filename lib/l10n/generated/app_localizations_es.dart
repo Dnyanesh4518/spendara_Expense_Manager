@@ -470,4 +470,153 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get target => 'Meta';
+
+  @override
+  String get thisYearVsLastYear => 'Este año vs el año pasado';
+
+  @override
+  String get spendingAlerts => 'Alertas de gasto';
+
+  @override
+  String get topCategoriesLast => 'Categorías principales — últimos';
+
+  @override
+  String get tapACategoryToExplore => 'Toca una categoría para explorar';
+
+  @override
+  String get week => 'semana';
+
+  @override
+  String get month => 'mes';
+
+  @override
+  String get year => 'año';
+
+  @override
+  String get period => 'periodo';
+
+  @override
+  String get spendingVelocity => 'Velocidad de gasto';
+
+  @override
+  String get spendingByDayOfWeek => 'Gasto por día de la semana';
+
+  @override
+  String get anomalyAlerts => 'Alertas de anomalías';
+
+  @override
+  String get biggestSpendDay => 'Día de mayor gasto';
+
+  @override
+  String get monthProjection => 'Proyección del mes';
+
+  @override
+  String get savingsRateLast12Months => 'Tasa de ahorro — últimos 12 meses';
+
+  @override
+  String get yearOverYearMonthlySpend => 'Gasto mensual interanual';
+
+  @override
+  String get trends => 'Tendencias';
+
+  @override
+  String get forecast => 'Pronóstico';
+
+  @override
+  String get overview => 'Resumen';
+
+  @override
+  String get spentVs => 'gastado vs';
+
+  @override
+  String get avgLabel => 'promedio';
+
+  @override
+  String get highestSpendDay => 'Día de mayor gasto';
+
+  @override
+  String get spendingIs => 'el gasto';
+
+  @override
+  String get higherThanYourAverage => 'es mayor que tu promedio';
+
+  @override
+  String get noExpensesThisPeriod => 'No hay gastos en este periodo';
+
+  @override
+  String get notEnoughHistoryYet => 'Aún no hay suficiente historial';
+
+  @override
+  String get highestLabel => 'Mayor:';
+
+  @override
+  String get lowToHigh => 'Bajo → Alto';
+
+  @override
+  String get noCategoryDataForThisPeriod =>
+      'No hay datos de categorías para este periodo';
+
+  @override
+  String get noTransactionsInThisPeriod =>
+      'No hay transacciones en este periodo';
+
+  @override
+  String get noSavingsDataYet => 'Aún no hay datos de ahorro';
+
+  @override
+  String get projectedThisMonth => 'Proyectado este mes';
+
+  @override
+  String get basedOn => 'Basado en';
+
+  @override
+  String get spentSoFar => 'gastado hasta ahora';
+
+  @override
+  String get exceedsLastMonth => '⚠️ Supera el mes pasado';
+
+  @override
+  String get underLastMonth => '✓ Por debajo del mes pasado';
+
+  @override
+  String get lastMonthLabel => 'Mes pasado:';
+
+  @override
+  String get noYearlyDataYet => 'Aún no hay datos anuales';
+
+  @override
+  String get youSpent => 'Gastaste';
+
+  @override
+  String get thisLabelPrefix => 'este';
+
+  @override
+  String get moreThanLast => 'más que el último';
+
+  @override
+  String get driversIncrease => 'impulsaron el aumento.';
+
+  @override
+  String get greatJob => '¡Buen trabajo!';
+
+  @override
+  String get lessThanLast => 'menos que el último';
+
+  @override
+  String get yourSpending => 'Tu gasto';
+
+  @override
+  String get matchesLast => 'coincide con el último';
+
+  @override
+  String get saving => 'Ahorrando';
+
+  @override
+  String get ofIncome => 'de los ingresos';
+
+  @override
+  String get upFrom => '— por encima de';
+
+  @override
+  String get downFrom => '— por debajo de';
 }

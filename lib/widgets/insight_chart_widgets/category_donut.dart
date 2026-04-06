@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
 import '../../core/theme/app_colors.dart';
 import '../../features/insights/cubit/insights_cubit.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'empty_box.dart';
 
 class CategoryDonut extends StatefulWidget {
@@ -23,9 +24,10 @@ class _CategoryDonutState extends State<CategoryDonut> {
     final cats = widget.state.expensesByCategory.entries.toList();
     final total = widget.state.totalExpenses;
     final colors = AppColors.categoryColors;
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     if (cats.isEmpty) {
-      return emptyBox(context, 'No expenses this period');
+      return emptyBox(context, appLocalizations!.noExpensesThisPeriod);
     }
 
     return Column(

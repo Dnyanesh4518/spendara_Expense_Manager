@@ -86,6 +86,24 @@ class Constants {
     return [l.mon, l.tue, l.wed, l.thu, l.fri, l.sat, l.sun];
   }
 
+  static List<String> monthLabels(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+    return [
+      l.jan,
+      l.feb,
+      l.mar,
+      l.apr,
+      l.may,
+      l.jun,
+      l.jul,
+      l.aug,
+      l.sep,
+      l.oct,
+      l.nov,
+      l.dec,
+    ];
+  }
+
   // ── KEY → LABEL (handles both new keys and old English names)
   static String expenseCategoryLabel(BuildContext context, String raw) {
     final key = normalizeKey(raw); // 'Food & Dining' → 'food_dining'

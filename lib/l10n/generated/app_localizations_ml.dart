@@ -469,4 +469,152 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get target => 'ലക്ഷ്യം';
+
+  @override
+  String get thisYearVsLastYear => 'ഈ വർഷം vs കഴിഞ്ഞ വർഷം';
+
+  @override
+  String get spendingAlerts => 'ചെലവ് അലർട്ടുകൾ';
+
+  @override
+  String get topCategoriesLast => 'മുൻനിര വിഭാഗങ്ങൾ — കഴിഞ്ഞ';
+
+  @override
+  String get tapACategoryToExplore =>
+      'പര്യവേക്ഷണം ചെയ്യാൻ ഒരു വിഭാഗം ടാപ്പ് ചെയ്യുക';
+
+  @override
+  String get week => 'ആഴ്ച';
+
+  @override
+  String get month => 'മാസം';
+
+  @override
+  String get year => 'വർഷം';
+
+  @override
+  String get period => 'കാലയളവ്';
+
+  @override
+  String get spendingVelocity => 'ചെലവിന്റെ വേഗം';
+
+  @override
+  String get spendingByDayOfWeek => 'ആഴ്ചയിലെ ദിവസപ്രകാരം ചെലവ്';
+
+  @override
+  String get anomalyAlerts => 'അസാധാരണ അലർട്ടുകൾ';
+
+  @override
+  String get biggestSpendDay => 'ഏറ്റവും വലിയ ചെലവിന്റെ ദിവസം';
+
+  @override
+  String get monthProjection => 'മാസ പ്രവചനം';
+
+  @override
+  String get savingsRateLast12Months => 'സേവിംഗ്സ് നിരക്ക് — കഴിഞ്ഞ 12 മാസം';
+
+  @override
+  String get yearOverYearMonthlySpend => 'വർഷാനുസൃത മാസച്ചെലവ്';
+
+  @override
+  String get trends => 'പ്രവണതകൾ';
+
+  @override
+  String get forecast => 'പ്രവചനം';
+
+  @override
+  String get overview => 'അവലോകനം';
+
+  @override
+  String get spentVs => 'ചെലവ് vs';
+
+  @override
+  String get avgLabel => 'ശരാശരി';
+
+  @override
+  String get highestSpendDay => 'ഏറ്റവും കൂടുതലായി ചെലവിട്ട ദിവസം';
+
+  @override
+  String get spendingIs => 'ചെലവ്';
+
+  @override
+  String get higherThanYourAverage => 'നിങ്ങളുടെ ശരാശരിയേക്കാൾ കൂടുതലാണ്';
+
+  @override
+  String get noExpensesThisPeriod => 'ഈ കാലയളവിൽ ചെലവില്ല';
+
+  @override
+  String get notEnoughHistoryYet => 'ഇനിയും മതിയായ ചരിത്രമില്ല';
+
+  @override
+  String get highestLabel => 'ഏറ്റവും കൂടുതൽ:';
+
+  @override
+  String get lowToHigh => 'കുറഞ്ഞത് → ഉയർന്നത്';
+
+  @override
+  String get noCategoryDataForThisPeriod => 'ഈ കാലയളവിന് വിഭാഗ ഡാറ്റ ഇല്ല';
+
+  @override
+  String get noTransactionsInThisPeriod => 'ഈ കാലയളവിൽ ഇടപാടുകളില്ല';
+
+  @override
+  String get noSavingsDataYet => 'ഇനിയും സേവിംഗ്സ് ഡാറ്റ ഇല്ല';
+
+  @override
+  String get projectedThisMonth => 'ഈ മാസത്തെ പ്രവചനം';
+
+  @override
+  String get basedOn => 'അടിസ്ഥാനമാക്കി';
+
+  @override
+  String get spentSoFar => 'ഇതുവരെ ചെലവിട്ടത്';
+
+  @override
+  String get exceedsLastMonth => '⚠️ കഴിഞ്ഞ മാസത്തേക്കാൾ കൂടുതലാണ്';
+
+  @override
+  String get underLastMonth => '✓ കഴിഞ്ഞ മാസത്തേക്കാൾ കുറവാണ്';
+
+  @override
+  String get lastMonthLabel => 'കഴിഞ്ഞ മാസം:';
+
+  @override
+  String get noYearlyDataYet => 'ഇനിയും വാർഷിക ഡാറ്റ ഇല്ല';
+
+  @override
+  String get youSpent => 'നിങ്ങൾ ചെലവിട്ടു';
+
+  @override
+  String get thisLabelPrefix => 'ഈ';
+
+  @override
+  String get moreThanLast => 'കഴിഞ്ഞതിനെക്കാൾ കൂടുതൽ';
+
+  @override
+  String get driversIncrease => 'വർധനയ്ക്ക് കാരണമായി.';
+
+  @override
+  String get greatJob => 'നല്ല ജോലി!';
+
+  @override
+  String get lessThanLast => 'കഴിഞ്ഞതിനെക്കാൾ കുറവ്';
+
+  @override
+  String get yourSpending => 'നിങ്ങളുടെ ചെലവ്';
+
+  @override
+  String get matchesLast => 'കഴിഞ്ഞതുമായി ഒത്തുപോകുന്നു';
+
+  @override
+  String get saving => 'സംരക്ഷിക്കുന്നു';
+
+  @override
+  String get ofIncome => 'വരുമാനത്തിന്റെ';
+
+  @override
+  String get upFrom => '— കഴിഞ്ഞതിനെക്കാൾ മേലെ';
+
+  @override
+  String get downFrom => '— കഴിഞ്ഞതിനെക്കാൾ താഴെ';
 }

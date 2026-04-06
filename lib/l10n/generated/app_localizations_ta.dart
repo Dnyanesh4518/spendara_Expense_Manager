@@ -470,4 +470,153 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get target => 'இலக்கு';
+
+  @override
+  String get thisYearVsLastYear => 'இந்த ஆண்டு vs கடந்த ஆண்டு';
+
+  @override
+  String get spendingAlerts => 'செலவு எச்சரிக்கைகள்';
+
+  @override
+  String get topCategoriesLast => 'முதல் பிரிவுகள் — கடந்த';
+
+  @override
+  String get tapACategoryToExplore => 'ஆராய ஒரு பிரிவைத் தட்டவும்';
+
+  @override
+  String get week => 'வாரம்';
+
+  @override
+  String get month => 'மாதம்';
+
+  @override
+  String get year => 'ஆண்டு';
+
+  @override
+  String get period => 'காலம்';
+
+  @override
+  String get spendingVelocity => 'செலவு வேகம்';
+
+  @override
+  String get spendingByDayOfWeek => 'வாரத்தின் நாளின்படி செலவு';
+
+  @override
+  String get anomalyAlerts => 'அசாதாரண எச்சரிக்கைகள்';
+
+  @override
+  String get biggestSpendDay => 'மிகப்பெரிய செலவு நாள்';
+
+  @override
+  String get monthProjection => 'மாதத் திட்டம்';
+
+  @override
+  String get savingsRateLast12Months => 'சேமிப்பு விகிதம் — கடந்த 12 மாதங்கள்';
+
+  @override
+  String get yearOverYearMonthlySpend => 'ஆண்டு தோறும் மாதாந்திர செலவு';
+
+  @override
+  String get trends => 'போக்குகள்';
+
+  @override
+  String get forecast => 'முன்னறிவு';
+
+  @override
+  String get overview => 'மேலோட்டம்';
+
+  @override
+  String get spentVs => 'செலவு vs';
+
+  @override
+  String get avgLabel => 'சராசரி';
+
+  @override
+  String get highestSpendDay => 'அதிக செலவு நாள்';
+
+  @override
+  String get spendingIs => 'செலவு';
+
+  @override
+  String get higherThanYourAverage => 'உங்கள் சராசரியை விட அதிகம்';
+
+  @override
+  String get noExpensesThisPeriod => 'இந்த காலத்தில் செலவு இல்லை';
+
+  @override
+  String get notEnoughHistoryYet => 'இதற்கு இன்னும் போதுமான வரலாறு இல்லை';
+
+  @override
+  String get highestLabel => 'அதிகம்:';
+
+  @override
+  String get lowToHigh => 'குறைவு → அதிகம்';
+
+  @override
+  String get noCategoryDataForThisPeriod =>
+      'இந்த காலத்திற்கான பிரிவு தரவு இல்லை';
+
+  @override
+  String get noTransactionsInThisPeriod =>
+      'இந்த காலத்தில் பரிவர்த்தனைகள் இல்லை';
+
+  @override
+  String get noSavingsDataYet => 'இன்னும் சேமிப்பு தரவு இல்லை';
+
+  @override
+  String get projectedThisMonth => 'இந்த மாதத்திற்கான கணிப்பு';
+
+  @override
+  String get basedOn => 'அடிப்படையில்';
+
+  @override
+  String get spentSoFar => 'இதுவரை செலவிட்டது';
+
+  @override
+  String get exceedsLastMonth => '⚠️ கடந்த மாதத்தை விட அதிகம்';
+
+  @override
+  String get underLastMonth => '✓ கடந்த மாதத்தை விட குறைவு';
+
+  @override
+  String get lastMonthLabel => 'கடந்த மாதம்:';
+
+  @override
+  String get noYearlyDataYet => 'இன்னும் வருடாந்திர தரவு இல்லை';
+
+  @override
+  String get youSpent => 'நீங்கள் செலவிட்டீர்கள்';
+
+  @override
+  String get thisLabelPrefix => 'இந்த';
+
+  @override
+  String get moreThanLast => 'கடந்ததை விட அதிகம்';
+
+  @override
+  String get driversIncrease => 'அதிகரிப்பை ஏற்படுத்தின.';
+
+  @override
+  String get greatJob => 'நல்ல வேலை!';
+
+  @override
+  String get lessThanLast => 'கடந்ததை விட குறைவு';
+
+  @override
+  String get yourSpending => 'உங்கள் செலவு';
+
+  @override
+  String get matchesLast => 'கடந்ததுடன் பொருந்துகிறது';
+
+  @override
+  String get saving => 'சேமிக்கிறீர்கள்';
+
+  @override
+  String get ofIncome => 'வருமானத்தின்';
+
+  @override
+  String get upFrom => '— கடந்ததை விட உயர்ந்து';
+
+  @override
+  String get downFrom => '— கடந்ததை விட குறைந்து';
 }

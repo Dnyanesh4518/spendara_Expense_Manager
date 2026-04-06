@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
@@ -13,6 +14,7 @@ class BiggestSpikeDayCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = Theme.of(context).textTheme;
     final fmt = CurrencyFormatter.of(context);
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     return Container(
       padding: const EdgeInsets.all(20),
@@ -42,7 +44,7 @@ class BiggestSpikeDayCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Highest spend day', style: tt.bodySmall),
+                Text(appLocalizations!.highestSpendDay, style: tt.bodySmall),
                 const SizedBox(height: 2),
                 Text(
                   state.biggestSpikeDay,

@@ -468,4 +468,152 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get target => 'লক্ষ্য';
+
+  @override
+  String get thisYearVsLastYear => 'এই বছর বনাম গত বছর';
+
+  @override
+  String get spendingAlerts => 'খরচের সতর্কতা';
+
+  @override
+  String get topCategoriesLast => 'শীর্ষ বিভাগ — গত';
+
+  @override
+  String get tapACategoryToExplore => 'অন্বেষণ করতে একটি বিভাগে ট্যাপ করুন';
+
+  @override
+  String get week => 'সপ্তাহ';
+
+  @override
+  String get month => 'মাস';
+
+  @override
+  String get year => 'বছর';
+
+  @override
+  String get period => 'সময়কাল';
+
+  @override
+  String get spendingVelocity => 'খরচের গতি';
+
+  @override
+  String get spendingByDayOfWeek => 'সপ্তাহের দিন অনুযায়ী খরচ';
+
+  @override
+  String get anomalyAlerts => 'অস্বাভাবিক সতর্কতা';
+
+  @override
+  String get biggestSpendDay => 'সবচেয়ে বড় খরচের দিন';
+
+  @override
+  String get monthProjection => 'মাসের পূর্বাভাস';
+
+  @override
+  String get savingsRateLast12Months => 'সঞ্চয়ের হার — গত 12 মাস';
+
+  @override
+  String get yearOverYearMonthlySpend => 'বছরভিত্তিক মাসিক খরচ';
+
+  @override
+  String get trends => 'প্রবণতা';
+
+  @override
+  String get forecast => 'পূর্বাভাস';
+
+  @override
+  String get overview => 'সংক্ষিপ্ত বিবরণ';
+
+  @override
+  String get spentVs => 'খরচ বনাম';
+
+  @override
+  String get avgLabel => 'গড়';
+
+  @override
+  String get highestSpendDay => 'সর্বোচ্চ খরচের দিন';
+
+  @override
+  String get spendingIs => 'খরচ';
+
+  @override
+  String get higherThanYourAverage => 'আপনার গড়ের চেয়ে বেশি';
+
+  @override
+  String get noExpensesThisPeriod => 'এই সময়কালে কোনো খরচ নেই';
+
+  @override
+  String get notEnoughHistoryYet => 'এখনও যথেষ্ট ইতিহাস নেই';
+
+  @override
+  String get highestLabel => 'সর্বোচ্চ:';
+
+  @override
+  String get lowToHigh => 'কম → বেশি';
+
+  @override
+  String get noCategoryDataForThisPeriod =>
+      'এই সময়কালের জন্য কোনো বিভাগ ডেটা নেই';
+
+  @override
+  String get noTransactionsInThisPeriod => 'এই সময়কালে কোনো লেনদেন নেই';
+
+  @override
+  String get noSavingsDataYet => 'এখনও সঞ্চয়ের তথ্য নেই';
+
+  @override
+  String get projectedThisMonth => 'এই মাসের পূর্বাভাস';
+
+  @override
+  String get basedOn => 'এর ভিত্তিতে';
+
+  @override
+  String get spentSoFar => 'এখন পর্যন্ত খরচ করা';
+
+  @override
+  String get exceedsLastMonth => '⚠️ গত মাসের চেয়ে বেশি';
+
+  @override
+  String get underLastMonth => '✓ গত মাসের চেয়ে কম';
+
+  @override
+  String get lastMonthLabel => 'গত মাস:';
+
+  @override
+  String get noYearlyDataYet => 'এখনও বার্ষিক তথ্য নেই';
+
+  @override
+  String get youSpent => 'আপনি খরচ করেছেন';
+
+  @override
+  String get thisLabelPrefix => 'এই';
+
+  @override
+  String get moreThanLast => 'গতবারের চেয়ে বেশি';
+
+  @override
+  String get driversIncrease => 'বৃদ্ধি ঘটিয়েছে।';
+
+  @override
+  String get greatJob => 'দারুণ!';
+
+  @override
+  String get lessThanLast => 'গতবারের চেয়ে কম';
+
+  @override
+  String get yourSpending => 'আপনার খরচ';
+
+  @override
+  String get matchesLast => 'গতবারের সঙ্গে মিলে যায়';
+
+  @override
+  String get saving => 'সঞ্চয় করছেন';
+
+  @override
+  String get ofIncome => 'আয়ের';
+
+  @override
+  String get upFrom => '— আগের চেয়ে বেশি';
+
+  @override
+  String get downFrom => '— আগের চেয়ে কম';
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../features/insights/cubit/insights_cubit.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'empty_box.dart';
 
 class SavingsRateTrendChart extends StatelessWidget {
@@ -17,9 +18,10 @@ class SavingsRateTrendChart extends StatelessWidget {
     final tt = Theme.of(context).textTheme;
     final data = state.savingsRateTrend;
     final labels = state.savingsRateLabels;
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     if (data.isEmpty) {
-      return emptyBox(context, 'No savings data yet');
+      return emptyBox(context, appLocalizations!.noSavingsDataYet);
     }
 
     final maxY = max(data.reduce(max) * 1.3, 10.0);
@@ -48,7 +50,7 @@ class SavingsRateTrendChart extends StatelessWidget {
                   margin: const EdgeInsets.only(right: 6),
                 ),
                 Text(
-                  'Avg ${avgRate.toStringAsFixed(1)}%',
+                  '${appLocalizations!.avgLabel} ${avgRate.toStringAsFixed(1)}%',
                   style: tt.bodySmall?.copyWith(fontSize: 11),
                 ),
               ],

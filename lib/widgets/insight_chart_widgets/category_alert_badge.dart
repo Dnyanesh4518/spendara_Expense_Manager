@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
@@ -19,6 +20,7 @@ class CategoryAlertBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = Theme.of(context).textTheme;
     final fmt = CurrencyFormatter.of(context);
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
@@ -33,9 +35,9 @@ class CategoryAlertBadge extends StatelessWidget {
           const SizedBox(width: 10),
           Expanded(
             child: Text(
-              '$category spending is '
+              '$category ${appLocalizations!.spendingIs} '
               '${pctIncrease.toStringAsFixed(0)}% '
-              'higher than your average',
+              '${appLocalizations.higherThanYourAverage}',
               style: tt.bodyMedium?.copyWith(color: AppColors.warning),
             ),
           ),

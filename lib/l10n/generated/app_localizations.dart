@@ -1031,6 +1031,300 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Target'**
   String get target;
+
+  /// No description provided for @thisYearVsLastYear.
+  ///
+  /// In en, this message translates to:
+  /// **'This year vs last year'**
+  String get thisYearVsLastYear;
+
+  /// No description provided for @spendingAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending alerts'**
+  String get spendingAlerts;
+
+  /// No description provided for @topCategoriesLast.
+  ///
+  /// In en, this message translates to:
+  /// **'Top categories — last'**
+  String get topCategoriesLast;
+
+  /// No description provided for @tapACategoryToExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a category to explore'**
+  String get tapACategoryToExplore;
+
+  /// No description provided for @week.
+  ///
+  /// In en, this message translates to:
+  /// **'week'**
+  String get week;
+
+  /// No description provided for @month.
+  ///
+  /// In en, this message translates to:
+  /// **'month'**
+  String get month;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'year'**
+  String get year;
+
+  /// No description provided for @period.
+  ///
+  /// In en, this message translates to:
+  /// **'period'**
+  String get period;
+
+  /// No description provided for @spendingVelocity.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending velocity'**
+  String get spendingVelocity;
+
+  /// No description provided for @spendingByDayOfWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending by day of week'**
+  String get spendingByDayOfWeek;
+
+  /// No description provided for @anomalyAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Anomaly alerts'**
+  String get anomalyAlerts;
+
+  /// No description provided for @biggestSpendDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Biggest spend day'**
+  String get biggestSpendDay;
+
+  /// No description provided for @monthProjection.
+  ///
+  /// In en, this message translates to:
+  /// **'Month projection'**
+  String get monthProjection;
+
+  /// No description provided for @savingsRateLast12Months.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings rate — last 12 months'**
+  String get savingsRateLast12Months;
+
+  /// No description provided for @yearOverYearMonthlySpend.
+  ///
+  /// In en, this message translates to:
+  /// **'Year-over-year monthly spend'**
+  String get yearOverYearMonthlySpend;
+
+  /// No description provided for @trends.
+  ///
+  /// In en, this message translates to:
+  /// **'Trends'**
+  String get trends;
+
+  /// No description provided for @forecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Forecast'**
+  String get forecast;
+
+  /// No description provided for @overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get overview;
+
+  /// No description provided for @spentVs.
+  ///
+  /// In en, this message translates to:
+  /// **'spent vs'**
+  String get spentVs;
+
+  /// No description provided for @avgLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'avg'**
+  String get avgLabel;
+
+  /// No description provided for @highestSpendDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest spend day'**
+  String get highestSpendDay;
+
+  /// No description provided for @spendingIs.
+  ///
+  /// In en, this message translates to:
+  /// **'spending is'**
+  String get spendingIs;
+
+  /// No description provided for @higherThanYourAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'higher than your average'**
+  String get higherThanYourAverage;
+
+  /// No description provided for @noExpensesThisPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'No expenses this period'**
+  String get noExpensesThisPeriod;
+
+  /// No description provided for @notEnoughHistoryYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enough history yet'**
+  String get notEnoughHistoryYet;
+
+  /// No description provided for @highestLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest:'**
+  String get highestLabel;
+
+  /// No description provided for @lowToHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Low → High'**
+  String get lowToHigh;
+
+  /// No description provided for @noCategoryDataForThisPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'No category data for this period'**
+  String get noCategoryDataForThisPeriod;
+
+  /// No description provided for @noTransactionsInThisPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'No transactions in this period'**
+  String get noTransactionsInThisPeriod;
+
+  /// No description provided for @noSavingsDataYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No savings data yet'**
+  String get noSavingsDataYet;
+
+  /// No description provided for @projectedThisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Projected this month'**
+  String get projectedThisMonth;
+
+  /// No description provided for @basedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on'**
+  String get basedOn;
+
+  /// No description provided for @spentSoFar.
+  ///
+  /// In en, this message translates to:
+  /// **'spent so far'**
+  String get spentSoFar;
+
+  /// No description provided for @exceedsLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'⚠️ Exceeds last month'**
+  String get exceedsLastMonth;
+
+  /// No description provided for @underLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'✓ Under last month'**
+  String get underLastMonth;
+
+  /// No description provided for @lastMonthLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Last month:'**
+  String get lastMonthLabel;
+
+  /// No description provided for @noYearlyDataYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No yearly data yet'**
+  String get noYearlyDataYet;
+
+  /// No description provided for @youSpent.
+  ///
+  /// In en, this message translates to:
+  /// **'You spent'**
+  String get youSpent;
+
+  /// No description provided for @thisLabelPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'this'**
+  String get thisLabelPrefix;
+
+  /// No description provided for @moreThanLast.
+  ///
+  /// In en, this message translates to:
+  /// **'more than last'**
+  String get moreThanLast;
+
+  /// No description provided for @driversIncrease.
+  ///
+  /// In en, this message translates to:
+  /// **'drove the increase.'**
+  String get driversIncrease;
+
+  /// No description provided for @greatJob.
+  ///
+  /// In en, this message translates to:
+  /// **'Great job!'**
+  String get greatJob;
+
+  /// No description provided for @lessThanLast.
+  ///
+  /// In en, this message translates to:
+  /// **'less than last'**
+  String get lessThanLast;
+
+  /// No description provided for @yourSpending.
+  ///
+  /// In en, this message translates to:
+  /// **'Your spending'**
+  String get yourSpending;
+
+  /// No description provided for @matchesLast.
+  ///
+  /// In en, this message translates to:
+  /// **'matches last'**
+  String get matchesLast;
+
+  /// No description provided for @saving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving'**
+  String get saving;
+
+  /// No description provided for @ofIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'of income'**
+  String get ofIncome;
+
+  /// No description provided for @upFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'— up from'**
+  String get upFrom;
+
+  /// No description provided for @downFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'— down from'**
+  String get downFrom;
 }
 
 class _AppLocalizationsDelegate

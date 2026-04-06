@@ -6,6 +6,7 @@ import '../../constants/constants.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/currency_formatter.dart';
 import '../../features/insights/cubit/insights_cubit.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'empty_box.dart';
 
 class CategoryHistoryChart extends StatelessWidget {
@@ -20,9 +21,10 @@ class CategoryHistoryChart extends StatelessWidget {
     final labels = state.historyPeriodLabels;
     final cats = history.keys.toList();
     final colors = AppColors.categoryColors;
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     if (history.isEmpty || labels.isEmpty) {
-      return emptyBox(context, 'Not enough history yet');
+      return emptyBox(context, appLocalizations!.notEnoughHistoryYet);
     }
 
     final allValues = history.values.expand((l) => l).where((v) => v > 0);

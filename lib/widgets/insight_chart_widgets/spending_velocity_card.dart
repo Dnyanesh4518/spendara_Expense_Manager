@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:Spendara/core/theme/app_colors.dart';
 import '../../core/utils/currency_formatter.dart';
@@ -12,6 +13,7 @@ class SpendingVelocityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = Theme.of(context).textTheme;
     final fmt = CurrencyFormatter.of(context);
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
 
     final progress = state.spendingVelocity == 0
         ? 0.0
@@ -41,7 +43,7 @@ class SpendingVelocityCard extends StatelessWidget {
             children: [
               Icon(Icons.speed_rounded, size: 18, color: barColor),
               const SizedBox(width: 8),
-              Text('Projected this month', style: tt.labelLarge),
+              Text(appLocalizations!.projectedThisMonth, style: tt.labelLarge),
             ],
           ),
           const SizedBox(height: 12),
@@ -54,7 +56,7 @@ class SpendingVelocityCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            'Based on ${fmt.format(state.currentPeriodExpenses)} spent so far',
+            '${appLocalizations.basedOn} ${fmt.format(state.currentPeriodExpenses)} ${appLocalizations.spentSoFar}',
             style: tt.bodySmall,
           ),
           const SizedBox(height: 14),
@@ -73,14 +75,16 @@ class SpendingVelocityCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  isOverBudget ? '⚠️ Exceeds last month' : '✓ Under last month',
+                  isOverBudget
+                      ? appLocalizations.exceedsLastMonth
+                      : appLocalizations.underLastMonth,
                   style: tt.bodySmall?.copyWith(
                     color: isOverBudget ? AppColors.warning : AppColors.income,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
-                  'Last month: ${fmt.format(state.prevPeriodExpenses)}',
+                  '${appLocalizations.lastMonth} ${fmt.format(state.prevPeriodExpenses)}',
                   style: tt.bodySmall,
                 ),
               ],

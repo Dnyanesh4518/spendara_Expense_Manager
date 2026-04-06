@@ -468,4 +468,151 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get target => 'ਟੀਚਾ';
+
+  @override
+  String get thisYearVsLastYear => 'ਇਸ ਸਾਲ ਬਨਾਮ ਪਿਛਲਾ ਸਾਲ';
+
+  @override
+  String get spendingAlerts => 'ਖਰਚ ਦੀਆਂ ਚੇਤਾਵਨੀਆਂ';
+
+  @override
+  String get topCategoriesLast => 'ਸਿਖਰਲੀਆਂ ਸ਼੍ਰੇਣੀਆਂ — ਪਿਛਲੇ';
+
+  @override
+  String get tapACategoryToExplore => 'ਖੋਜ ਕਰਨ ਲਈ ਕਿਸੇ ਸ਼੍ਰੇਣੀ ‘ਤੇ ਟੈਪ ਕਰੋ';
+
+  @override
+  String get week => 'ਹਫ਼ਤਾ';
+
+  @override
+  String get month => 'ਮਹੀਨਾ';
+
+  @override
+  String get year => 'ਸਾਲ';
+
+  @override
+  String get period => 'ਅਵਧੀ';
+
+  @override
+  String get spendingVelocity => 'ਖਰਚ ਦੀ ਗਤੀ';
+
+  @override
+  String get spendingByDayOfWeek => 'ਹਫ਼ਤੇ ਦੇ ਦਿਨ ਅਨੁਸਾਰ ਖਰਚ';
+
+  @override
+  String get anomalyAlerts => 'ਅਸਧਾਰਨ ਚੇਤਾਵਨੀਆਂ';
+
+  @override
+  String get biggestSpendDay => 'ਸਭ ਤੋਂ ਵੱਡਾ ਖਰਚ ਵਾਲਾ ਦਿਨ';
+
+  @override
+  String get monthProjection => 'ਮਹੀਨੇ ਦੀ ਭਵਿੱਖਬਾਣੀ';
+
+  @override
+  String get savingsRateLast12Months => 'ਬਚਤ ਦਰ — ਪਿਛਲੇ 12 ਮਹੀਨੇ';
+
+  @override
+  String get yearOverYearMonthlySpend => 'ਸਾਲ ਦਰ ਸਾਲ ਮਹੀਨਾਵਾਰ ਖਰਚ';
+
+  @override
+  String get trends => 'ਰੁਝਾਨ';
+
+  @override
+  String get forecast => 'ਭਵਿੱਖਬਾਣੀ';
+
+  @override
+  String get overview => 'ਸੰਖੇਪ';
+
+  @override
+  String get spentVs => 'ਖਰਚ ਬਨਾਮ';
+
+  @override
+  String get avgLabel => 'ਔਸਤ';
+
+  @override
+  String get highestSpendDay => 'ਸਭ ਤੋਂ ਵੱਧ ਖਰਚ ਵਾਲਾ ਦਿਨ';
+
+  @override
+  String get spendingIs => 'ਖਰਚ';
+
+  @override
+  String get higherThanYourAverage => 'ਤੁਹਾਡੀ ਔਸਤ ਤੋਂ ਵੱਧ ਹੈ';
+
+  @override
+  String get noExpensesThisPeriod => 'ਇਸ ਅਵਧੀ ਵਿੱਚ ਕੋਈ ਖਰਚ ਨਹੀਂ';
+
+  @override
+  String get notEnoughHistoryYet => 'ਹਜੇ ਕਾਫ਼ੀ ਇਤਿਹਾਸ ਨਹੀਂ ਹੈ';
+
+  @override
+  String get highestLabel => 'ਸਭ ਤੋਂ ਵੱਧ:';
+
+  @override
+  String get lowToHigh => 'ਘੱਟ → ਵੱਧ';
+
+  @override
+  String get noCategoryDataForThisPeriod => 'ਇਸ ਅਵਧੀ ਲਈ ਸ਼੍ਰੇਣੀ ਡਾਟਾ ਨਹੀਂ ਹੈ';
+
+  @override
+  String get noTransactionsInThisPeriod => 'ਇਸ ਅਵਧੀ ਵਿੱਚ ਕੋਈ ਲੈਣ-ਦੇਣ ਨਹੀਂ';
+
+  @override
+  String get noSavingsDataYet => 'ਹਜੇ ਬਚਤ ਡਾਟਾ ਨਹੀਂ ਹੈ';
+
+  @override
+  String get projectedThisMonth => 'ਇਸ ਮਹੀਨੇ ਦਾ ਅਨੁਮਾਨ';
+
+  @override
+  String get basedOn => 'ਦੇ ਆਧਾਰ ‘ਤੇ';
+
+  @override
+  String get spentSoFar => 'ਹੁਣ ਤੱਕ ਖਰਚ ਕੀਤਾ';
+
+  @override
+  String get exceedsLastMonth => '⚠️ ਪਿਛਲੇ ਮਹੀਨੇ ਤੋਂ ਵੱਧ';
+
+  @override
+  String get underLastMonth => '✓ ਪਿਛਲੇ ਮਹੀਨੇ ਤੋਂ ਘੱਟ';
+
+  @override
+  String get lastMonthLabel => 'ਪਿਛਲਾ ਮਹੀਨਾ:';
+
+  @override
+  String get noYearlyDataYet => 'ਹਜੇ ਸਾਲਾਨਾ ਡਾਟਾ ਨਹੀਂ ਹੈ';
+
+  @override
+  String get youSpent => 'ਤੁਸੀਂ ਖਰਚ ਕੀਤਾ';
+
+  @override
+  String get thisLabelPrefix => 'ਇਸ';
+
+  @override
+  String get moreThanLast => 'ਪਿਛਲੇ ਨਾਲੋਂ ਵੱਧ';
+
+  @override
+  String get driversIncrease => 'ਨੇ ਵਾਧੇ ਨੂੰ ਚਲਾਇਆ।';
+
+  @override
+  String get greatJob => 'ਸ਼ਾਬਾਸ਼!';
+
+  @override
+  String get lessThanLast => 'ਪਿਛਲੇ ਨਾਲੋਂ ਘੱਟ';
+
+  @override
+  String get yourSpending => 'ਤੁਹਾਡਾ ਖਰਚ';
+
+  @override
+  String get matchesLast => 'ਪਿਛਲੇ ਦੇ ਬਰਾਬਰ ਹੈ';
+
+  @override
+  String get saving => 'ਬਚਾ ਰਹੇ ਹੋ';
+
+  @override
+  String get ofIncome => 'ਆਮਦਨ ਦਾ';
+
+  @override
+  String get upFrom => '— ਪਿਛਲੇ ਤੋਂ ਉੱਪਰ';
+
+  @override
+  String get downFrom => '— ਪਿਛਲੇ ਤੋਂ ਹੇਠਾਂ';
 }

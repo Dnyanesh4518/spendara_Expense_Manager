@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
 import '../../core/theme/app_colors.dart';
@@ -14,7 +15,7 @@ class AnomalyAlertCard extends StatelessWidget {
     final tt = Theme.of(context).textTheme;
     final fmt = CurrencyFormatter.of(context);
     final icon = Constants.categoryIcon(item.category);
-
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -62,8 +63,8 @@ class AnomalyAlertCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${fmt.format(item.currentAmount)} spent '
-                  'vs ${fmt.format(item.avgAmount)} avg',
+                  '${fmt.format(item.currentAmount)}  ${appLocalizations!.spentSoFar}'
+                  'vs ${fmt.format(item.avgAmount)} ${appLocalizations.avgLabel}',
                   style: tt.bodySmall?.copyWith(color: AppColors.warning),
                 ),
               ],
