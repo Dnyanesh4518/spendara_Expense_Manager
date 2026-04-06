@@ -1,3 +1,4 @@
+import 'package:Spendara/core/utils/currency_formatter.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -35,7 +36,7 @@ class BalanceCard extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            balance,
+            context.formatter.format(double.parse(balance)),
             style: const TextStyle(
               fontSize: 34,
               fontWeight: FontWeight.w700,

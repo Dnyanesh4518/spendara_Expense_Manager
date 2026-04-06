@@ -28,6 +28,7 @@ dependencies:
 
   #database
   hive_flutter: ^1.1.0
+  shared_preferences: ^2.5.5
 
   #charts:
   fl_chart: ^1.2.0

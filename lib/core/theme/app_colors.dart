@@ -16,7 +16,7 @@ class AppColors {
   static const warningLight = Color(0xFFFAEEDA);
 
   // Neutrals — light mode
-  static const background = Color(0xFFF8F7FF);
+  static const background = Color(0xFFC6C3CA);
   static const surface = Color(0xFFFFFFFF);
   static const surfaceAlt = Color(0xFFF1EFE8);
   static const border = Color(0xFFE0DED8);
