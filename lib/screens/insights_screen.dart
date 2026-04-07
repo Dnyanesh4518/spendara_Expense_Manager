@@ -244,8 +244,6 @@ class _FilterBar extends StatelessWidget {
       TimeRange.month => appLocalization?.month ?? 'Month',
       TimeRange.year => appLocalization?.year ?? 'Year',
       TimeRange.custom => 'Custom',
-
-      /// TODO add Localization
     };
   }
 
