@@ -200,5 +200,9 @@
   "saving": "Birikim",
   "ofIncome": "gelirin",
   "upFrom": "— öncekinden yüksek:",
-  "downFrom": "— öncekinden düşük:"
+  "downFrom": "— öncekinden düşük:",
+  "ads": "Reklamlar",
+  "custom": "Özel",
+  "adsRemovedForOneHour": "Reklamlar 1 saatliğine kaldırıldı! 🎉",
+  "adNotReadyYet": "Reklam henüz hazır değil, lütfen kısa süre sonra tekrar deneyin."
 }

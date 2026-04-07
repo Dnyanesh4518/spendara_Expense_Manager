@@ -200,5 +200,9 @@
   "saving": "Épargne",
   "ofIncome": "du revenu",
   "upFrom": "— en hausse par rapport à",
-  "downFrom": "— en baisse par rapport à"
+  "downFrom": "— en baisse par rapport à",
+  "ads": "Publicités",
+  "custom": "Personnalisé",
+  "adsRemovedForOneHour": "Publicités supprimées pendant 1 heure ! 🎉",
+  "adNotReadyYet": "La publicité n'est pas encore prête, veuillez réessayer dans un instant."
 }

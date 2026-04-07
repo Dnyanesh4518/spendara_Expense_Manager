@@ -200,5 +200,9 @@
   "saving": "Akiba",
   "ofIncome": "ya mapato",
   "upFrom": "— imeongezeka kutoka",
-  "downFrom": "— imepungua kutoka"
+  "downFrom": "— imepungua kutoka",
+  "ads": "Matangazo",
+  "custom": "Maalum",
+  "adsRemovedForOneHour": "Matangazo yameondolewa kwa saa 1! 🎉",
+  "adNotReadyYet": "Tangazo bado halijawa tayari, tafadhali jaribu tena hivi karibuni."
 }

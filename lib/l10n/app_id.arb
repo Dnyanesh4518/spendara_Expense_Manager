@@ -200,5 +200,9 @@
   "saving": "Menabung",
   "ofIncome": "dari pemasukan",
   "upFrom": "— naik dari",
-  "downFrom": "— turun dari"
+  "downFrom": "— turun dari",
+  "ads": "Iklan",
+  "custom": "Kustom",
+  "adsRemovedForOneHour": "Iklan dihapus selama 1 jam! 🎉",
+  "adNotReadyYet": "Iklan belum siap, silakan coba lagi sebentar lagi."
 }

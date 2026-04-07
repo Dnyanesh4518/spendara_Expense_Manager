@@ -200,5 +200,9 @@
   "saving": "Tiết kiệm",
   "ofIncome": "thu nhập",
   "upFrom": "— tăng từ",
-  "downFrom": "— giảm từ"
+  "downFrom": "— giảm từ",
+  "ads": "Quảng cáo",
+  "custom": "Tùy chỉnh",
+  "adsRemovedForOneHour": "Đã xóa quảng cáo trong 1 giờ! 🎉",
+  "adNotReadyYet": "Quảng cáo chưa sẵn sàng, vui lòng thử lại sau một lúc."
 }
