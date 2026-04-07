@@ -112,6 +112,15 @@ class FinanceApp extends StatelessWidget {
             Locale('ta'),
             Locale('te'),
             Locale('ur'),
+            Locale('pt'),
+            Locale('id'),
+            Locale('ar'),
+            Locale('fr'),
+            Locale('ru'),
+            Locale('tr'),
+            Locale('vi'),
+            Locale('th'),
+            Locale('sw'),
           ],
           localeResolutionCallback: (locale, supportedLocales) {
             for (final supported in supportedLocales) {

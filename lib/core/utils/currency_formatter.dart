@@ -43,23 +43,29 @@ class CurrencyFormatter {
         return format(amount);
 
       // --------------------- For future language support -----------
-      // case 'id':
-      // // Indonesian: jt (juta = million), rb (ribu = thousand)
-      //   if (amount >= 1000000) return '${symbol}${(amount / 1000000).toStringAsFixed(1)}jt';
-      //   if (amount >= 1000)    return '${symbol}${(amount / 1000).toStringAsFixed(1)}rb';
-      //   return format(amount);
-      //
-      // case 'vi':
-      // // Vietnamese: tr (triệu = million), N (nghìn = thousand)
-      //   if (amount >= 1000000) return '${(amount / 1000000).toStringAsFixed(1)}tr$symbol';
-      //   if (amount >= 1000)    return '${(amount / 1000).toStringAsFixed(0)}N$symbol';
-      //   return format(amount);
-      //
-      // case 'ar':
-      // // Arabic: symbol comes after number in most Arab locales
-      //   if (amount >= 1000000) return '${(amount / 1000000).toStringAsFixed(1)}م $symbol';
-      //   if (amount >= 1000)    return '${(amount / 1000).toStringAsFixed(1)}ك $symbol';
-      //   return format(amount);
+      case 'id':
+        // Indonesian: jt (juta = million), rb (ribu = thousand)
+        if (amount >= 1000000)
+          return '${symbol}${(amount / 1000000).toStringAsFixed(1)}jt';
+        if (amount >= 1000)
+          return '${symbol}${(amount / 1000).toStringAsFixed(1)}rb';
+        return format(amount);
+
+      case 'vi':
+        // Vietnamese: tr (triệu = million), N (nghìn = thousand)
+        if (amount >= 1000000)
+          return '${(amount / 1000000).toStringAsFixed(1)}tr$symbol';
+        if (amount >= 1000)
+          return '${(amount / 1000).toStringAsFixed(0)}N$symbol';
+        return format(amount);
+
+      case 'ar':
+        // Arabic: symbol comes after number in most Arab locales
+        if (amount >= 1000000)
+          return '${(amount / 1000000).toStringAsFixed(1)}م $symbol';
+        if (amount >= 1000)
+          return '${(amount / 1000).toStringAsFixed(1)}ك $symbol';
+        return format(amount);
 
       default:
         // Universal: K / M (used for es, fr, ru, tr, th, sw, pt_BR)
