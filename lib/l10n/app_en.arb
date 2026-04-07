@@ -200,6 +200,10 @@
   "saving": "Saving",
   "ofIncome": "of income",
   "upFrom": "— up from",
-  "downFrom": "— down from"
+  "downFrom": "— down from",
+  "ads": "Ads",
+  "custom": "Custom",
+  "adsRemovedForOneHour": "Ads removed for 1 hour! 🎉",
+  "adNotReadyYet": "Ad not ready yet, please try again shortly."
 
 }

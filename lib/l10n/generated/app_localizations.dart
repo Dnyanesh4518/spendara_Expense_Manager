@@ -1343,6 +1343,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'— down from'**
   String get downFrom;
+
+  /// No description provided for @ads.
+  ///
+  /// In en, this message translates to:
+  /// **'Ads'**
+  String get ads;
+
+  /// No description provided for @custom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get custom;
+
+  /// No description provided for @adsRemovedForOneHour.
+  ///
+  /// In en, this message translates to:
+  /// **'Ads removed for 1 hour! 🎉'**
+  String get adsRemovedForOneHour;
+
+  /// No description provided for @adNotReadyYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad not ready yet, please try again shortly.'**
+  String get adNotReadyYet;
 }
 
 class _AppLocalizationsDelegate

@@ -619,4 +619,18 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get downFrom => '— கடந்ததை விட குறைந்து';
+
+  @override
+  String get ads => 'விளம்பரங்கள்';
+
+  @override
+  String get custom => 'தனிப்பயன்';
+
+  @override
+  String get adsRemovedForOneHour =>
+      '1 மணி நேரத்திற்கு விளம்பரங்கள் அகற்றப்பட்டன! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'விளம்பரம் இன்னும் தயாராகவில்லை, சற்று நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.';
 }

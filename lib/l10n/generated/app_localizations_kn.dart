@@ -615,4 +615,18 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get downFrom => '— ಕಳೆದದಕ್ಕಿಂತ ಕೆಳಗೆ';
+
+  @override
+  String get ads => 'ಜಾಹೀರಾತುಗಳು';
+
+  @override
+  String get custom => 'ಕಸ್ಟಮ್';
+
+  @override
+  String get adsRemovedForOneHour =>
+      '1 ಗಂಟೆಯವರೆಗೆ ಜಾಹೀರಾತುಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'ಜಾಹೀರಾತು ಇನ್ನೂ ಸಿದ್ಧವಾಗಿಲ್ಲ, ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
 }

@@ -617,4 +617,18 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get downFrom => '— കഴിഞ്ഞതിനെക്കാൾ താഴെ';
+
+  @override
+  String get ads => 'പരസ്യങ്ങൾ';
+
+  @override
+  String get custom => 'ഇഷ്ടാനുസൃതം';
+
+  @override
+  String get adsRemovedForOneHour =>
+      '1 മണിക്കൂർ നേരത്തേക്ക് പരസ്യങ്ങൾ നീക്കം ചെയ്തു! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'പരസ്യം ഇനിയും തയ്യാറായിട്ടില്ല, ദയവായി കുറച്ച് സമയത്തിനു ശേഷം വീണ്ടും ശ്രമിക്കുക.';
 }

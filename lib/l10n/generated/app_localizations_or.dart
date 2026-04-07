@@ -617,4 +617,17 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get downFrom => '— ପୂର୍ବଠାରୁ କମ୍';
+
+  @override
+  String get ads => 'ବିଜ୍ଞାପନ';
+
+  @override
+  String get custom => 'କଷ୍ଟମ';
+
+  @override
+  String get adsRemovedForOneHour => '1 ଘଣ୍ଟା ପାଇଁ ବିଜ୍ଞାପନ ହଟାଯାଇଛି! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'ବିଜ୍ଞାପନ ଏପର୍ଯ୍ୟନ୍ତ ପ୍ରସ୍ତୁତ ନୁହେଁ, ଦୟାକରି ଟିକିଏ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।';
 }

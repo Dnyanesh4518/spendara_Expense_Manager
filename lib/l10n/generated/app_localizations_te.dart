@@ -616,4 +616,17 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get downFrom => '— గతదానికంటే దిగువగా';
+
+  @override
+  String get ads => 'ప్రకటనలు';
+
+  @override
+  String get custom => 'అనుకూలం';
+
+  @override
+  String get adsRemovedForOneHour => '1 గంట పాటు ప్రకటనలు తొలగించబడ్డాయి! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'ప్రకటన ఇంకా సిద్ధంగా లేదు, దయచేసి కొద్దిసేపటిలో మళ్ళీ ప్రయత్నించండి.';
 }

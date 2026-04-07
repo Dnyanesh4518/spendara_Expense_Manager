@@ -615,4 +615,17 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get downFrom => '— ਪਿਛਲੇ ਤੋਂ ਹੇਠਾਂ';
+
+  @override
+  String get ads => 'ਇਸ਼ਤਿਹਾਰ';
+
+  @override
+  String get custom => 'ਕਸਟਮ';
+
+  @override
+  String get adsRemovedForOneHour => '1 ਘੰਟੇ ਲਈ ਇਸ਼ਤਿਹਾਰ ਹਟਾਏ ਗਏ! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'ਇਸ਼ਤਿਹਾਰ ਅਜੇ ਤਿਆਰ ਨਹੀਂ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ ਥੋੜੀ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।';
 }

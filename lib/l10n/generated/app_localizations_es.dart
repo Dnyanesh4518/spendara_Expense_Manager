@@ -619,4 +619,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get downFrom => '— por debajo de';
+
+  @override
+  String get ads => 'Anuncios';
+
+  @override
+  String get custom => 'Personalizado';
+
+  @override
+  String get adsRemovedForOneHour => '¡Anuncios eliminados por 1 hora! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'El anuncio aún no está listo, por favor inténtalo de nuevo en breve.';
 }

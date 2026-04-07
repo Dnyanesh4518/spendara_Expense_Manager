@@ -617,4 +617,17 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get downFrom => '— پچھلے سے نیچے';
+
+  @override
+  String get ads => 'اشتہارات';
+
+  @override
+  String get custom => 'کسٹم';
+
+  @override
+  String get adsRemovedForOneHour => '1 گھنٹے کے لیے اشتہارات ہٹا دیے گئے! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'اشتہار ابھی تیار نہیں ہے، براہ کرم تھوڑی دیر بعد دوبارہ کوشش کریں۔';
 }

@@ -243,7 +243,7 @@ class _FilterBar extends StatelessWidget {
       TimeRange.week => appLocalization?.week ?? 'week',
       TimeRange.month => appLocalization?.month ?? 'Month',
       TimeRange.year => appLocalization?.year ?? 'Year',
-      TimeRange.custom => 'Custom',
+      TimeRange.custom => appLocalization?.custom ?? 'custom',
     };
   }
 
@@ -493,7 +493,7 @@ class _CategoryContent extends StatelessWidget {
         TimeRange.week => appLocalization?.week ?? 'week',
         TimeRange.month => appLocalization?.month ?? 'Month',
         TimeRange.year => appLocalization?.year ?? 'Year',
-        TimeRange.custom => appLocalization?.period ?? 'period',
+        TimeRange.custom => appLocalization?.custom ?? 'custom',
       };
 }
 

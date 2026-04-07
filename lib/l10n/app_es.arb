@@ -200,5 +200,9 @@
   "saving": "Ahorrando",
   "ofIncome": "de los ingresos",
   "upFrom": "— por encima de",
-  "downFrom": "— por debajo de"
+  "downFrom": "— por debajo de",
+  "ads": "Anuncios",
+  "custom": "Personalizado",
+  "adsRemovedForOneHour": "¡Anuncios eliminados por 1 hora! 🎉",
+  "adNotReadyYet": "El anuncio aún no está listo, por favor inténtalo de nuevo en breve."
 }

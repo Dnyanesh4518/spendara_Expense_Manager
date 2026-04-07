@@ -615,4 +615,17 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get downFrom => '— ગયા કરતાં ઓછું';
+
+  @override
+  String get ads => 'જાહેરાતો';
+
+  @override
+  String get custom => 'કસ્ટમ';
+
+  @override
+  String get adsRemovedForOneHour => '1 કલાક માટે જાહેરાતો દૂર કરવામાં આવી! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'જાહેરાત હજી તૈયાર નથી, કૃપા કરીને થોડીવાર પછી ફરી પ્રયાસ કરો.';
 }

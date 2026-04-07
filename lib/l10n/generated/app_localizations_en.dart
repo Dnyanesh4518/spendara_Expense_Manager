@@ -616,4 +616,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get downFrom => '— down from';
+
+  @override
+  String get ads => 'Ads';
+
+  @override
+  String get custom => 'Custom';
+
+  @override
+  String get adsRemovedForOneHour => 'Ads removed for 1 hour! 🎉';
+
+  @override
+  String get adNotReadyYet => 'Ad not ready yet, please try again shortly.';
 }

@@ -615,4 +615,17 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get downFrom => '— मागीलपेक्षा कमी';
+
+  @override
+  String get ads => 'जाहिराती';
+
+  @override
+  String get custom => 'कस्टम';
+
+  @override
+  String get adsRemovedForOneHour => '1 तासासाठी जाहिराती काढल्या! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'जाहिरात अजून तयार नाही, कृपया थोड्या वेळाने पुन्हा प्रयत्न करा।';
 }

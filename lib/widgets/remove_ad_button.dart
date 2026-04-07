@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../features/ads/cubit/ad_free_cubit.dart';
@@ -27,6 +28,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
   }
 
   void _onTap() {
+    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     _adService.showAd(
       onRewarded: () {
         // User watched full ad → activate ad-free
@@ -42,7 +44,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
                   color: Colors.white,
                   size: 18,
                 ),
-                const Text('Ads removed for 1 hour! 🎉'),
+                Text(appLocalizations!.adsRemovedForOneHour),
               ],
             ),
             backgroundColor: AppColors.primary,
@@ -53,8 +55,8 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
       },
       onNotLoaded: () {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Ad not ready yet, please try again shortly.'),
+          SnackBar(
+            content: Text(appLocalizations!.adNotReadyYet),
             behavior: SnackBarBehavior.floating,
           ),
         );

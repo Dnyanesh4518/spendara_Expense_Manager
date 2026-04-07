@@ -616,4 +616,17 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get downFrom => '— আগের চেয়ে কম';
+
+  @override
+  String get ads => 'বিজ্ঞাপন';
+
+  @override
+  String get custom => 'কাস্টম';
+
+  @override
+  String get adsRemovedForOneHour => '১ ঘণ্টার জন্য বিজ্ঞাপন সরানো হয়েছে! 🎉';
+
+  @override
+  String get adNotReadyYet =>
+      'বিজ্ঞাপন এখনও প্রস্তুত নয়, অনুগ্রহ করে একটু পরে আবার চেষ্টা করুন।';
 }
