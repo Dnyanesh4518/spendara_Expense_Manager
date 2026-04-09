@@ -200,9 +200,9 @@ class AppTheme {
     headlineMedium: AppTextStyles.headingMedium.copyWith(color: primary),
     titleLarge: AppTextStyles.headingSmall.copyWith(color: primary),
     bodyLarge: AppTextStyles.bodyLarge.copyWith(color: primary),
-    bodyMedium: AppTextStyles.bodyMedium,
-    bodySmall: AppTextStyles.bodySmall,
+    bodyMedium: AppTextStyles.bodyMedium.copyWith(color: primary),
+    bodySmall: AppTextStyles.bodySmall.copyWith(color: primary),
     labelLarge: AppTextStyles.labelLarge.copyWith(color: primary),
-    labelSmall: AppTextStyles.labelSmall,
+    labelSmall: AppTextStyles.labelSmall.copyWith(color: primary),
   );
 }

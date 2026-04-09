@@ -118,13 +118,17 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                           right: 8,
                                         ),
                                         child: ChoiceChip(
+                                          checkmarkColor: tt.bodySmall!.color,
+                                          backgroundColor: AppColors.warning
+                                              .withValues(alpha: 0.20),
                                           label: Text(filterLabel(f)),
                                           selected: selected,
                                           onSelected: (_) => setState(() {
                                             _filter = f;
                                             _selectedCategory = null;
                                           }),
-                                          selectedColor: AppColors.primaryLight,
+                                          selectedColor: AppColors.primary
+                                              .withValues(alpha: 0.25),
                                           labelStyle: TextStyle(
                                             color: selected
                                                 ? AppColors.primary

@@ -203,9 +203,7 @@ class _CategoryRow extends StatelessWidget {
               height: 1,
               indent: 16,
               endIndent: 16,
-              color: Theme.of(
-                context,
-              ).colorScheme.outline.withValues(alpha: 0.25),
+              color: Theme.of(context).colorScheme.outline,
             ),
             if (transactions.isEmpty)
               Padding(
@@ -218,17 +216,13 @@ class _CategoryRow extends StatelessWidget {
                     Icon(
                       Icons.receipt_long_outlined,
                       size: 16,
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.onSurface.withValues(alpha: 0.3),
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                     const SizedBox(width: 8),
                     Text(
                       appLocalizations!.noTransactionsInThisPeriod,
                       style: tt.bodySmall?.copyWith(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.onSurface.withValues(alpha: 0.45),
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                   ],

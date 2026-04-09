@@ -49,6 +49,11 @@ class GoalsEmptyState extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.income,
               foregroundColor: Colors.white,
+              textStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                inherit: true, // Forces consistent inheritance
+              ),
               minimumSize: const Size(200, 48),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),

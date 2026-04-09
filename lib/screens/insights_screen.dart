@@ -276,28 +276,29 @@ class _FilterChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tt = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
         decoration: BoxDecoration(
-          color: selected ? AppColors.primary : Colors.transparent,
+          color: selected ? tt.primaryColor : tt.cardTheme.color,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: selected
                 ? AppColors.primary
-                : Theme.of(context).colorScheme.outline.withValues(alpha: 0.4),
+                : tt.colorScheme.outline.withValues(alpha: 0.4),
           ),
         ),
         child: Text(
           label,
-          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          style: tt.textTheme.labelSmall?.copyWith(
             color: selected
                 ? Colors.white
                 : Theme.of(
                     context,
-                  ).colorScheme.onSurface.withValues(alpha: 0.6),
+                  ).colorScheme.onSurface.withValues(alpha: 0.9),
             fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
           ),
         ),
@@ -321,20 +322,19 @@ class _ViewModeChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tt = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         padding: const EdgeInsets.symmetric(vertical: 7),
         decoration: BoxDecoration(
-          color: selected
-              ? AppColors.primaryLight
-              : Theme.of(context).cardTheme.color,
+          color: selected ? AppColors.primaryLight : tt.cardTheme.color,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: selected
                 ? AppColors.primary.withValues(alpha: 0.5)
-                : Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
+                : tt.colorScheme.outline.withValues(alpha: 0.3),
           ),
         ),
         child: Column(
@@ -347,7 +347,7 @@ class _ViewModeChip extends StatelessWidget {
                   ? AppColors.primary
                   : Theme.of(
                       context,
-                    ).colorScheme.onSurface.withValues(alpha: 0.4),
+                    ).colorScheme.onSurface.withValues(alpha: 0.9),
             ),
             const SizedBox(height: 2),
             Text(
@@ -360,7 +360,7 @@ class _ViewModeChip extends StatelessWidget {
                     ? AppColors.primary
                     : Theme.of(
                         context,
-                      ).colorScheme.onSurface.withValues(alpha: 0.5),
+                      ).colorScheme.onSurface.withValues(alpha: 0.9),
               ),
             ),
           ],

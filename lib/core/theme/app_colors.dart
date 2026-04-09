@@ -16,13 +16,14 @@ class AppColors {
   static const warningLight = Color(0xFFFAEEDA);
 
   // Neutrals — light mode
-  static const background = Color(0xFFC6C3CA);
+  static const background = Color(0xFFF4F3F8);
   static const surface = Color(0xFFFFFFFF);
   static const surfaceAlt = Color(0xFFF1EFE8);
   static const border = Color(0xFFE0DED8);
   static const textPrimary = Color(0xFF1A1A2E);
-  static const textSecondary = Color(0xFF6B6B80);
-  static const textHint = Color(0xFFAEAEB8);
+  static const textSecondary = Color(0xFF060607);
+  static const textHint = Color(0xFF19191C);
+  static const barBackground = Color(0xFF1D9E75);
 
   // Neutrals — dark mode
   static const backgroundDark = Color(0xFF0F0F1A);

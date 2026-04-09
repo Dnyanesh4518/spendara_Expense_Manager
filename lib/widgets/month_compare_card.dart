@@ -62,6 +62,8 @@ class MonthCompareCard extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 8,
             children: [
               Expanded(
                 child: _MonthBar(
@@ -73,10 +75,10 @@ class MonthCompareCard extends StatelessWidget {
                           state.lastMonthTotal,
                         ].reduce((a, b) => a > b ? a : b)
                       : state.thisMonthTotal,
-                  color: AppColors.primary,
+                  color: AppColors.barBackground,
                 ),
               ),
-              const SizedBox(width: 16),
+
               Expanded(
                 child: _MonthBar(
                   label: appLocalizations?.lastMonth ?? 'Last month',
@@ -87,7 +89,7 @@ class MonthCompareCard extends StatelessWidget {
                           state.lastMonthTotal,
                         ].reduce((a, b) => a > b ? a : b)
                       : state.lastMonthTotal,
-                  color: AppColors.primary.withValues(alpha: 0.3),
+                  color: AppColors.barBackground.withValues(alpha: 0.3),
                 ),
               ),
             ],

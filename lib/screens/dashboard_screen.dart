@@ -61,12 +61,12 @@ class DashboardScreenState extends State<DashboardScreen> {
                         },
                         child: CircleAvatar(
                           radius: 18,
-                          backgroundColor: AppColors.primaryLight,
+                          backgroundColor: AppColors.primary.withValues(
+                            alpha: 0.25,
+                          ),
                           child: Text(
                             state.userName.substring(0, 1).toUpperCase(),
-                            style: tt.labelLarge?.copyWith(
-                              color: AppColors.primary,
-                            ),
+                            style: tt.labelLarge,
                           ),
                         ),
                       ),

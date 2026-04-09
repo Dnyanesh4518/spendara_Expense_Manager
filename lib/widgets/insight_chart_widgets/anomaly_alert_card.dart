@@ -63,7 +63,7 @@ class AnomalyAlertCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${fmt.format(item.currentAmount)}  ${appLocalizations!.spentSoFar}'
+                  '${fmt.format(item.currentAmount)}  ${appLocalizations!.spentSoFar} '
                   'vs ${fmt.format(item.avgAmount)} ${appLocalizations.avgLabel}',
                   style: tt.bodySmall?.copyWith(color: AppColors.warning),
                 ),
