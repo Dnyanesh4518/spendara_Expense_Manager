@@ -59,6 +59,17 @@ class TransactionCubit extends Cubit<TransactionState> {
     }
   }
 
+  Future<void> deleteMultiple(List<String> ids) async {
+    try {
+      for (final id in ids) {
+        await _repo.delete(id);
+      }
+      load();
+    } catch (e) {
+      emit(state.copyWith(status: TransactionStatus.error));
+    }
+  }
+
   void setFilter(String filter) => emit(state.copyWith(filter: filter));
 
   void setQuery(String query) => emit(state.copyWith(query: query));
