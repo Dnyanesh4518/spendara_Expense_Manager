@@ -59,6 +59,7 @@ class YearlyCompareChart extends StatelessWidget {
             height: 180,
             child: BarChart(
               BarChartData(
+                alignment: BarChartAlignment.spaceEvenly,
                 maxY: maxY,
                 groupsSpace: 4,
                 barTouchData: BarTouchData(enabled: false),
@@ -105,10 +106,11 @@ class YearlyCompareChart extends StatelessWidget {
                 barGroups: List.generate(12, (i) {
                   final isCurrentMonth = i == now.month - 1;
                   return BarChartGroupData(
+                    barsSpace: 0,
                     x: i,
                     barRods: [
                       BarChartRodData(
-                        toY: i < thisY.length ? thisY[i] : 0,
+                        toY: thisY[i],
                         width: 8,
                         gradient: LinearGradient(
                           colors: isCurrentMonth
@@ -125,7 +127,7 @@ class YearlyCompareChart extends StatelessWidget {
                         ),
                       ),
                       BarChartRodData(
-                        toY: i < lastY.length ? lastY[i] : 0,
+                        toY: lastY.isNotEmpty ? lastY[i] : 0,
                         width: 8,
                         color: AppColors.primary.withValues(alpha: 0.2),
                         borderRadius: const BorderRadius.vertical(

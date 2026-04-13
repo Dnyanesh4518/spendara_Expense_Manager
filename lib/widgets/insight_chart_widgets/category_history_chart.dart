@@ -106,6 +106,7 @@ class CategoryHistoryChart extends StatelessWidget {
                   ),
                   bottomTitles: AxisTitles(
                     sideTitles: SideTitles(
+                      reservedSize: 28,
                       showTitles: true,
                       getTitlesWidget: (v, _) {
                         final i = v.toInt();

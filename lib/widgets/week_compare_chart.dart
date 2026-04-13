@@ -136,6 +136,7 @@ class _WeekCompareChartState extends State<WeekCompareChart> {
                 barGroups: List.generate(thisW.length, (i) {
                   final isToday = i == todayIdx;
                   return BarChartGroupData(
+                    barsSpace: 0,
                     x: i,
                     barRods: [
                       BarChartRodData(

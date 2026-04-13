@@ -144,7 +144,7 @@ class _MonthBar extends StatelessWidget {
             minHeight: 10,
             backgroundColor: Theme.of(
               context,
-            ).colorScheme.outline.withValues(alpha: 0.1),
+            ).colorScheme.outline.withValues(alpha: 0.8),
             valueColor: AlwaysStoppedAnimation(color),
           ),
         ),

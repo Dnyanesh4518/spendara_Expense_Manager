@@ -10,6 +10,8 @@ class AdConstants {
       'ca-app-pub-3940256099942544/6300978111';
   static const bool _isTesting = true;
 
+  /// TODO remove this in production
+
   // ── Banner AD
   static String get bannerAdUnitId {
     if (_isTesting) {

@@ -50,6 +50,7 @@ class WeeklyChart extends StatelessWidget {
             ),
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
+                reservedSize: 28,
                 showTitles: true,
                 getTitlesWidget: (value, _) => Padding(
                   padding: const EdgeInsets.only(top: 6),
