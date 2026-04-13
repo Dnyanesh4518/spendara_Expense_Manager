@@ -7,6 +7,7 @@ class DashboardState extends Equatable {
   final double totalIncome;
   final double totalExpenses;
   final List<double> weeklySpending; // 7 values, Mon→Sun
+  final List<String> weekDayLabels; // 7 values, Mon→Sun
   final List<TransactionModel> recentTransactions;
   final double savingsProgress;
   final DashboardStatus status;
@@ -18,6 +19,7 @@ class DashboardState extends Equatable {
     this.totalIncome = 0,
     this.totalExpenses = 0,
     this.weeklySpending = const [],
+    this.weekDayLabels = const [],
     this.recentTransactions = const [],
     this.savingsProgress = 0,
     this.status = DashboardStatus.initial,
@@ -30,6 +32,7 @@ class DashboardState extends Equatable {
     double? totalIncome,
     double? totalExpenses,
     List<double>? weeklySpending,
+    List<String>? weekDayLabels,
     List<TransactionModel>? recentTransactions,
     double? savingsProgress,
     DashboardStatus? status,
@@ -40,6 +43,7 @@ class DashboardState extends Equatable {
     totalIncome: totalIncome ?? this.totalIncome,
     totalExpenses: totalExpenses ?? this.totalExpenses,
     weeklySpending: weeklySpending ?? this.weeklySpending,
+    weekDayLabels: weekDayLabels ?? this.weekDayLabels,
     recentTransactions: recentTransactions ?? this.recentTransactions,
     savingsProgress: savingsProgress ?? this.savingsProgress,
     status: status ?? this.status,
@@ -58,5 +62,6 @@ class DashboardState extends Equatable {
     status,
     userName,
     userEmail,
+    weekDayLabels,
   ];
 }

@@ -56,7 +56,7 @@ class GoalsEmptyState extends StatelessWidget {
               ),
               minimumSize: const Size(200, 48),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(30),
               ),
               elevation: 0,
             ),

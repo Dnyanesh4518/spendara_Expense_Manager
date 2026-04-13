@@ -91,6 +91,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         TextField(
                           onChanged: (v) => setState(() => _query = v),
                           decoration: InputDecoration(
+                            hintStyle: tt.bodySmall,
                             hintText:
                                 appLocalizations?.searchTransactions ??
                                 'Search transactions...',
@@ -202,7 +203,20 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 ),
               ),
               if (filtered.isEmpty)
-                SliverFillRemaining(child: _EmptyState(filter: _filter))
+                SliverFillRemaining(
+                  child: _EmptyState(
+                    filter: _filter,
+                    onAdd: () {
+                      Navigator.of(
+                        context,
+                      ).push(slideUp(const AddEditTransactionScreen()));
+                      if (context.mounted) {
+                        context.read<DashboardCubit>().load();
+                        context.read<InsightsCubit>().load();
+                      }
+                    },
+                  ),
+                )
               else
                 SliverPadding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
@@ -287,19 +301,21 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 ),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            heroTag: "add",
-            onPressed: () {
-              Navigator.of(
-                context,
-              ).push(slideUp(const AddEditTransactionScreen()));
-              if (context.mounted) {
-                context.read<DashboardCubit>().load();
-                context.read<InsightsCubit>().load();
-              }
-            },
-            child: const Icon(Icons.add),
-          ),
+          floatingActionButton: filtered.isNotEmpty
+              ? FloatingActionButton(
+                  heroTag: "add",
+                  onPressed: () {
+                    Navigator.of(
+                      context,
+                    ).push(slideUp(const AddEditTransactionScreen()));
+                    if (context.mounted) {
+                      context.read<DashboardCubit>().load();
+                      context.read<InsightsCubit>().load();
+                    }
+                  },
+                  child: const Icon(Icons.add),
+                )
+              : null,
         );
       },
     );
@@ -455,8 +471,9 @@ Map<String, List<TransactionModel>> _groupByDate(List<TransactionModel> txns) {
 }
 
 class _EmptyState extends StatelessWidget {
+  final VoidCallback onAdd;
   final String filter;
-  const _EmptyState({required this.filter});
+  const _EmptyState({required this.filter, required this.onAdd});
   @override
   Widget build(BuildContext context) {
     AppLocalizations? appLocalizations = AppLocalizations.of(context);
@@ -483,14 +500,26 @@ class _EmptyState extends StatelessWidget {
             style: tt.headlineSmall,
           ),
           const SizedBox(height: 6),
-          Text(
-            filter == 'All'
-                ? appLocalizations?.addFirstTransaction ??
-                      'Add your first transaction\nusing the + button'
-                : appLocalizations?.noTransactionsYet ??
-                      'No $filter transactions yet',
-            style: tt.bodyMedium,
-            textAlign: TextAlign.center,
+          ElevatedButton.icon(
+            onPressed: onAdd,
+            icon: const Icon(Icons.add, size: 18),
+            label: Text(
+              appLocalizations?.addTransaction ?? 'Add your transaction',
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primary,
+              foregroundColor: Colors.white,
+              textStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                inherit: true, // Forces consistent inheritance
+              ),
+              minimumSize: const Size(80, 48),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              elevation: 0,
+            ),
           ),
         ],
       ),

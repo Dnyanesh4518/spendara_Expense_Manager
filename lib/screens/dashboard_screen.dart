@@ -136,15 +136,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                                   .entries
                                   .map(
                                     (e) => SpendData(
-                                      [
-                                        appLocalizations?.mon ?? 'Mon',
-                                        appLocalizations?.tue ?? 'Tue',
-                                        appLocalizations?.wed ?? 'Wed',
-                                        appLocalizations?.thu ?? 'Thu',
-                                        appLocalizations?.fri ?? 'Fri',
-                                        appLocalizations?.sat ?? 'Sat',
-                                        appLocalizations?.sun ?? 'Sun',
-                                      ][e.key],
+                                      state.weekDayLabels[e.key],
                                       e.value,
                                     ),
                                   )

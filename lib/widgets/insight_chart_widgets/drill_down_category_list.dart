@@ -29,6 +29,7 @@ class DrillDownCategoryList extends StatelessWidget {
 
     return Column(
       children: categories.map((entry) {
+        final engCat = Constants.normalizeKey(entry.key);
         final cat = Constants.expenseCategoryLabel(context, entry.key);
         final amt = entry.value;
         final isSelected = state.selectedCategory != null
@@ -53,7 +54,7 @@ class DrillDownCategoryList extends StatelessWidget {
           isSelected: isSelected,
           isAlert: isAlert,
           transactions: isSelected ? state.drillDownTransactions : [],
-          onTap: () => onCategoryTap(isSelected ? null : cat),
+          onTap: () => onCategoryTap(isSelected ? null : engCat),
         );
       }).toList(),
     );
@@ -230,16 +231,15 @@ class _CategoryRow extends StatelessWidget {
               )
             else
               ListView.separated(
+                padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: transactions.length,
                 separatorBuilder: (_, __) => Divider(
                   height: 1,
-                  indent: 56,
+                  indent: 16,
                   endIndent: 16,
-                  color: Theme.of(
-                    context,
-                  ).colorScheme.outline.withValues(alpha: 0.15),
+                  color: Theme.of(context).colorScheme.outline,
                 ),
                 itemBuilder: (ctx, i) {
                   final txn = transactions[i] as TransactionModel;
@@ -269,25 +269,23 @@ class _TransactionTile extends StatelessWidget {
     final displayTitle = Constants.expenseCategoryLabel(context, txn.category);
     final notesTitle = Constants.expenseCategoryLabel(context, txn.notes);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
       child: Row(
         children: [
-          // Indent to align with icon above
-          const SizedBox(width: 42),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   displayTitle,
-                  style: tt.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+                  style: tt.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 if (notesTitle.isNotEmpty)
                   Text(
                     notesTitle,
-                    style: tt.bodySmall?.copyWith(fontWeight: FontWeight.w500),
+                    style: tt.bodySmall?.copyWith(fontWeight: FontWeight.w400),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

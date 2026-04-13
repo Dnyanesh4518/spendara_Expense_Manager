@@ -245,9 +245,7 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
                 hintText: '0.00',
                 hintStyle: tt.displayLarge?.copyWith(
                   fontSize: 36,
-                  color: Theme.of(
-                    context,
-                  ).colorScheme.onSurface.withValues(alpha: 0.2),
+                  color: AppColors.textHint,
                   fontWeight: FontWeight.w700,
                 ),
                 prefixText: '${appLocalizations?.currencySymbol}  ',
@@ -331,6 +329,7 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
               maxLength: 120,
               textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration(
+                hintStyle: tt.bodySmall,
                 hintText: appLocalizations?.addANote ?? 'Add a note...',
                 alignLabelWithHint: true,
                 counterText: '',

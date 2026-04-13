@@ -194,6 +194,10 @@ class InsightsCubit extends Cubit<InsightsState> {
       final (spikeDay, spikeAmt) = _biggestSpikeDay(curTxns);
       final (sRateTrend, sRateLbls) = _savingsRateTrend(allTxns, now);
       final (top5Hist, histLbls) = _top5CategoryHistory(allTxns, range, now);
+      final localizedWeekLabels = _localizedWeekLabels(
+        _repo.last7DayLabels,
+        _l10n,
+      );
 
       _persistFilter(range, mode);
 
@@ -208,7 +212,7 @@ class InsightsCubit extends Cubit<InsightsState> {
           expensesByCategory: curByCat, // map keys = STORAGE KEYS
           thisWeek: _repo.last7DaysExpenses,
           lastWeek: _repo.prev7DaysExpenses,
-          weekDayLabels: _repo.last7DayLabels,
+          weekDayLabels: localizedWeekLabels,
           thisMonthTotal: _txnsInRange(
             allTxns,
             thisMonthStart,
@@ -574,6 +578,32 @@ class InsightsCubit extends Cubit<InsightsState> {
       }
     }
     return (history, labels);
+  }
+
+  List<String> _localizedWeekLabels(
+    List<String> labels,
+    AppLocalizations? l10n,
+  ) {
+    return labels.map((label) {
+      switch (label) {
+        case 'Mon':
+          return l10n?.mon ?? 'Mon';
+        case 'Tue':
+          return l10n?.tue ?? 'Tue';
+        case 'Wed':
+          return l10n?.wed ?? 'Wed';
+        case 'Thu':
+          return l10n?.thu ?? 'Thu';
+        case 'Fri':
+          return l10n?.fri ?? 'Fri';
+        case 'Sat':
+          return l10n?.sat ?? 'Sat';
+        case 'Sun':
+          return l10n?.sun ?? 'Sun';
+        default:
+          return label;
+      }
+    }).toList();
   }
 
   /// Categories where current period > previous period × 1.2.

@@ -84,10 +84,12 @@ class _GoalsScreenState extends State<GoalsScreen> {
                 ),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () => _openAddGoal(context),
-            child: const Icon(Icons.add),
-          ),
+          floatingActionButton: state.goals.isNotEmpty
+              ? FloatingActionButton(
+                  onPressed: () => _openAddGoal(context),
+                  child: const Icon(Icons.add),
+                )
+              : null,
         );
       },
     );

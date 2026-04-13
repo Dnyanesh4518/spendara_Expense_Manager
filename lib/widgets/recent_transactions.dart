@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:Spendara/widgets/transaction_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class RecentTransactions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations? l10n = AppLocalizations.of(context);
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).cardTheme.color,
@@ -45,7 +47,7 @@ class RecentTransactions extends StatelessWidget {
                 : Constants.incomeCategoryLabel(context, t.category),
             notes: t.notes,
             amount: context.formatter.format(t.amount),
-            date: DateFormatter.relative(t.date),
+            date: DateFormatter.relative(t.date, l10n),
             isExpense: t.isExpense,
             categoryIcon: Constants.categoryIcon(t.category),
           );

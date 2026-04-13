@@ -69,7 +69,7 @@ class AppTheme {
         elevation: 0,
         minimumSize: const Size(double.infinity, 52),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        textStyle: AppTextStyles.labelLarge.copyWith(color: Colors.white),
+        textStyle: AppTextStyles.labelLarge,
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -158,6 +158,12 @@ class AppTheme {
         borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.primary, width: 2),
       ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: AppColors.expense),
+      ),
+      labelStyle: AppTextStyles.bodyMedium,
+      hintStyle: AppTextStyles.bodyMedium,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -166,6 +172,7 @@ class AppTheme {
         elevation: 0,
         minimumSize: const Size(double.infinity, 52),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        textStyle: AppTextStyles.labelLarge,
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -180,10 +187,21 @@ class AppTheme {
       unselectedItemColor: AppColors.textSecondaryDark,
       type: BottomNavigationBarType.fixed,
       elevation: 0,
+      selectedLabelStyle: TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 11,
+        fontWeight: FontWeight.w600,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 11,
+        fontWeight: FontWeight.w400,
+      ),
     ),
     chipTheme: ChipThemeData(
       backgroundColor: AppColors.surfaceAltDark,
       selectedColor: AppColors.primary.withValues(alpha: 0.25),
+      labelStyle: AppTextStyles.labelSmall,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       side: BorderSide.none,
     ),

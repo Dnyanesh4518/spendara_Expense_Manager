@@ -65,7 +65,6 @@ class FinanceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations? appLocalizations = AppLocalizations.of(context);
     return MultiBlocProvider(
       providers: [
         BlocProvider<TransactionCubit>(
@@ -76,7 +75,7 @@ class FinanceApp extends StatelessWidget {
           create: (_) => getIt<DashboardCubit>()..load(),
         ),
         BlocProvider<InsightsCubit>(
-          create: (_) => getIt<InsightsCubit>()..load(l10n: appLocalizations),
+          create: (_) => getIt<InsightsCubit>()..load(),
         ),
         BlocProvider(create: (_) => AdFreeCubit()..restore()),
         BlocProvider(create: (_) => LocaleCubit()),

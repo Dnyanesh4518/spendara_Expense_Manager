@@ -1,3 +1,4 @@
+import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class DateFormatter {
@@ -16,9 +17,9 @@ class DateFormatter {
     return d.year == y.year && d.month == y.month && d.day == y.day;
   }
 
-  static String relative(DateTime d) {
-    if (isToday(d)) return 'Today';
-    if (isYesterday(d)) return 'Yesterday';
+  static String relative(DateTime d, AppLocalizations? l10n) {
+    if (isToday(d)) return l10n?.today ?? 'Today';
+    if (isYesterday(d)) return l10n?.yesterday ?? 'Yesterday';
     return display(d);
   }
 }

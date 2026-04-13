@@ -68,7 +68,7 @@ class GoalCard extends StatelessWidget {
                           : daysLeft <= 0
                           ? appLocalizations?.deadlinePassed ??
                                 'deadline passed'
-                          : '$daysLeft ${appLocalizations?.daysLeft ?? 'days left'}${daysLeft == 1 ? '' : 's'} ${appLocalizations!.left}',
+                          : '$daysLeft ${appLocalizations?.daysLeft ?? 'days left'} ',
                       style: tt.bodySmall?.copyWith(
                         color: isComplete
                             ? color

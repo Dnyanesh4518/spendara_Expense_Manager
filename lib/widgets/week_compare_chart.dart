@@ -1,23 +1,27 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/constants.dart';
 import '../core/theme/app_colors.dart';
 import '../core/utils/currency_formatter.dart';
 import '../features/insights/cubit/insights_cubit.dart';
 import '../l10n/generated/app_localizations.dart';
 
-class WeekCompareChart extends StatelessWidget {
+class WeekCompareChart extends StatefulWidget {
   final InsightsState state;
   const WeekCompareChart({super.key, required this.state});
 
   @override
+  State<WeekCompareChart> createState() => _WeekCompareChartState();
+}
+
+class _WeekCompareChartState extends State<WeekCompareChart> {
+  @override
   Widget build(BuildContext context) {
     AppLocalizations? appLocalizations = AppLocalizations.of(context);
     final tt = Theme.of(context).textTheme;
-    final labels = Constants.weekDayLabels(context);
-    final thisW = state.thisWeek;
-    final lastW = state.lastWeek;
+    List<String> labels = widget.state.weekDayLabels;
+    final thisW = widget.state.thisWeek;
+    final lastW = widget.state.lastWeek;
 
     // Guard: need both lists populated
     if (thisW.isEmpty) {

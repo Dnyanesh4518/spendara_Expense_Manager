@@ -26,7 +26,7 @@ class TransactionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tt = Theme.of(context).textTheme;
-    final tile = InkWell(
+    return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(14),
       child: Padding(
@@ -82,22 +82,22 @@ class TransactionTile extends StatelessWidget {
       ),
     );
 
-    if (onDelete == null) return tile;
-
-    return Dismissible(
-      key: ValueKey(category + date),
-      direction: DismissDirection.endToStart,
-      background: Container(
-        alignment: Alignment.centerRight,
-        padding: const EdgeInsets.only(right: 20),
-        decoration: BoxDecoration(
-          color: AppColors.expense.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: const Icon(Icons.delete_outline, color: AppColors.expense),
-      ),
-      onDismissed: (_) => onDelete?.call(),
-      child: tile,
-    );
+    // if (onDelete == null) return tile;
+    //
+    // return Dismissible(
+    //   key: ValueKey(category + date),
+    //   direction: DismissDirection.endToStart,
+    //   background: Container(
+    //     alignment: Alignment.centerRight,
+    //     padding: const EdgeInsets.only(right: 20),
+    //     decoration: BoxDecoration(
+    //       color: AppColors.expense.withValues(alpha: 0.1),
+    //       borderRadius: BorderRadius.circular(14),
+    //     ),
+    //     child: const Icon(Icons.delete_outline, color: AppColors.expense),
+    //   ),
+    //   onDismissed: (_) => onDelete?.call(),
+    //   child: tile,
+    // );
   }
 }

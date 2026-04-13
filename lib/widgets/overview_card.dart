@@ -32,7 +32,7 @@ class OverviewCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            '₹${state.totalSaved.toStringAsFixed(0)}',
+            context.formatter.format(state.totalSaved),
             style: const TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w700,
@@ -42,8 +42,7 @@ class OverviewCard extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           Text(
-            '${context.formatter.format(state.totalTarget)} '
-            '${appLocalizations?.across} ${state.goals.length} ${appLocalizations?.goal} ${state.goals.length == 1 ? '' : 's'}',
+            context.formatter.format(state.totalTarget),
             style: tt.bodySmall?.copyWith(color: Colors.white70),
           ),
           const SizedBox(height: 16),

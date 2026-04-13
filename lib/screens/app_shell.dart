@@ -1,3 +1,5 @@
+import 'package:Spendara/features/goals/cubit/goal_cubit.dart';
+import 'package:Spendara/features/transaction/cubit/transaction_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../features/dashboard/cubit/dashboard_cubit.dart';
@@ -26,6 +28,16 @@ class _AppShellState extends State<AppShell> {
     if (index == 3) {
       context.read<InsightsCubit>().load();
     }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final l10n = AppLocalizations.of(context);
+    context.read<DashboardCubit>().load(l10n: l10n);
+    context.read<InsightsCubit>().restoreAndLoad(l10n: l10n);
+    context.read<TransactionCubit>().load();
+    context.read<GoalCubit>().load();
   }
 
   @override
