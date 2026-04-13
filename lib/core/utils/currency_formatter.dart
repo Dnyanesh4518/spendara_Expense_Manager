@@ -8,7 +8,6 @@ class CurrencyFormatter {
 
   const CurrencyFormatter({required this.symbol, required this.locale});
 
-  // ── Factory — build from current app locale ────────────────
   factory CurrencyFormatter.of(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return CurrencyFormatter(
@@ -20,64 +19,79 @@ class CurrencyFormatter {
   factory CurrencyFormatter.fallback() =>
       const CurrencyFormatter(symbol: '₹', locale: 'en_IN');
 
-  String format(double amount) {
-    final fmt = NumberFormat.currency(locale: locale, symbol: symbol);
-    return fmt.format(amount);
+  bool _isWhole(double value) => value == value.roundToDouble();
+
+  String _formatNumber(double value, {int? maxDecimals}) {
+    final decimals = maxDecimals ?? (_isWhole(value) ? 0 : 2);
+    final fmt = NumberFormat.currency(
+      locale: locale,
+      symbol: symbol,
+      decimalDigits: decimals,
+    );
+    return fmt.format(value);
   }
 
-  // ── Compact format e.g. ₹1.2L / $1.2K / Rp1.2jt ──────────
+  String _compactNum(double value) {
+    final fmt = NumberFormat(_isWhole(value) ? '#,##0' : '#,##0.#', locale);
+    return fmt.format(value);
+  }
+
+  String format(double amount) {
+    return _formatNumber(amount);
+  }
+
   String compact(double amount) {
-    // Each locale has different large-number conventions
     switch (locale) {
       case 'en_IN':
-        // Indian: K / L / Cr
         if (amount >= 10000000) {
-          return '$symbol${(amount / 10000000).toStringAsFixed(1)}Cr';
+          return '$symbol${_compactNum(amount / 10000000)}Cr';
         }
         if (amount >= 100000) {
-          return '$symbol${(amount / 100000).toStringAsFixed(1)}L';
+          return '$symbol${_compactNum(amount / 100000)}L';
         }
         if (amount >= 1000) {
-          return '$symbol${(amount / 1000).toStringAsFixed(1)}K';
+          return '$symbol${_compactNum(amount / 1000)}K';
         }
-        return format(amount);
+        return _formatNumber(amount, maxDecimals: 0);
 
-      // --------------------- For future language support -----------
       case 'id':
-        // Indonesian: jt (juta = million), rb (ribu = thousand)
-        if (amount >= 1000000)
-          return '${symbol}${(amount / 1000000).toStringAsFixed(1)}jt';
-        if (amount >= 1000)
-          return '${symbol}${(amount / 1000).toStringAsFixed(1)}rb';
-        return format(amount);
+        if (amount >= 1000000) {
+          return '$symbol${_compactNum(amount / 1000000)}jt';
+        }
+        if (amount >= 1000) {
+          return '$symbol${_compactNum(amount / 1000)}rb';
+        }
+        return _formatNumber(amount, maxDecimals: 0);
 
       case 'vi':
-        // Vietnamese: tr (triệu = million), N (nghìn = thousand)
-        if (amount >= 1000000)
-          return '${(amount / 1000000).toStringAsFixed(1)}tr$symbol';
-        if (amount >= 1000)
-          return '${(amount / 1000).toStringAsFixed(0)}N$symbol';
-        return format(amount);
+        if (amount >= 1000000) {
+          return '${_compactNum(amount / 1000000)}tr$symbol';
+        }
+        if (amount >= 1000) {
+          return '${_compactNum(amount / 1000)}N$symbol';
+        }
+        return _formatNumber(amount, maxDecimals: 0);
 
       case 'ar':
-        // Arabic: symbol comes after number in most Arab locales
-        if (amount >= 1000000)
-          return '${(amount / 1000000).toStringAsFixed(1)}م $symbol';
-        if (amount >= 1000)
-          return '${(amount / 1000).toStringAsFixed(1)}ك $symbol';
-        return format(amount);
+        if (amount >= 1000000) {
+          return '${_compactNum(amount / 1000000)}م $symbol';
+        }
+        if (amount >= 1000) {
+          return '${_compactNum(amount / 1000)}ك $symbol';
+        }
+        return _formatNumber(amount, maxDecimals: 0);
 
       default:
-        // Universal: K / M (used for es, fr, ru, tr, th, sw, pt_BR)
-        if (amount >= 1000000)
-          return '$symbol${(amount / 1000000).toStringAsFixed(1)}M';
-        if (amount >= 1000)
-          return '$symbol${(amount / 1000).toStringAsFixed(1)}K';
-        return format(amount);
+        if (amount >= 1000000) {
+          return '$symbol${_compactNum(amount / 1000000)}M';
+        }
+        if (amount >= 1000) {
+          return '$symbol${_compactNum(amount / 1000)}K';
+        }
+        return _formatNumber(amount, maxDecimals: 0);
     }
   }
 
-  // ── Signed format e.g. +₹450 / -$120 ─────────────────────
   String signed(double amount, {required bool isExpense}) {
     final prefix = isExpense ? '-' : '+';
     return '$prefix${format(amount)}';

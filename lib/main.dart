@@ -121,14 +121,6 @@ class FinanceApp extends StatelessWidget {
             Locale('th'),
             Locale('sw'),
           ],
-          localeResolutionCallback: (locale, supportedLocales) {
-            for (final supported in supportedLocales) {
-              if (locale?.languageCode == supported.languageCode) {
-                return supported;
-              }
-            }
-            return const Locale('en');
-          },
         ),
       ),
     );
