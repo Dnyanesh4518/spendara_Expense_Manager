@@ -5,6 +5,7 @@ import 'package:uuid/uuid.dart';
 import '../../../constants/constants.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/generated/app_localizations.dart';
+import '../../../widgets/group_category_picker.dart';
 import '../../../widgets/widgets.dart';
 import '../cubit/transaction_cubit.dart';
 import '../model/transaction_model.dart';
@@ -95,9 +96,9 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
     super.dispose();
   }
 
-  List<String> get _categories => _selectedType == 'expense'
-      ? Constants.expenseCategories(context) // localized labels ✅
-      : Constants.incomeCategories(context);
+  List<CategoryGroup> get _categories => _selectedType == 'expense'
+      ? Constants.expenseCategoryGroups(context) // localized labels ✅
+      : Constants.incomeCategoryGroups(context);
 
   Color get _typeColor =>
       _selectedType == 'expense' ? AppColors.expense : AppColors.income;
@@ -218,11 +219,12 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+          shrinkWrap: true,
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
           children: [
             // ── Type toggle (Expense / Income) ──────────────
             TypeToggle(controller: _typeTabController),
-            const SizedBox(height: 28),
+            const SizedBox(height: 12),
 
             // ── Amount field ────────────────────────────────
             SectionLabel(label: appLocalizations?.amount ?? 'Amount'),
@@ -289,34 +291,12 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
                 return null;
               },
             ),
-            const SizedBox(height: 24),
-
-            // ── Category picker ─────────────────────────────
-            SectionLabel(label: appLocalizations?.category ?? 'Category'),
-            const SizedBox(height: 10),
-            CategoryGrid(
-              typeColor: _typeColor,
-              typeBgColor: _typeBgColor,
-              categories: _categories,
-              selected: _selectedType == 'expense'
-                  ? Constants.expenseCategoryLabel(context, _selectedCategory)
-                  : Constants.incomeCategoryLabel(context, _selectedCategory),
-              onSelect: (label) => setState(() {
-                _selectedCategory = _selectedType == 'expense'
-                    ? Constants.expenseCategoryKey(
-                        context,
-                        label,
-                      ) // label → key
-                    : Constants.incomeCategoryKey(context, label);
-              }),
-            ),
-            const SizedBox(height: 24),
-
+            const SizedBox(height: 12),
             // ── Date picker ─────────────────────────────────
             SectionLabel(label: appLocalizations?.date ?? 'Date'),
             const SizedBox(height: 8),
             DateField(date: _selectedDate, onTap: _pickDate),
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
 
             // ── Notes ───────────────────────────────────────
             SectionLabel(
@@ -335,45 +315,59 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
                 counterText: '',
               ),
             ),
-            const SizedBox(height: 32),
-
-            // ── Save button ─────────────────────────────────
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              child: ElevatedButton(
-                onPressed: _isSaving ? null : _save,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: _typeColor,
-                  disabledBackgroundColor: _typeColor.withValues(alpha: 0.5),
-                  minimumSize: const Size(double.infinity, 54),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                ),
-                child: _isSaving
-                    ? const SizedBox(
-                        width: 22,
-                        height: 22,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 2.5,
-                        ),
-                      )
-                    : Text(
-                        _isEditing
-                            ? appLocalizations?.updateTransaction ??
-                                  'Update transaction'
-                            : appLocalizations?.saveTransaction ??
-                                  'Save transaction',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-              ),
+            const SizedBox(height: 12),
+            // ── Category picker ─────────────────────────────
+            SectionLabel(label: appLocalizations?.category ?? 'Category'),
+            const SizedBox(height: 10),
+            GroupedCategoryPicker(
+              groups: _categories,
+              selected: _selectedCategory,
+              typeColor: _typeColor,
+              typeBgColor: _typeBgColor,
+              onSelect: (key) => setState(() => _selectedCategory = key),
             ),
+            // ── Save button ─────────────────────────────────
           ],
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            child: ElevatedButton(
+              onPressed: _isSaving ? null : _save,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _typeColor,
+                disabledBackgroundColor: _typeColor.withValues(alpha: 0.5),
+                minimumSize: const Size(double.infinity, 54),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+              ),
+              child: _isSaving
+                  ? const SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                        strokeWidth: 2.5,
+                      ),
+                    )
+                  : Text(
+                      _isEditing
+                          ? appLocalizations?.updateTransaction ??
+                                'Update transaction'
+                          : appLocalizations?.saveTransaction ??
+                                'Save transaction',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+            ),
+          ),
         ),
       ),
     );

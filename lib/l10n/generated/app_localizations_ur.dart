@@ -630,4 +630,139 @@ class AppLocalizationsUr extends AppLocalizations {
   @override
   String get adNotReadyYet =>
       'اشتہار ابھی تیار نہیں ہے، براہ کرم تھوڑی دیر بعد دوبارہ کوشش کریں۔';
+
+  @override
+  String get categoryGroupFoodDrinks => 'کھانا اور مشروبات';
+
+  @override
+  String get categoryGroupTransport => 'نقل و حمل';
+
+  @override
+  String get categoryGroupHousing => 'رہائش';
+
+  @override
+  String get categoryGroupShopping => 'خریداری';
+
+  @override
+  String get categoryGroupHealth => 'صحت';
+
+  @override
+  String get categoryGroupEntertainment => 'تفریح';
+
+  @override
+  String get categoryGroupEducation => 'تعلیم';
+
+  @override
+  String get categoryGroupFinance => 'مالیات';
+
+  @override
+  String get categoryGroupOther => 'دیگر';
+
+  @override
+  String get categoryGroupIncome => 'آمدنی';
+
+  @override
+  String get groceries => 'گروسری';
+
+  @override
+  String get foodDelivery => 'کھانے کی ڈیلیوری';
+
+  @override
+  String get restaurants => 'ریستوران';
+
+  @override
+  String get teaSnacks => 'چائے اور نمکین';
+
+  @override
+  String get fuel => 'ایندھن / پیٹرول';
+
+  @override
+  String get cabAuto => 'کیب اور آٹو';
+
+  @override
+  String get publicTransport => 'عوامی نقل و حمل';
+
+  @override
+  String get vehicleMaintenance => 'گاڑی کی دیکھ بھال';
+
+  @override
+  String get rent => 'کرایہ';
+
+  @override
+  String get electricity => 'بجلی';
+
+  @override
+  String get waterGas => 'پانی اور گیس';
+
+  @override
+  String get internet => 'انٹرنیٹ';
+
+  @override
+  String get mobileRecharge => 'موبائل ری چارج';
+
+  @override
+  String get onlineShopping => 'آن لائن خریداری';
+
+  @override
+  String get clothing => 'کپڑے';
+
+  @override
+  String get electronics => 'الیکٹرونکس';
+
+  @override
+  String get medicine => 'دوائی';
+
+  @override
+  String get doctor => 'ڈاکٹر / ہسپتال';
+
+  @override
+  String get gymFitness => 'جم اور فٹنس';
+
+  @override
+  String get ottSubscriptions => 'OTT سبسکرپشن';
+
+  @override
+  String get moviesEvents => 'فلمیں اور تقریبات';
+
+  @override
+  String get tuition => 'ٹیوشن اور کورسز';
+
+  @override
+  String get booksStationery => 'کتابیں اور اسٹیشنری';
+
+  @override
+  String get emi => 'قرض کی قسط';
+
+  @override
+  String get insurance => 'بیمہ';
+
+  @override
+  String get personalCare => 'ذاتی نگہداشت';
+
+  @override
+  String get travelVacation => 'سفر اور تعطیلات';
+
+  @override
+  String get giftsDonations => 'تحائف اور عطیات';
+
+  @override
+  String get business => 'کاروبار';
+
+  @override
+  String get rentalIncome => 'کرایہ کی آمدنی';
+
+  @override
+  String get investmentReturns => 'سرمایہ کاری کا منافع';
+
+  @override
+  String get bonus => 'بونس / مراعات';
+
+  @override
+  String get sideIncome => 'جز وقتی / اضافی آمدنی';
+
+  @override
+  String get giftReceived => 'تحفہ / نقد موصول';
+
+  @override
+  String get refundCashback => 'واپسی اور کیش بیک';
 }

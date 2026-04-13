@@ -628,4 +628,139 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get adNotReadyYet =>
       'જાહેરાત હજી તૈયાર નથી, કૃપા કરીને થોડીવાર પછી ફરી પ્રયાસ કરો.';
+
+  @override
+  String get categoryGroupFoodDrinks => 'ખોરાક અને પીણાં';
+
+  @override
+  String get categoryGroupTransport => 'પરિવહન';
+
+  @override
+  String get categoryGroupHousing => 'ઘર';
+
+  @override
+  String get categoryGroupShopping => 'ખરીદી';
+
+  @override
+  String get categoryGroupHealth => 'આરોગ્ય';
+
+  @override
+  String get categoryGroupEntertainment => 'મનોરંજન';
+
+  @override
+  String get categoryGroupEducation => 'શિક્ષણ';
+
+  @override
+  String get categoryGroupFinance => 'નાણા';
+
+  @override
+  String get categoryGroupOther => 'અન્ય';
+
+  @override
+  String get categoryGroupIncome => 'આવક';
+
+  @override
+  String get groceries => 'કરિયાણું';
+
+  @override
+  String get foodDelivery => 'ફૂડ ડિલિવરી';
+
+  @override
+  String get restaurants => 'રેસ્ટોરન્ટ';
+
+  @override
+  String get teaSnacks => 'ચા અને નાસ્તો';
+
+  @override
+  String get fuel => 'પેટ્રોલ / ઇંધણ';
+
+  @override
+  String get cabAuto => 'કૅબ અને ઑટો';
+
+  @override
+  String get publicTransport => 'જાહેર પરિવહન';
+
+  @override
+  String get vehicleMaintenance => 'વાહન સમારકામ';
+
+  @override
+  String get rent => 'ભાડું';
+
+  @override
+  String get electricity => 'વીજળી બિલ';
+
+  @override
+  String get waterGas => 'પાણી અને ગૅસ';
+
+  @override
+  String get internet => 'ઇન્ટરનેટ';
+
+  @override
+  String get mobileRecharge => 'મોબાઇલ રિચાર્જ';
+
+  @override
+  String get onlineShopping => 'ઑનલાઇન ખરીદી';
+
+  @override
+  String get clothing => 'કપડાં';
+
+  @override
+  String get electronics => 'ઇલેક્ટ્રૉનિક્સ';
+
+  @override
+  String get medicine => 'દવા';
+
+  @override
+  String get doctor => 'ડૉક્ટર / હૉસ્પિટલ';
+
+  @override
+  String get gymFitness => 'જિમ અને ફિટનેસ';
+
+  @override
+  String get ottSubscriptions => 'OTT સબ્સ્ક્રિપ્શન';
+
+  @override
+  String get moviesEvents => 'ફિલ્મ અને ઇવેન્ટ';
+
+  @override
+  String get tuition => 'ટ્યૂશન અને કૉર્સ';
+
+  @override
+  String get booksStationery => 'પુસ્તક અને સ્ટેશનરી';
+
+  @override
+  String get emi => 'લૉન EMI';
+
+  @override
+  String get insurance => 'વીમો';
+
+  @override
+  String get personalCare => 'વ્યક્તિગત સંભાળ';
+
+  @override
+  String get travelVacation => 'પ્રવાસ અને રજા';
+
+  @override
+  String get giftsDonations => 'ભેટ અને દાન';
+
+  @override
+  String get business => 'વ્યવસાય';
+
+  @override
+  String get rentalIncome => 'ભાડાની આવક';
+
+  @override
+  String get investmentReturns => 'રોકાણ આવક';
+
+  @override
+  String get bonus => 'બૉનસ';
+
+  @override
+  String get sideIncome => 'પાર્ટ-ટાઇમ આવક';
+
+  @override
+  String get giftReceived => 'ભેટ / રૉકડ મળ્યું';
+
+  @override
+  String get refundCashback => 'રિફંડ અને કૅશબૅક';
 }

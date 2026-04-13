@@ -631,4 +631,139 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get adNotReadyYet =>
       'പരസ്യം ഇനിയും തയ്യാറായിട്ടില്ല, ദയവായി കുറച്ച് സമയത്തിനു ശേഷം വീണ്ടും ശ്രമിക്കുക.';
+
+  @override
+  String get categoryGroupFoodDrinks => 'ഭക്ഷണം & പാനീയം';
+
+  @override
+  String get categoryGroupTransport => 'ഗതാഗതം';
+
+  @override
+  String get categoryGroupHousing => 'പാർപ്പിടം';
+
+  @override
+  String get categoryGroupShopping => 'ഷോപ്പിംഗ്';
+
+  @override
+  String get categoryGroupHealth => 'ആരോഗ്യം';
+
+  @override
+  String get categoryGroupEntertainment => 'വിനോദം';
+
+  @override
+  String get categoryGroupEducation => 'വിദ്യാഭ്യാസം';
+
+  @override
+  String get categoryGroupFinance => 'ധനകാര്യം';
+
+  @override
+  String get categoryGroupOther => 'മറ്റുള്ളവ';
+
+  @override
+  String get categoryGroupIncome => 'വരുമാനം';
+
+  @override
+  String get groceries => 'പലചരക്ക്';
+
+  @override
+  String get foodDelivery => 'ഫുഡ് ഡെലിവറി';
+
+  @override
+  String get restaurants => 'റെസ്റ്ററന്റ്';
+
+  @override
+  String get teaSnacks => 'ചായ & പലഹാരം';
+
+  @override
+  String get fuel => 'പെട്രോൾ';
+
+  @override
+  String get cabAuto => 'ക്യാബ് & ഓട്ടോ';
+
+  @override
+  String get publicTransport => 'പൊതു ഗതാഗതം';
+
+  @override
+  String get vehicleMaintenance => 'വാഹന അറ്റകുറ്റം';
+
+  @override
+  String get rent => 'വാടക';
+
+  @override
+  String get electricity => 'വൈദ്യുതി ബിൽ';
+
+  @override
+  String get waterGas => 'വെള്ളം & ഗ്യാസ്';
+
+  @override
+  String get internet => 'ഇന്റർനെറ്റ്';
+
+  @override
+  String get mobileRecharge => 'മൊബൈൽ റീചാർജ്';
+
+  @override
+  String get onlineShopping => 'ഓൺലൈൻ ഷോപ്പിംഗ്';
+
+  @override
+  String get clothing => 'വസ്ത്രം';
+
+  @override
+  String get electronics => 'ഇലക്ട്രോണിക്സ്';
+
+  @override
+  String get medicine => 'മരുന്ന്';
+
+  @override
+  String get doctor => 'ഡോക്ടർ / ആശുപത്രി';
+
+  @override
+  String get gymFitness => 'ജിം & ഫിറ്റ്നസ്';
+
+  @override
+  String get ottSubscriptions => 'OTT സബ്സ്ക്രിപ്ഷൻ';
+
+  @override
+  String get moviesEvents => 'സിനിമ & ഇവന്റ്';
+
+  @override
+  String get tuition => 'ട്യൂഷൻ & കോഴ്സ്';
+
+  @override
+  String get booksStationery => 'പുസ്തകം & സ്റ്റേഷനറി';
+
+  @override
+  String get emi => 'ലോൺ EMI';
+
+  @override
+  String get insurance => 'ഇൻഷൂറൻസ്';
+
+  @override
+  String get personalCare => 'വ്യക്തിഗത പരിചരണം';
+
+  @override
+  String get travelVacation => 'യാത്ര & അവധി';
+
+  @override
+  String get giftsDonations => 'സമ്മാനം & ദാനം';
+
+  @override
+  String get business => 'ബിസിനസ്';
+
+  @override
+  String get rentalIncome => 'വാടക വരുമാനം';
+
+  @override
+  String get investmentReturns => 'നിക്ഷേപ വരുമാനം';
+
+  @override
+  String get bonus => 'ബോണസ്';
+
+  @override
+  String get sideIncome => 'പാർട്ട്-ടൈം വരുമാനം';
+
+  @override
+  String get giftReceived => 'സമ്മാനം ലഭിച്ചു';
+
+  @override
+  String get refundCashback => 'റീഫണ്ട് & കാഷ്ബാക്ക്';
 }

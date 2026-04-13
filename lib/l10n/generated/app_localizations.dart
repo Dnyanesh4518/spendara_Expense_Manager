@@ -1367,6 +1367,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ad not ready yet, please try again shortly.'**
   String get adNotReadyYet;
+
+  /// No description provided for @categoryGroupFoodDrinks.
+  ///
+  /// In en, this message translates to:
+  /// **'Food & Drinks'**
+  String get categoryGroupFoodDrinks;
+
+  /// No description provided for @categoryGroupTransport.
+  ///
+  /// In en, this message translates to:
+  /// **'Transport'**
+  String get categoryGroupTransport;
+
+  /// No description provided for @categoryGroupHousing.
+  ///
+  /// In en, this message translates to:
+  /// **'Housing'**
+  String get categoryGroupHousing;
+
+  /// No description provided for @categoryGroupShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Shopping'**
+  String get categoryGroupShopping;
+
+  /// No description provided for @categoryGroupHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get categoryGroupHealth;
+
+  /// No description provided for @categoryGroupEntertainment.
+  ///
+  /// In en, this message translates to:
+  /// **'Entertainment'**
+  String get categoryGroupEntertainment;
+
+  /// No description provided for @categoryGroupEducation.
+  ///
+  /// In en, this message translates to:
+  /// **'Education'**
+  String get categoryGroupEducation;
+
+  /// No description provided for @categoryGroupFinance.
+  ///
+  /// In en, this message translates to:
+  /// **'Finance'**
+  String get categoryGroupFinance;
+
+  /// No description provided for @categoryGroupOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get categoryGroupOther;
+
+  /// No description provided for @categoryGroupIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'Income'**
+  String get categoryGroupIncome;
+
+  /// No description provided for @groceries.
+  ///
+  /// In en, this message translates to:
+  /// **'Groceries'**
+  String get groceries;
+
+  /// No description provided for @foodDelivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Food Delivery'**
+  String get foodDelivery;
+
+  /// No description provided for @restaurants.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurants'**
+  String get restaurants;
+
+  /// No description provided for @teaSnacks.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea & Snacks'**
+  String get teaSnacks;
+
+  /// No description provided for @fuel.
+  ///
+  /// In en, this message translates to:
+  /// **'Fuel / Petrol'**
+  String get fuel;
+
+  /// No description provided for @cabAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'Cab & Auto'**
+  String get cabAuto;
+
+  /// No description provided for @publicTransport.
+  ///
+  /// In en, this message translates to:
+  /// **'Public Transport'**
+  String get publicTransport;
+
+  /// No description provided for @vehicleMaintenance.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Maintenance'**
+  String get vehicleMaintenance;
+
+  /// No description provided for @rent.
+  ///
+  /// In en, this message translates to:
+  /// **'Rent'**
+  String get rent;
+
+  /// No description provided for @electricity.
+  ///
+  /// In en, this message translates to:
+  /// **'Electricity'**
+  String get electricity;
+
+  /// No description provided for @waterGas.
+  ///
+  /// In en, this message translates to:
+  /// **'Water & Gas'**
+  String get waterGas;
+
+  /// No description provided for @internet.
+  ///
+  /// In en, this message translates to:
+  /// **'Internet'**
+  String get internet;
+
+  /// No description provided for @mobileRecharge.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Recharge'**
+  String get mobileRecharge;
+
+  /// No description provided for @onlineShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Online Shopping'**
+  String get onlineShopping;
+
+  /// No description provided for @clothing.
+  ///
+  /// In en, this message translates to:
+  /// **'Clothing'**
+  String get clothing;
+
+  /// No description provided for @electronics.
+  ///
+  /// In en, this message translates to:
+  /// **'Electronics'**
+  String get electronics;
+
+  /// No description provided for @medicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine'**
+  String get medicine;
+
+  /// No description provided for @doctor.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor / Hospital'**
+  String get doctor;
+
+  /// No description provided for @gymFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym & Fitness'**
+  String get gymFitness;
+
+  /// No description provided for @ottSubscriptions.
+  ///
+  /// In en, this message translates to:
+  /// **'OTT Subscriptions'**
+  String get ottSubscriptions;
+
+  /// No description provided for @moviesEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'Movies & Events'**
+  String get moviesEvents;
+
+  /// No description provided for @tuition.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuition & Courses'**
+  String get tuition;
+
+  /// No description provided for @booksStationery.
+  ///
+  /// In en, this message translates to:
+  /// **'Books & Stationery'**
+  String get booksStationery;
+
+  /// No description provided for @emi.
+  ///
+  /// In en, this message translates to:
+  /// **'Loan EMI'**
+  String get emi;
+
+  /// No description provided for @insurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get insurance;
+
+  /// No description provided for @personalCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Care'**
+  String get personalCare;
+
+  /// No description provided for @travelVacation.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel & Vacation'**
+  String get travelVacation;
+
+  /// No description provided for @giftsDonations.
+  ///
+  /// In en, this message translates to:
+  /// **'Gifts & Donations'**
+  String get giftsDonations;
+
+  /// No description provided for @business.
+  ///
+  /// In en, this message translates to:
+  /// **'Business'**
+  String get business;
+
+  /// No description provided for @rentalIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'Rental Income'**
+  String get rentalIncome;
+
+  /// No description provided for @investmentReturns.
+  ///
+  /// In en, this message translates to:
+  /// **'Investment Returns'**
+  String get investmentReturns;
+
+  /// No description provided for @bonus.
+  ///
+  /// In en, this message translates to:
+  /// **'Bonus / Incentive'**
+  String get bonus;
+
+  /// No description provided for @sideIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'Part-time / Side Income'**
+  String get sideIncome;
+
+  /// No description provided for @giftReceived.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift / Cash Received'**
+  String get giftReceived;
+
+  /// No description provided for @refundCashback.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund & Cashback'**
+  String get refundCashback;
 }
 
 class _AppLocalizationsDelegate

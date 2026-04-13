@@ -628,4 +628,139 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get adNotReadyYet => 'Ad not ready yet, please try again shortly.';
+
+  @override
+  String get categoryGroupFoodDrinks => 'Food & Drinks';
+
+  @override
+  String get categoryGroupTransport => 'Transport';
+
+  @override
+  String get categoryGroupHousing => 'Housing';
+
+  @override
+  String get categoryGroupShopping => 'Shopping';
+
+  @override
+  String get categoryGroupHealth => 'Health';
+
+  @override
+  String get categoryGroupEntertainment => 'Entertainment';
+
+  @override
+  String get categoryGroupEducation => 'Education';
+
+  @override
+  String get categoryGroupFinance => 'Finance';
+
+  @override
+  String get categoryGroupOther => 'Other';
+
+  @override
+  String get categoryGroupIncome => 'Income';
+
+  @override
+  String get groceries => 'Groceries';
+
+  @override
+  String get foodDelivery => 'Food Delivery';
+
+  @override
+  String get restaurants => 'Restaurants';
+
+  @override
+  String get teaSnacks => 'Tea & Snacks';
+
+  @override
+  String get fuel => 'Fuel / Petrol';
+
+  @override
+  String get cabAuto => 'Cab & Auto';
+
+  @override
+  String get publicTransport => 'Public Transport';
+
+  @override
+  String get vehicleMaintenance => 'Vehicle Maintenance';
+
+  @override
+  String get rent => 'Rent';
+
+  @override
+  String get electricity => 'Electricity';
+
+  @override
+  String get waterGas => 'Water & Gas';
+
+  @override
+  String get internet => 'Internet';
+
+  @override
+  String get mobileRecharge => 'Mobile Recharge';
+
+  @override
+  String get onlineShopping => 'Online Shopping';
+
+  @override
+  String get clothing => 'Clothing';
+
+  @override
+  String get electronics => 'Electronics';
+
+  @override
+  String get medicine => 'Medicine';
+
+  @override
+  String get doctor => 'Doctor / Hospital';
+
+  @override
+  String get gymFitness => 'Gym & Fitness';
+
+  @override
+  String get ottSubscriptions => 'OTT Subscriptions';
+
+  @override
+  String get moviesEvents => 'Movies & Events';
+
+  @override
+  String get tuition => 'Tuition & Courses';
+
+  @override
+  String get booksStationery => 'Books & Stationery';
+
+  @override
+  String get emi => 'Loan EMI';
+
+  @override
+  String get insurance => 'Insurance';
+
+  @override
+  String get personalCare => 'Personal Care';
+
+  @override
+  String get travelVacation => 'Travel & Vacation';
+
+  @override
+  String get giftsDonations => 'Gifts & Donations';
+
+  @override
+  String get business => 'Business';
+
+  @override
+  String get rentalIncome => 'Rental Income';
+
+  @override
+  String get investmentReturns => 'Investment Returns';
+
+  @override
+  String get bonus => 'Bonus / Incentive';
+
+  @override
+  String get sideIncome => 'Part-time / Side Income';
+
+  @override
+  String get giftReceived => 'Gift / Cash Received';
+
+  @override
+  String get refundCashback => 'Refund & Cashback';
 }

@@ -343,6 +343,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
 
   void _showCategoryFilter(BuildContext context) {
     showModalBottomSheet(
+      useSafeArea: true,
       context: context,
       isScrollControlled: true,
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -353,9 +354,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         builder: (ctx, setSheetState) {
           return Padding(
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
               children: [
                 // ── Handle ───────────────────────────────────────────
                 Center(

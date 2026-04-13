@@ -632,4 +632,139 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get adNotReadyYet =>
       'El anuncio aún no está listo, por favor inténtalo de nuevo en breve.';
+
+  @override
+  String get categoryGroupFoodDrinks => 'Comida y bebida';
+
+  @override
+  String get categoryGroupTransport => 'Transporte';
+
+  @override
+  String get categoryGroupHousing => 'Vivienda';
+
+  @override
+  String get categoryGroupShopping => 'Compras';
+
+  @override
+  String get categoryGroupHealth => 'Salud';
+
+  @override
+  String get categoryGroupEntertainment => 'Entretenimiento';
+
+  @override
+  String get categoryGroupEducation => 'Educación';
+
+  @override
+  String get categoryGroupFinance => 'Finanzas';
+
+  @override
+  String get categoryGroupOther => 'Otros';
+
+  @override
+  String get categoryGroupIncome => 'Ingresos';
+
+  @override
+  String get groceries => 'Supermercado';
+
+  @override
+  String get foodDelivery => 'Comida a domicilio';
+
+  @override
+  String get restaurants => 'Restaurantes';
+
+  @override
+  String get teaSnacks => 'Café y snacks';
+
+  @override
+  String get fuel => 'Combustible';
+
+  @override
+  String get cabAuto => 'Taxi y transporte';
+
+  @override
+  String get publicTransport => 'Transporte público';
+
+  @override
+  String get vehicleMaintenance => 'Mantenimiento del vehículo';
+
+  @override
+  String get rent => 'Alquiler';
+
+  @override
+  String get electricity => 'Electricidad';
+
+  @override
+  String get waterGas => 'Agua y gas';
+
+  @override
+  String get internet => 'Internet';
+
+  @override
+  String get mobileRecharge => 'Recarga móvil';
+
+  @override
+  String get onlineShopping => 'Compras en línea';
+
+  @override
+  String get clothing => 'Ropa';
+
+  @override
+  String get electronics => 'Electrónica';
+
+  @override
+  String get medicine => 'Medicamentos';
+
+  @override
+  String get doctor => 'Médico / Hospital';
+
+  @override
+  String get gymFitness => 'Gimnasio y fitness';
+
+  @override
+  String get ottSubscriptions => 'Suscripciones streaming';
+
+  @override
+  String get moviesEvents => 'Cine y eventos';
+
+  @override
+  String get tuition => 'Clases y cursos';
+
+  @override
+  String get booksStationery => 'Libros y papelería';
+
+  @override
+  String get emi => 'Cuota de préstamo';
+
+  @override
+  String get insurance => 'Seguro';
+
+  @override
+  String get personalCare => 'Cuidado personal';
+
+  @override
+  String get travelVacation => 'Viajes y vacaciones';
+
+  @override
+  String get giftsDonations => 'Regalos y donaciones';
+
+  @override
+  String get business => 'Negocio';
+
+  @override
+  String get rentalIncome => 'Ingresos por alquiler';
+
+  @override
+  String get investmentReturns => 'Rendimiento de inversión';
+
+  @override
+  String get bonus => 'Bono / Incentivo';
+
+  @override
+  String get sideIncome => 'Trabajo extra';
+
+  @override
+  String get giftReceived => 'Regalo / Efectivo recibido';
+
+  @override
+  String get refundCashback => 'Devolución y cashback';
 }
