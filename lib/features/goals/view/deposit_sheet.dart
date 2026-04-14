@@ -1,4 +1,6 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
 import 'package:Spendara/core/utils/currency_formatter.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -55,6 +57,7 @@ class _DepositSheetState extends State<DepositSheet> {
 
     final amount = double.parse(_ctrl.text.replaceAll(',', ''));
     await context.read<GoalCubit>().deposit(_goal.id, amount);
+    FirebaseAnalytics.instance.logEvent(name: AnalyticsKeys.depositAddedGoal);
 
     if (mounted) Navigator.of(context).pop();
   }

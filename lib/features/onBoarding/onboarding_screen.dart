@@ -1,3 +1,7 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import '../../core/theme/app_colors.dart';
@@ -29,25 +33,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isSaving = true);
-
-    final box = Hive.box<UserModel>('userBox');
-    await box.put(
-      'current_user',
-      UserModel(
-        name: _nameController.text.trim(),
-        email: _emailController.text.trim(),
-      ),
-    );
-
-    if (mounted) {
-      Navigator.of(context).pushReplacement(
-        PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const AppShell(),
-          transitionDuration: const Duration(milliseconds: 400),
-          transitionsBuilder: (_, animation, __, child) =>
-              FadeTransition(opacity: animation, child: child),
+    try {
+      final box = Hive.box<UserModel>('userBox');
+      await box.put(
+        'current_user',
+        UserModel(
+          name: _nameController.text.trim(),
+          email: _emailController.text.trim(),
         ),
       );
+      FirebaseAnalytics.instance.logEvent(
+        name: '${AnalyticsKeys.userLoggedIn}_${_nameController.text.trim()}',
+      );
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          PageRouteBuilder(
+            pageBuilder: (_, __, ___) => const AppShell(),
+            transitionDuration: const Duration(milliseconds: 400),
+            transitionsBuilder: (_, animation, __, child) =>
+                FadeTransition(opacity: animation, child: child),
+          ),
+        );
+      }
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.onboardingSave);
     }
   }
 

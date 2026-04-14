@@ -1,8 +1,12 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/constants.dart';
+import '../core/analytics/analytics_keys.dart';
 import '../core/theme/app_colors.dart';
 import '../features/dashboard/cubit/dashboard_cubit.dart';
 import '../features/insights/cubit/insights_cubit.dart';
@@ -70,32 +74,36 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
     BuildContext context,
     AppLocalizations? l10n,
   ) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(l10n?.deleteTransaction ?? 'Delete transaction?'),
-        content: Text(
-          l10n?.actionCannotBeUndone ?? 'This action cannot be undone.',
+    try {
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(l10n?.deleteTransaction ?? 'Delete transaction?'),
+          content: Text(
+            l10n?.actionCannotBeUndone ?? 'This action cannot be undone.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(l10n?.cancel ?? 'Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              style: TextButton.styleFrom(foregroundColor: AppColors.expense),
+              child: Text(l10n?.delete ?? 'Delete'),
+            ),
+          ],
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: Text(l10n?.cancel ?? 'Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            style: TextButton.styleFrom(foregroundColor: AppColors.expense),
-            child: Text(l10n?.delete ?? 'Delete'),
-          ),
-        ],
-      ),
-    );
-
-    if (confirmed == true && context.mounted) {
-      await context.read<TransactionCubit>().deleteMultiple(
-        _selectedIds.toList(),
       );
-      _exitSelectionMode();
+
+      if (confirmed == true && context.mounted) {
+        await context.read<TransactionCubit>().deleteMultiple(
+          _selectedIds.toList(),
+        );
+        _exitSelectionMode();
+      }
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.deleteTransactionUI);
     }
   }
 
@@ -285,8 +293,13 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     Badge(
                                       isLabelVisible: _selectedCategory != null,
                                       child: IconButton(
-                                        onPressed: () =>
-                                            _showCategoryFilter(context),
+                                        onPressed: () {
+                                          _showCategoryFilter(context);
+                                          FirebaseAnalytics.instance.logEvent(
+                                            name: AnalyticsKeys
+                                                .transactionFilterTap,
+                                          );
+                                        },
                                         icon: Icon(
                                           Icons.filter_list_rounded,
                                           color: _selectedCategory != null
@@ -346,6 +359,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                   SliverFillRemaining(
                     child: _EmptyState(
                       filter: _filter,
+                      query: _query,
                       onAdd: () {
                         Navigator.of(
                           context,
@@ -354,6 +368,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                           context.read<DashboardCubit>().load();
                           context.read<InsightsCubit>().load();
                         }
+                        FirebaseAnalytics.instance.logEvent(
+                          name: AnalyticsKeys.addTransaction,
+                        );
                       },
                     ),
                   )
@@ -486,16 +503,23 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                                 onTap: _isSelectionMode
                                                     ? () =>
                                                           _toggleSelection(t.id)
-                                                    : () =>
-                                                          Navigator.of(
-                                                            context,
-                                                          ).push(
-                                                            slideUp(
-                                                              AddEditTransactionScreen(
-                                                                existing: t,
-                                                              ),
+                                                    : () {
+                                                        Navigator.of(
+                                                          context,
+                                                        ).push(
+                                                          slideUp(
+                                                            AddEditTransactionScreen(
+                                                              existing: t,
                                                             ),
                                                           ),
+                                                        );
+                                                        FirebaseAnalytics
+                                                            .instance
+                                                            .logEvent(
+                                                              name: AnalyticsKeys
+                                                                  .transactionTap,
+                                                            );
+                                                      },
                                                 onDelete: () {},
                                               ),
                                             ),
@@ -526,6 +550,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         context.read<DashboardCubit>().load();
                         context.read<InsightsCubit>().load();
                       }
+                      FirebaseAnalytics.instance.logEvent(
+                        name: AnalyticsKeys.addTransactionPlus,
+                      );
                     },
                     child: const Icon(Icons.add),
                   )
@@ -665,7 +692,12 @@ Map<String, List<TransactionModel>> _groupByDate(List<TransactionModel> txns) {
 class _EmptyState extends StatelessWidget {
   final VoidCallback onAdd;
   final String filter;
-  const _EmptyState({required this.filter, required this.onAdd});
+  final String query;
+  const _EmptyState({
+    required this.filter,
+    required this.onAdd,
+    required this.query,
+  });
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context);
@@ -692,26 +724,27 @@ class _EmptyState extends StatelessWidget {
             style: tt.headlineSmall,
           ),
           const SizedBox(height: 6),
-          ElevatedButton.icon(
-            onPressed: onAdd,
-            icon: const Icon(Icons.add, size: 18),
-            label: Text(
-              appLocalizations?.addTransaction ?? 'Add your transaction',
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
-              foregroundColor: Colors.white,
-              textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
+          if (query.isEmpty)
+            ElevatedButton.icon(
+              onPressed: onAdd,
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(
+                appLocalizations?.addTransaction ?? 'Add your transaction',
               ),
-              minimumSize: const Size(80, 48),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.primary,
+                foregroundColor: Colors.white,
+                textStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                minimumSize: const Size(80, 48),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                elevation: 0,
               ),
-              elevation: 0,
             ),
-          ),
         ],
       ),
     );

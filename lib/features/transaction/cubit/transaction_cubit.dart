@@ -1,4 +1,6 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../repository/transaction_repository.dart';
 import '../model/transaction_model.dart';
@@ -24,12 +26,14 @@ class TransactionCubit extends Cubit<TransactionState> {
           errorMessage: e.toString(),
         ),
       );
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.transactionCubitLoad);
+      rethrow;
     }
   }
 
   Future<void> addTransaction(TransactionModel t) async {
     try {
-      await _repo.add(t);
+      _repo.add(t);
       load();
     } catch (e) {
       emit(
@@ -38,31 +42,34 @@ class TransactionCubit extends Cubit<TransactionState> {
           errorMessage: e.toString(),
         ),
       );
+      rethrow;
     }
   }
 
   Future<void> updateTransaction(TransactionModel t) async {
     try {
-      await _repo.update(t);
+      _repo.update(t);
       load();
     } catch (e) {
       emit(state.copyWith(status: TransactionStatus.error));
+      rethrow;
     }
   }
 
   Future<void> deleteTransaction(String id) async {
     try {
-      await _repo.delete(id);
+      _repo.delete(id);
       load();
     } catch (e) {
       emit(state.copyWith(status: TransactionStatus.error));
+      rethrow;
     }
   }
 
   Future<void> deleteMultiple(List<String> ids) async {
     try {
       for (final id in ids) {
-        await _repo.delete(id);
+        _repo.delete(id);
       }
       load();
     } catch (e) {

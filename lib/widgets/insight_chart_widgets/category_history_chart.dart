@@ -65,7 +65,6 @@ class CategoryHistoryChart extends StatelessWidget {
                         const SizedBox(width: 5),
                         Text(
                           Constants.expenseCategoryLabel(context, e.value),
-                          // e.value.split(' ').first,
                           style: tt.bodySmall?.copyWith(fontSize: 10),
                         ),
                       ],

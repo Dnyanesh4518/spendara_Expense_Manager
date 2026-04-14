@@ -1,3 +1,5 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../features/goals/model/goals_model.dart';
@@ -11,13 +13,41 @@ class GoalRepository {
     await Hive.openBox<GoalModel>(_boxName);
   }
 
-  List<GoalModel> getAll() => _box.values.toList();
+  List<GoalModel> getAll() {
+    try {
+      return _box.values.toList();
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.goalFetchAll);
+      rethrow;
+    }
+  }
 
-  Future<void> add(GoalModel g) => _box.put(g.id, g);
+  void add(GoalModel g) {
+    try {
+      _box.put(g.id, g);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.goalAdd);
+      rethrow;
+    }
+  }
 
-  Future<void> update(GoalModel g) => _box.put(g.id, g);
+  void update(GoalModel g) {
+    try {
+      _box.put(g.id, g);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.goalUpdate);
+      rethrow;
+    }
+  }
 
-  Future<void> delete(String id) => _box.delete(id);
+  void delete(String id) {
+    try {
+      _box.delete(id);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.goalDelete);
+      rethrow;
+    }
+  }
 
   double get totalSaved => _box.values.fold(0.0, (s, g) => s + g.savedAmount);
 

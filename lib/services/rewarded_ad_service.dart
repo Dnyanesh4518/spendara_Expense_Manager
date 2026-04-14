@@ -1,6 +1,10 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../constants/ad_constants.dart';
+import '../core/crashlytics/crashlytics_keys.dart';
 
 class RewardedAdService {
   RewardedAd? _rewardedAd;
@@ -17,10 +21,16 @@ class RewardedAdService {
         onAdLoaded: (ad) {
           _rewardedAd = ad;
           _isLoaded = true;
+          FirebaseAnalytics.instance.logEvent(
+            name: AnalyticsKeys.rewardedAdLoaded,
+          );
           debugPrint('Rewarded ad loaded ✅');
         },
         onAdFailedToLoad: (error) {
           _isLoaded = false;
+          FirebaseCrashlytics.instance.log(
+            '${CrashlyticsKeys.rewardedAdLoad}_$error',
+          );
           debugPrint('Rewarded ad failed: $error');
         },
       ),
@@ -34,6 +44,7 @@ class RewardedAdService {
   }) {
     if (!_isLoaded || _rewardedAd == null) {
       onNotLoaded();
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.adNotLoaded);
       return;
     }
 
@@ -50,6 +61,9 @@ class RewardedAdService {
           '❌ Rewarded failed → Code: ${error.code} | Message:${error.message}',
         );
         loadAd();
+        FirebaseCrashlytics.instance.log(
+          '${CrashlyticsKeys.rewardedAdFull}_$error',
+        );
       },
     );
 
@@ -57,6 +71,7 @@ class RewardedAdService {
       onUserEarnedReward: (_, reward) {
         debugPrint('User earned reward: ${reward.amount} ${reward.type}');
         onRewarded(); // ← activate ad-free here
+        FirebaseAnalytics.instance.logEvent(name: AnalyticsKeys.rewarded);
       },
     );
   }

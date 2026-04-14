@@ -1,5 +1,7 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
 import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -49,6 +51,7 @@ class DashboardCubit extends Cubit<DashboardState> {
       );
     } catch (e) {
       emit(state.copyWith(status: DashboardStatus.error));
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.dashboardLoad);
     }
   }
 

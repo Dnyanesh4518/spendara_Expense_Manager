@@ -1,3 +1,5 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../features/transaction/model/transaction_model.dart';
 
@@ -11,16 +13,50 @@ class TransactionRepository {
   }
 
   // ── CRUD ─────────────────────────────────────────────────
-  List<TransactionModel> getAll() =>
-      _box.values.toList()..sort((a, b) => b.date.compareTo(a.date));
+  List<TransactionModel> getAll() {
+    try {
+      return _box.values.toList()..sort((a, b) => b.date.compareTo(a.date));
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.transactionFetchAll);
+      rethrow;
+    }
+  }
 
-  Future<void> add(TransactionModel t) => _box.put(t.id, t);
+  void add(TransactionModel t) {
+    try {
+      _box.put(t.id, t);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.transactionAdd);
+      rethrow;
+    }
+  }
 
-  Future<void> update(TransactionModel t) => _box.put(t.id, t);
+  void update(TransactionModel t) {
+    try {
+      _box.put(t.id, t);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.transactionUpdate);
+      rethrow;
+    }
+  }
 
-  Future<void> delete(String id) => _box.delete(id);
+  void delete(String id) {
+    try {
+      _box.delete(id);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.transactionDelete);
+      rethrow;
+    }
+  }
 
-  TransactionModel? getById(String id) => _box.get(id);
+  TransactionModel? getById(String id) {
+    try {
+      return _box.get(id);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.transactionFetchById);
+      rethrow;
+    }
+  }
 
   // ── Aggregates ────────────────────────────────────────────
   double get totalIncome => _box.values

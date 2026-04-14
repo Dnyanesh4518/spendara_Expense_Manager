@@ -1,3 +1,5 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -150,6 +152,9 @@ class _InsightsScreenState extends State<InsightsScreen> {
           state: state,
           l10n: l10n,
           onCategoryTap: (value) {
+            FirebaseAnalytics.instance.logEvent(
+              name: "${AnalyticsKeys.catSelected}_$value",
+            );
             cubit.selectCategory(value);
           },
         );
@@ -476,7 +481,7 @@ class _CategoryContent extends StatelessWidget {
                 '${l10n!.topCategoriesLast} ${_periodWord(state.timeRange, l10n)}',
           ),
           const SizedBox(height: 12),
-          CategoryHistoryChart(state: state),
+          // CategoryHistoryChart(state: state),
           const SizedBox(height: 20),
         ],
 

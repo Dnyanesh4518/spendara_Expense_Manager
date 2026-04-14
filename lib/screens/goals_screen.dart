@@ -1,3 +1,5 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../features/dashboard/cubit/dashboard_cubit.dart';
@@ -74,7 +76,12 @@ class _GoalsScreenState extends State<GoalsScreen> {
                           padding: const EdgeInsets.only(bottom: 12),
                           child: GoalCard(
                             goal: g,
-                            onDeposit: () => DepositSheet.show(context, g),
+                            onDeposit: () {
+                              DepositSheet.show(context, g);
+                              FirebaseAnalytics.instance.logEvent(
+                                name: AnalyticsKeys.depositToGoal,
+                              );
+                            },
                             onEdit: () => _openEditGoal(context, g),
                           ),
                         ),
@@ -86,7 +93,12 @@ class _GoalsScreenState extends State<GoalsScreen> {
           ),
           floatingActionButton: state.goals.isNotEmpty
               ? FloatingActionButton(
-                  onPressed: () => _openAddGoal(context),
+                  onPressed: () {
+                    _openAddGoal(context);
+                    FirebaseAnalytics.instance.logEvent(
+                      name: AnalyticsKeys.addGoalPlus,
+                    );
+                  },
                   child: const Icon(Icons.add),
                 )
               : null,
@@ -97,9 +109,11 @@ class _GoalsScreenState extends State<GoalsScreen> {
 
   void _openAddGoal(BuildContext context) {
     Navigator.of(context).push(slideUp(const AddEditGoalScreen()));
+    FirebaseAnalytics.instance.logEvent(name: AnalyticsKeys.addGoal);
   }
 
   void _openEditGoal(BuildContext context, GoalModel goal) {
     Navigator.of(context).push(slideUp(AddEditGoalScreen(existing: goal)));
+    FirebaseAnalytics.instance.logEvent(name: AnalyticsKeys.editGoal);
   }
 }

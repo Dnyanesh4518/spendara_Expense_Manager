@@ -1,3 +1,5 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -112,80 +114,94 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isSaving = true);
+    try {
+      final amount = double.parse(_amountCtrl.text.replaceAll(',', ''));
 
-    final amount = double.parse(_amountCtrl.text.replaceAll(',', ''));
+      final transaction = TransactionModel(
+        id: _isEditing ? widget.existing!.id : const Uuid().v4(),
+        amount: amount,
+        type: _selectedType,
+        category: _selectedCategory,
+        date: _selectedDate,
+        notes: _notesCtrl.text.trim(),
+      );
 
-    final transaction = TransactionModel(
-      id: _isEditing ? widget.existing!.id : const Uuid().v4(),
-      amount: amount,
-      type: _selectedType,
-      category: _selectedCategory,
-      date: _selectedDate,
-      notes: _notesCtrl.text.trim(),
-    );
-
-    final cubit = context.read<TransactionCubit>();
-    if (_isEditing) {
-      await cubit.updateTransaction(transaction);
-    } else {
-      await cubit.addTransaction(transaction);
+      final cubit = context.read<TransactionCubit>();
+      if (_isEditing) {
+        await cubit.updateTransaction(transaction);
+      } else {
+        await cubit.addTransaction(transaction);
+      }
+      if (mounted) Navigator.of(context).pop();
+    } catch (e) {
+      if (_isEditing) {
+        FirebaseCrashlytics.instance.log(CrashlyticsKeys.editTransactionSave);
+      }
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.addTransactionSave);
     }
-    if (mounted) Navigator.of(context).pop();
   }
 
   // ── Date picker ────────────────────────────────────────────
   Future<void> _pickDate() async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate,
-      firstDate: DateTime(2020),
-      lastDate: DateTime.now(),
-      builder: (context, child) => Theme(
-        data: Theme.of(context).copyWith(
-          colorScheme: Theme.of(
-            context,
-          ).colorScheme.copyWith(primary: AppColors.primary),
+    try {
+      final picked = await showDatePicker(
+        context: context,
+        initialDate: _selectedDate,
+        firstDate: DateTime(2020),
+        lastDate: DateTime.now(),
+        builder: (context, child) => Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: Theme.of(
+              context,
+            ).colorScheme.copyWith(primary: AppColors.primary),
+          ),
+          child: child!,
         ),
-        child: child!,
-      ),
-    );
-    if (picked != null) setState(() => _selectedDate = picked);
+      );
+      if (picked != null) setState(() => _selectedDate = picked);
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.datePickerOpen);
+    }
   }
 
   // ── Delete (edit mode only) ────────────────────────────────
   Future<void> _confirmDelete() async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (_) {
-        AppLocalizations? appLocalizations = AppLocalizations.of(context);
-        return AlertDialog(
-          title: Text(
-            appLocalizations?.deleteTransaction ?? 'Delete transaction?',
-          ),
-          content: Text(
-            appLocalizations?.actionCannotBeUndone ??
-                'This action cannot be undone.',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: Text(appLocalizations?.cancel ?? 'Cancel'),
+    try {
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (_) {
+          AppLocalizations? appLocalizations = AppLocalizations.of(context);
+          return AlertDialog(
+            title: Text(
+              appLocalizations?.deleteTransaction ?? 'Delete transaction?',
             ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, true),
-              style: TextButton.styleFrom(foregroundColor: AppColors.expense),
-              child: Text(appLocalizations?.delete ?? 'Delete'),
+            content: Text(
+              appLocalizations?.actionCannotBeUndone ??
+                  'This action cannot be undone.',
             ),
-          ],
-        );
-      },
-    );
-
-    if (confirmed == true && mounted) {
-      await context.read<TransactionCubit>().deleteTransaction(
-        widget.existing!.id,
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text(appLocalizations?.cancel ?? 'Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context, true),
+                style: TextButton.styleFrom(foregroundColor: AppColors.expense),
+                child: Text(appLocalizations?.delete ?? 'Delete'),
+              ),
+            ],
+          );
+        },
       );
-      if (mounted) Navigator.of(context).pop();
+
+      if (confirmed == true && mounted) {
+        await context.read<TransactionCubit>().deleteTransaction(
+          widget.existing!.id,
+        );
+        if (mounted) Navigator.of(context).pop();
+      }
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.deleteTransactionUI);
     }
   }
 

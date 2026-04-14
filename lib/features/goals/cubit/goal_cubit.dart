@@ -1,4 +1,6 @@
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../repository/goal_repository.dart';
@@ -20,31 +22,38 @@ class GoalCubit extends Cubit<GoalState> {
       emit(
         state.copyWith(status: GoalStatus.error, errorMessage: e.toString()),
       );
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.goalCubitLoad);
+      rethrow;
     }
   }
 
   Future<void> addGoal(GoalModel g) async {
-    await _repo.add(g);
+    _repo.add(g);
     load();
   }
 
   Future<void> updateGoal(GoalModel g) async {
-    await _repo.update(g);
+    _repo.update(g);
     load();
   }
 
   Future<void> deleteGoal(String id) async {
-    await _repo.delete(id);
+    _repo.delete(id);
     load();
   }
 
   // Add money toward a goal
   Future<void> deposit(String id, double amount) async {
-    final goal = _repo.getAll().firstWhere((g) => g.id == id);
-    final updated = goal.copyWith(
-      savedAmount: (goal.savedAmount + amount).clamp(0, goal.targetAmount),
-    );
-    await _repo.update(updated);
-    load();
+    try {
+      final goal = _repo.getAll().firstWhere((g) => g.id == id);
+      final updated = goal.copyWith(
+        savedAmount: (goal.savedAmount + amount).clamp(0, goal.targetAmount),
+      );
+      _repo.update(updated);
+      load();
+    } catch (e) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.goalCubitDeposit);
+      rethrow;
+    }
   }
 }

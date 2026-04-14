@@ -1,3 +1,5 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/theme/app_colors.dart';
@@ -58,6 +60,9 @@ class DashboardScreenState extends State<DashboardScreen> {
                       child: InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, 'profileScreen');
+                          FirebaseAnalytics.instance.logEvent(
+                            name: AnalyticsKeys.profileClicked,
+                          );
                         },
                         child: CircleAvatar(
                           radius: 18,
@@ -150,6 +155,9 @@ class DashboardScreenState extends State<DashboardScreen> {
                         actionLabel: appLocalizations?.seeAll ?? 'See all',
                         onAction: () {
                           Navigator.of(context).pushNamed('transactions');
+                          FirebaseAnalytics.instance.logEvent(
+                            name: AnalyticsKeys.seeAll,
+                          );
                         },
                       ),
                       const SizedBox(height: 8),

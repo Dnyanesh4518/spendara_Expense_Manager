@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -43,6 +45,10 @@ class LocaleCubit extends Cubit<Locale> {
     // Priority 2: device language if supported
     final deviceLocale = PlatformDispatcher.instance.locale;
     if (_supportedCodes.contains(deviceLocale.languageCode)) {
+      FirebaseAnalytics.instance.logEvent(
+        name:
+            "${AnalyticsKeys.defaultLngSelected}_${deviceLocale.languageCode}",
+      );
       return Locale(deviceLocale.languageCode);
     }
 

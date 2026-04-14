@@ -3,6 +3,8 @@ import '../core/theme/app_colors.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class Constants {
+  static const String userBoxName = 'userBox';
+  static const String userKey = 'current_user';
   // ── EXPENSE CATEGORY KEYS ─────────────────────────────────
   // Grouped by parent for display — flat list for storage
   static const List<String> expenseCategoryKeys = [

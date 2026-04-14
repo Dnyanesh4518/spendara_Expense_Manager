@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "895681269955",
+    "project_id": "spendara-93465",
+    "storage_bucket": "spendara-93465.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895681269955:android:4b05b48d2ebfc7aa46d276",
+        "android_client_info": {
+          "package_name": "com.dnyanesh.spendara"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAohIKTDOzLZhF5Et0N5Cv-ucrEyGvrdkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

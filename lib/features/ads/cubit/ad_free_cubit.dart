@@ -34,10 +34,7 @@ class AdFreeCubit extends Cubit<AdFreeState> {
     }
   }
 
-  // ── Called from RemoveAdsButton.onRewarded ────────────────
-  // Your RemoveAdsButton already calls this — no change needed there
   void activateAdFree({required int minutes}) {
-    // Write expiry timestamp to Hive — survives app kills
     final expiry = DateTime.now().add(Duration(minutes: minutes));
     _box.put(_expiryKey, expiry.toIso8601String());
 

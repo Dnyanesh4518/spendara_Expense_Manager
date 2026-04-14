@@ -1,6 +1,8 @@
 import 'package:Spendara/l10n/generated/app_localizations.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../core/analytics/analytics_keys.dart';
 import '../features/ads/cubit/ad_free_cubit.dart';
 import '../services/rewarded_ad_service.dart';
 import '../core/theme/app_colors.dart';
@@ -31,9 +33,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
     AppLocalizations? appLocalizations = AppLocalizations.of(context);
     _adService.showAd(
       onRewarded: () {
-        // User watched full ad → activate ad-free
         context.read<AdFreeCubit>().activateAdFree(minutes: 60);
-
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Row(
@@ -62,6 +62,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
         );
       },
     );
+    FirebaseAnalytics.instance.logEvent(name: AnalyticsKeys.removeAdsClicked);
   }
 
   @override

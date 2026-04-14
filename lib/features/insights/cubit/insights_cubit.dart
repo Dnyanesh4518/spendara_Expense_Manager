@@ -1,43 +1,20 @@
 import 'dart:math';
 import 'package:Spendara/constants/constants.dart';
+import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
 import 'package:Spendara/l10n/generated/app_localizations.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../core/analytics/analytics_keys.dart';
 import '../../../repository/transaction_repository.dart';
 import '../../transaction/model/transaction_model.dart';
 
 part 'insights_state.dart';
 
-/// ─────────────────────────────────────────────────────────────────────────────
-/// LOCALIZATION STRATEGY — read before editing
-/// ─────────────────────────────────────────────────────────────────────────────
-///
-/// RULE: All comparisons and internal state use STORAGE KEYS (e.g. 'food_dining').
-///       Localized labels are ONLY produced at display time, inside Widgets.
-///
-/// How to use in your Widget / Screen:
-///
-///   // 1. Pass AppLocalizations when calling load()
-///   context.read<InsightsCubit>().load(l10n: AppLocalizations.of(context));
-///
-///   // 2. Display a category from state (always a storage key)
-///   Constants.expenseCategoryLabel(context, state.mostFrequentCategory)
-///
-///   // 3. Select a category — pass STORAGE KEY, not the localized label
-///   cubit.selectCategory(storageKey);   // e.g. 'food_dining'
-///
-///   // 4. Check if a category is selected in the UI
-///   final isSelected = state.selectedCategory == storageKey;
-///
-/// ─────────────────────────────────────────────────────────────────────────────
-
 class InsightsCubit extends Cubit<InsightsState> {
   final TransactionRepository _repo;
-
-  /// Cached l10n instance updated on every load() call that provides one.
-  /// Internal helpers (_monthAbbr, _rangeLabel, _buildSmartSummary) use this.
-  /// Falls back to English strings when null (e.g. first frame before l10n loads).
   AppLocalizations? _l10n;
 
   static const _prefTimeRange = 'insights_time_range';
@@ -64,22 +41,12 @@ class InsightsCubit extends Cubit<InsightsState> {
   // ── Switch view mode without reloading data ───────────────────────────────
   Future<void> changeViewMode(ViewMode mode) async {
     emit(state.copyWith(viewMode: mode));
+    FirebaseAnalytics.instance.logEvent(
+      name: "${AnalyticsKeys.viewMode}_$mode",
+    );
     _persistFilter(state.timeRange, mode);
   }
 
-  // ── Select / deselect a category for drill-down ───────────────────────────
-  //
-  // [category] MUST be a STORAGE KEY (e.g. 'food_dining'), NOT a localized label.
-  //
-  // ✅ Correct call-site:
-  //   cubit.selectCategory(storageKey);
-  //   // storageKey comes from state.expensesByCategory.keys
-  //
-  // ❌ Old (wrong) pattern — DO NOT do this:
-  //   cubit.selectCategory(Constants.expenseCategoryLabel(context, key), context);
-  //
-  // BuildContext is no longer needed here because we compare storage keys directly.
-  //
   void selectCategory(String? category) {
     if (category == null) {
       emit(
@@ -257,15 +224,13 @@ class InsightsCubit extends Cubit<InsightsState> {
       );
     } catch (_) {
       emit(state.copyWith(status: InsightsStatus.error));
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.insightsLoad);
     }
   }
 
   // ──────────────────────────────────────────────────────────────────────────
   // LOCALIZATION HELPERS (private — used only inside InsightsCubit)
   // ──────────────────────────────────────────────────────────────────────────
-
-  /// Returns localized 3-letter month abbreviations [Jan … Dec].
-  /// Index 0 = January.  Falls back to English when l10n is not yet cached.
   List<String> _monthAbbr() {
     final l = _l10n;
     if (l == null) {

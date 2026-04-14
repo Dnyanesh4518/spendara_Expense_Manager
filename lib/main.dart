@@ -1,14 +1,22 @@
+import 'dart:async';
+import 'dart:ui';
+
 import 'package:Spendara/repository/goal_repository.dart';
 import 'package:Spendara/repository/transaction_repository.dart';
 import 'package:Spendara/routes/app_routes.dart';
 import 'package:Spendara/routes/route_generator.dart';
 import 'package:Spendara/services/rewarded_ad_service.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'constants/constants.dart';
+import 'core/crashlytics/crashlytics_keys.dart';
 import 'core/di/injections.dart';
 import 'core/theme/app_theme.dart';
 import 'data/models/user_model.dart';
@@ -22,38 +30,118 @@ import 'features/transaction/cubit/transaction_cubit.dart';
 import 'features/transaction/model/transaction_model.dart';
 import 'l10n/generated/app_localizations.dart';
 
-const String userBoxName = 'userBox';
-const String userKey = 'current_user';
+Future<void> main() async {
+  runZonedGuarded<Future<void>>(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      try {
+        await Firebase.initializeApp();
+      } catch (e) {
+        debugPrint('${CrashlyticsKeys.appStartup}: $e');
+        rethrow;
+      }
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+      if (kDebugMode) {
+        await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
+          false,
+        );
+      } else {
+        await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
+          true,
+        );
+      }
+      FlutterError.onError = (errorDetails) {
+        FirebaseCrashlytics.instance.log(
+          '${CrashlyticsKeys.appStartup} | widget: ${errorDetails.library}',
+        );
+        FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+      };
 
-  // Init Hive
-  await Hive.initFlutter();
-  Hive.registerAdapter(TransactionModelAdapter());
-  Hive.registerAdapter(GoalModelAdapter());
-  Hive.registerAdapter(UserModelAdapter());
+      PlatformDispatcher.instance.onError = (error, stack) {
+        FirebaseCrashlytics.instance.log(CrashlyticsKeys.appStartup);
+        FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+        return true; // must return true to mark as handled
+      };
+      try {
+        await dotenv.load(fileName: ".env");
+        await Hive.initFlutter();
+        Hive.registerAdapter(TransactionModelAdapter());
+        Hive.registerAdapter(GoalModelAdapter());
+        Hive.registerAdapter(UserModelAdapter());
+      } catch (e, s) {
+        FirebaseCrashlytics.instance.log(CrashlyticsKeys.hiveInit);
+        FirebaseCrashlytics.instance.recordError(
+          e,
+          s,
+          reason: CrashlyticsKeys.hiveAdapterRegister,
+          fatal: true,
+        );
+        rethrow;
+      }
 
-  // Open boxes
-  await TransactionRepository.init();
-  await GoalRepository.init();
-  await AdFreeCubit.init();
+      // ── 5. Hive box open ──────────────────────────────────────
+      try {
+        await TransactionRepository.init();
+        await GoalRepository.init();
+        await AdFreeCubit.init();
+        await Hive.openBox<UserModel>(Constants.userBoxName);
+        await Hive.openBox('settingsBox');
+      } catch (e, s) {
+        FirebaseCrashlytics.instance.log(CrashlyticsKeys.hiveBoxOpen);
+        FirebaseCrashlytics.instance.recordError(
+          e,
+          s,
+          reason: CrashlyticsKeys.hiveBoxOpen,
+          fatal: true,
+        );
+        rethrow;
+      }
 
-  setupDI();
+      // ── 6. DI setup ───────────────────────────────────────────
+      try {
+        setupDI();
+      } catch (e, s) {
+        FirebaseCrashlytics.instance.log(CrashlyticsKeys.diSetup);
+        FirebaseCrashlytics.instance.recordError(
+          e,
+          s,
+          reason: CrashlyticsKeys.diSetup,
+          fatal: true,
+        );
+        rethrow;
+      }
 
-  await Hive.openBox<UserModel>(userBoxName);
-  await Hive.openBox('settingsBox');
-  final box = Hive.box<UserModel>(userBoxName);
-  final bool isOnboarded = box.get(userKey) != null;
-  await MobileAds.instance.initialize();
+      await Hive.openBox<UserModel>(Constants.userBoxName);
+      await Hive.openBox('settingsBox');
+      final box = Hive.box<UserModel>(Constants.userBoxName);
+      final bool isOnboarded = box.get(Constants.userKey) != null;
 
-  // ── test device Id Configuration ─────────────────────
-  await MobileAds.instance.updateRequestConfiguration(
-    RequestConfiguration(testDeviceIds: ['980AD4B9BCA7E16C89DB348806A384D4']),
+      // ── 7. AdMob init ─────────────────────────────────────────
+      try {
+        await MobileAds.instance.initialize();
+        await MobileAds.instance.updateRequestConfiguration(
+          RequestConfiguration(
+            testDeviceIds: ['980AD4B9BCA7E16C89DB348806A384D4'],
+          ),
+        );
+        RewardedAdService().loadAd();
+      } catch (e, s) {
+        // Non-fatal — app works without ads
+        FirebaseCrashlytics.instance.log(CrashlyticsKeys.bannerAdLoad);
+        FirebaseCrashlytics.instance.recordError(
+          e,
+          s,
+          reason: CrashlyticsKeys.bannerAdLoad,
+          fatal: false, // ← false — ads failing ≠ app broken
+        );
+      }
+      runApp(FinanceApp(isOnboarded: isOnboarded));
+    },
+    (error, stack) {
+      FirebaseCrashlytics.instance.log(CrashlyticsKeys.appStartup);
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    },
   );
-  RewardedAdService().loadAd();
-  runApp(FinanceApp(isOnboarded: isOnboarded));
 }
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

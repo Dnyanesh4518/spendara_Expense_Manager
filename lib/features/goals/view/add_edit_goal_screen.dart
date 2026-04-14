@@ -1,3 +1,5 @@
+import 'package:Spendara/core/analytics/analytics_keys.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -122,6 +124,7 @@ class _AddEditGoalScreenState extends State<AddEditGoalScreen> {
     );
     if (ok == true && mounted) {
       await context.read<GoalCubit>().deleteGoal(widget.existing!.id);
+      FirebaseAnalytics.instance.logEvent(name: AnalyticsKeys.deleteGoal);
       if (mounted) Navigator.of(context).pop();
     }
   }

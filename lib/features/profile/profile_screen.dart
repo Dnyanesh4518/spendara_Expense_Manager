@@ -1,8 +1,10 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
 import '../../constants/ad_constants.dart';
+import '../../core/analytics/analytics_keys.dart';
 import '../../data/models/user_model.dart';
 import '../../features/ads/cubit/ad_free_cubit.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -126,6 +128,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Locale(lang.code),
                       );
                       Navigator.pop(ctx);
+                      FirebaseAnalytics.instance.logEvent(
+                        name: '${AnalyticsKeys.languageSelected}_${lang.name}',
+                      );
                     },
                   );
                 },
