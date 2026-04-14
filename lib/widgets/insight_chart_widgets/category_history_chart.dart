@@ -29,6 +29,11 @@ class CategoryHistoryChart extends StatelessWidget {
 
     final allValues = history.values.expand((l) => l).where((v) => v > 0);
     final maxY = allValues.isEmpty ? 100.0 : allValues.reduce(max) * 1.3;
+    final catCount = cats.length.clamp(1, 5);
+    final periodCount = labels.length.clamp(1, 6);
+    final rodWidth = max(4.0, (36.0 - (catCount - 1) * 2) / catCount);
+    final groupsSpace = periodCount > 4 ? 8.0 : 12.0;
+    final fmt = CurrencyFormatter.of(context);
 
     return Container(
       padding: const EdgeInsets.fromLTRB(8, 16, 8, 4),
@@ -78,19 +83,26 @@ class CategoryHistoryChart extends StatelessWidget {
             child: BarChart(
               BarChartData(
                 maxY: maxY,
-                groupsSpace: 10,
+                groupsSpace: groupsSpace,
                 barTouchData: BarTouchData(
                   touchTooltipData: BarTouchTooltipData(
                     getTooltipColor: (_) => AppColors.primary,
-                    getTooltipItem: (group, _, rod, rodIndex) => BarTooltipItem(
-                      '${cats[rodIndex].split(' ').first}\n'
-                      '${CurrencyFormatter.fallback().compact(rod.toY)}',
-                      const TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    getTooltipItem: (group, _, rod, rodIndex) {
+                      if (rodIndex >= cats.length) return null;
+                      final label = Constants.expenseCategoryLabel(
+                        context,
+                        cats[rodIndex],
+                      );
+                      final amount = fmt.compact(rod.toY);
+                      return BarTooltipItem(
+                        '$label\n$amount',
+                        const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      );
+                    },
                   ),
                 ),
                 titlesData: FlTitlesData(
@@ -136,6 +148,7 @@ class CategoryHistoryChart extends StatelessWidget {
                 barGroups: List.generate(labels.length, (periodIdx) {
                   return BarChartGroupData(
                     x: periodIdx,
+                    barsSpace: 2,
                     barRods: cats.asMap().entries.map((e) {
                       final data = history[e.value];
                       final val = (data != null && periodIdx < data.length)
@@ -143,7 +156,7 @@ class CategoryHistoryChart extends StatelessWidget {
                           : 0.0;
                       return BarChartRodData(
                         toY: val,
-                        width: max(4.0, 44.0 / cats.length - 2),
+                        width: rodWidth,
                         color: colors[e.key % colors.length],
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(3),

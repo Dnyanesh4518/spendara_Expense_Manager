@@ -78,7 +78,6 @@ class DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ],
                 ),
-
                 SliverPadding(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
                   sliver: SliverList(

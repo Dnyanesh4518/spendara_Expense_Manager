@@ -28,9 +28,21 @@ class _InsightsScreenState extends State<InsightsScreen> {
       ),
       builder: (ctx, child) => Theme(
         data: Theme.of(ctx).copyWith(
-          colorScheme: Theme.of(
-            ctx,
-          ).colorScheme.copyWith(primary: AppColors.primary),
+          primaryColor: AppColors.textPrimary,
+          inputDecorationTheme: InputDecorationTheme(
+            floatingLabelStyle: const TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12,
+              color: AppColors.primary, // ← purple when focused/floating
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          dialogTheme: DialogThemeData(
+            backgroundColor: Theme.of(ctx).colorScheme.surface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
         ),
         child: child!,
       ),
@@ -475,15 +487,15 @@ class _CategoryContent extends StatelessWidget {
         ],
 
         // ── Top 5 category history (6 periods bar chart) ───────
-        if (state.top5CategoryHistory.isNotEmpty) ...[
-          SectionHeader(
-            title:
-                '${l10n!.topCategoriesLast} ${_periodWord(state.timeRange, l10n)}',
-          ),
-          const SizedBox(height: 12),
-          // CategoryHistoryChart(state: state),
-          const SizedBox(height: 20),
-        ],
+        // if (state.top5CategoryHistory.isNotEmpty) ...[
+        //   SectionHeader(
+        //     title:
+        //         '${l10n!.topCategoriesLast} ${_periodWord(state.timeRange, l10n)}',
+        //   ),
+        //   const SizedBox(height: 12),
+        //   CategoryHistoryChart(state: state),
+        //   const SizedBox(height: 20),
+        // ],
 
         // ── Drill-down (tap category in the list below) ────────
         SectionHeader(title: l10n!.tapACategoryToExplore),
@@ -493,13 +505,13 @@ class _CategoryContent extends StatelessWidget {
     );
   }
 
-  String _periodWord(TimeRange r, AppLocalizations? appLocalization) =>
-      switch (r) {
-        TimeRange.week => appLocalization?.week ?? 'week',
-        TimeRange.month => appLocalization?.month ?? 'Month',
-        TimeRange.year => appLocalization?.year ?? 'Year',
-        TimeRange.custom => appLocalization?.custom ?? 'custom',
-      };
+  // String _periodWord(TimeRange r, AppLocalizations? appLocalization) =>
+  //     switch (r) {
+  //       TimeRange.week => appLocalization?.week ?? 'week',
+  //       TimeRange.month => appLocalization?.month ?? 'Month',
+  //       TimeRange.year => appLocalization?.year ?? 'Year',
+  //       TimeRange.custom => appLocalization?.custom ?? 'custom',
+  //     };
 }
 
 // ──────────────────────────────────────────────────────────────────

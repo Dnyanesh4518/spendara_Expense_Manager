@@ -506,10 +506,10 @@ class InsightsCubit extends Cubit<InsightsState> {
     TimeRange range,
     DateTime now,
   ) {
-    final abbr = _monthAbbr(); // ← localized
-    final allByCat = _expensesByCategory(allTxns);
-    final top5 = allByCat.keys.take(5).toList();
-    final history = <String, List<double>>{for (final c in top5) c: []};
+    final abbr = _monthAbbr();
+
+    // ✅ Step 1: Pre-compute the 6 period bounds + labels first
+    final periodBounds = <(DateTime, DateTime)>[];
     final labels = <String>[];
 
     for (int i = 5; i >= 0; i--) {
@@ -530,18 +530,48 @@ class InsightsCubit extends Cubit<InsightsState> {
           label = abbr[(pStart.month - 1) % 12];
           break;
       }
+      periodBounds.add((pStart, pEnd));
       labels.add(label);
+    }
+
+    // ✅ Step 2: Sum spending PER CATEGORY across only those 6 displayed periods
+    final totalAcrossPeriods = <String, double>{};
+    for (final (pStart, pEnd) in periodBounds) {
+      for (final t in _txnsInRange(
+        allTxns,
+        pStart,
+        pEnd,
+      ).where((t) => t.isExpense)) {
+        final key = Constants.normalizeKey(t.category);
+        totalAcrossPeriods[key] = (totalAcrossPeriods[key] ?? 0) + t.amount;
+      }
+    }
+
+    // ✅ Step 3: Pick top 5 sorted by highest total spend in those 6 periods
+    final top5 =
+        (totalAcrossPeriods.entries.toList()
+              ..sort((a, b) => b.value.compareTo(a.value)))
+            .take(5)
+            .map((e) => e.key)
+            .toList();
+
+    if (top5.isEmpty) return ({}, labels);
+
+    // ✅ Step 4: Build per-period history for only those top 5
+    final history = <String, List<double>>{for (final c in top5) c: []};
+    for (final (pStart, pEnd) in periodBounds) {
       final pTxns = _txnsInRange(allTxns, pStart, pEnd);
       for (final cat in top5) {
         history[cat]!.add(
           pTxns
               .where(
                 (t) => t.isExpense && Constants.normalizeKey(t.category) == cat,
-              ) // key vs key ✅
+              )
               .fold(0.0, (s, t) => s + t.amount),
         );
       }
     }
+
     return (history, labels);
   }
 
