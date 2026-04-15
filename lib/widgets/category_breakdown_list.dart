@@ -85,8 +85,9 @@ class CategoryBreakdownList extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Wrap(
+                        spacing: 10,
+                        runAlignment: WrapAlignment.spaceBetween,
                         children: [
                           Text(categoryLabel, style: tt.labelLarge),
                           Text(

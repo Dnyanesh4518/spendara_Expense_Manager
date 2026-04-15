@@ -38,7 +38,9 @@ class AnomalyAlertCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                Wrap(
+                  spacing: 20,
+                  alignment: WrapAlignment.spaceBetween,
                   children: [
                     Text(
                       Constants.expenseCategoryLabel(context, item.category),

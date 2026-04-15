@@ -56,6 +56,9 @@ class SpendingVelocityCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
+            maxLines: 2,
+            textAlign: TextAlign.start,
+            overflow: TextOverflow.ellipsis,
             '${appLocalizations.basedOn} ${fmt.format(state.currentPeriodExpenses)} ${appLocalizations.spentSoFar}',
             style: tt.bodySmall,
           ),
@@ -71,8 +74,10 @@ class SpendingVelocityCard extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           if (state.prevPeriodExpenses > 0)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              spacing: 4,
+              runAlignment: WrapAlignment.spaceBetween,
+              alignment: WrapAlignment.spaceBetween,
               children: [
                 Text(
                   isOverBudget

@@ -438,7 +438,7 @@ const List<_Language> _languages = [
   _Language('ur', 'Urdu', 'اردو'),
   _Language('or', 'Odia', 'ଓଡିଆ'),
   _Language('es', 'Spanish', 'Español'),
-  _Language('pt_BR', 'Portuguese ', 'Português'),
+  _Language('pt', 'Portuguese ', 'Português'),
   _Language('id', 'Indonesian', 'Indonesia'),
   _Language('ar', 'Arabic', 'عربي'),
   _Language('fr', 'French', 'Français'),
