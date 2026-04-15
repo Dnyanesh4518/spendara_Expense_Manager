@@ -119,11 +119,6 @@ Future<void> main() async {
       // ── 7. AdMob init ─────────────────────────────────────────
       try {
         await MobileAds.instance.initialize();
-        await MobileAds.instance.updateRequestConfiguration(
-          RequestConfiguration(
-            testDeviceIds: ['980AD4B9BCA7E16C89DB348806A384D4'],
-          ),
-        );
         RewardedAdService().loadAd();
       } catch (e, s) {
         // Non-fatal — app works without ads
