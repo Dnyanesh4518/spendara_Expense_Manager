@@ -73,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Form(
             key: _formKey,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 24),
 
@@ -111,46 +111,51 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                 const SizedBox(height: 40),
 
-                // ── Name Field ────────────────────────────────────────
-                Text(
-                  appLocalizations?.fullName ?? 'Full Name',
-                  style: theme.textTheme.labelLarge,
-                ),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _nameController,
-                  textCapitalization: TextCapitalization.words,
-                  decoration: InputDecoration(
-                    hintText: 'e.g. John Doe',
-                    hintStyle: theme.textTheme.bodySmall,
-                    prefixIcon: Icon(Icons.person_outline_rounded),
-                  ),
-                  validator: (val) {
-                    if (val == null || val.trim().isEmpty) {
-                      return appLocalizations?.pleaseEnterName ??
-                          'Please enter your name';
-                    }
-                    return null;
-                  },
-                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // ── Name Field ────────────────────────────────────────
+                    Text(
+                      appLocalizations?.fullName ?? 'Full Name',
+                      style: theme.textTheme.labelLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      controller: _nameController,
+                      textCapitalization: TextCapitalization.words,
+                      decoration: InputDecoration(
+                        hintText: 'e.g. John Doe',
+                        hintStyle: theme.textTheme.bodySmall,
+                        prefixIcon: Icon(Icons.person_outline_rounded),
+                      ),
+                      validator: (val) {
+                        if (val == null || val.trim().isEmpty) {
+                          return appLocalizations?.pleaseEnterName ??
+                              'Please enter your name';
+                        }
+                        return null;
+                      },
+                    ),
 
-                const SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
-                // ── Email Field ───────────────────────────────────────
-                Text(
-                  appLocalizations?.emailAddress ?? 'Email Address',
-                  style: theme.textTheme.labelLarge,
-                ),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    hintText: 'e.g. you@example.com',
-                    hintStyle: theme.textTheme.bodySmall,
-                    prefixIcon: Icon(Icons.email_outlined),
-                  ),
-                  validator: (val) => validateEmail(val, appLocalizations),
+                    // ── Email Field ───────────────────────────────────────
+                    Text(
+                      appLocalizations?.emailAddress ?? 'Email Address',
+                      style: theme.textTheme.labelLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        hintText: 'e.g. you@example.com',
+                        hintStyle: theme.textTheme.bodySmall,
+                        prefixIcon: Icon(Icons.email_outlined),
+                      ),
+                      validator: (val) => validateEmail(val, appLocalizations),
+                    ),
+                  ],
                 ),
 
                 const SizedBox(height: 40),
