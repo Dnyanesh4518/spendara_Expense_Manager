@@ -249,6 +249,10 @@
   "bonus":              "ബോണസ്",
   "sideIncome":         "പാർട്ട്-ടൈം വരുമാനം",
   "giftReceived":       "സമ്മാനം ലഭിച്ചു",
-  "refundCashback":     "റീഫണ്ട് & കാഷ്ബാക്ക്"
+  "refundCashback":     "റീഫണ്ട് & കാഷ്ബാക്ക്",
+  "financialOverview": "സാമ്പത്തിക അവലോകനം",
+  "balance": "ബാക്കി",
+  "fullInsights": "സമ്പൂർണ്ണ ഉൾക്കാഴ്ച",
+  "savingsGoalProgress": "സേവിങ്സ് ലക്ഷ്യ പുരോഗതി"
 
 }

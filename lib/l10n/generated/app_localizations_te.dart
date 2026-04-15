@@ -764,4 +764,16 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get refundCashback => 'రీఫండ్ & కాష్‌బ్యాక్';
+
+  @override
+  String get financialOverview => 'ఆర్థిక అవలోకనం';
+
+  @override
+  String get balance => 'నిల్వ';
+
+  @override
+  String get fullInsights => 'పూర్తి విశ్లేషణ';
+
+  @override
+  String get savingsGoalProgress => 'పొదుపు లక్ష్యం పురోగతి';
 }

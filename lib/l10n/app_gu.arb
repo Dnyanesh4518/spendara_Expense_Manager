@@ -249,6 +249,10 @@
   "bonus":              "બૉનસ",
   "sideIncome":         "પાર્ટ-ટાઇમ આવક",
   "giftReceived":       "ભેટ / રૉકડ મળ્યું",
-  "refundCashback":     "રિફંડ અને કૅશબૅક"
+  "refundCashback":     "રિફંડ અને કૅશબૅક",
+  "financialOverview": "નાણાકીય વિહંગাવলોકન",
+  "balance": "બાકી રકમ",
+  "fullInsights": "સંપૂર્ણ વિશ્લેષण",
+  "savingsGoalProgress": "બચત લક્ષ્ય પ્રગતિ"
 
 }

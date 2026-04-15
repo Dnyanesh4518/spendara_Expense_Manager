@@ -45,9 +45,6 @@ class InsightsState extends Equatable {
   final String mostFrequentCategory;
   final List<String> weekDayLabels;
 
-  // ── Smart summary (logic-based, no AI) ───────────────────────
-  final String smartSummary;
-
   // ── Period-aware financials ───────────────────────────────────
   final double currentPeriodExpenses;
   final double prevPeriodExpenses;
@@ -89,7 +86,6 @@ class InsightsState extends Equatable {
     this.totalTransactions = 0,
     this.mostFrequentCategory = '—',
     this.weekDayLabels = const [],
-    this.smartSummary = '',
     this.currentPeriodExpenses = 0,
     this.prevPeriodExpenses = 0,
     this.currentPeriodIncome = 0,
@@ -203,7 +199,6 @@ class InsightsState extends Equatable {
     totalTransactions: totalTransactions ?? this.totalTransactions,
     mostFrequentCategory: mostFrequentCategory ?? this.mostFrequentCategory,
     weekDayLabels: weekDayLabels ?? this.weekDayLabels,
-    smartSummary: smartSummary ?? this.smartSummary,
     currentPeriodExpenses: currentPeriodExpenses ?? this.currentPeriodExpenses,
     prevPeriodExpenses: prevPeriodExpenses ?? this.prevPeriodExpenses,
     currentPeriodIncome: currentPeriodIncome ?? this.currentPeriodIncome,
@@ -242,7 +237,6 @@ class InsightsState extends Equatable {
     totalTransactions,
     mostFrequentCategory,
     weekDayLabels,
-    smartSummary,
     currentPeriodExpenses,
     prevPeriodExpenses,
     currentPeriodIncome,

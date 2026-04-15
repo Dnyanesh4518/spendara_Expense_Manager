@@ -765,4 +765,16 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get refundCashback => 'ରିଫଣ୍ଡ ଓ କ୍ୟାଶବ୍ୟାକ';
+
+  @override
+  String get financialOverview => 'ଆର୍ଥିକ ସମୀକ୍ଷା';
+
+  @override
+  String get balance => 'ଅବଶିଷ୍ଟ';
+
+  @override
+  String get fullInsights => 'ସମ୍ପୂର୍ଣ୍ଣ ବିଶ୍ଳେଷଣ';
+
+  @override
+  String get savingsGoalProgress => 'ସଞ୍ଚୟ ଲକ୍ଷ୍ୟ ଅଗ୍ରଗତି';
 }

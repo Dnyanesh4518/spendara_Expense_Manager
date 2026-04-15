@@ -249,5 +249,9 @@
   "bonus":              "Thưởng / Hoa hồng",
   "sideIncome":         "Thu nhập thêm",
   "giftReceived":       "Quà / Tiền nhận được",
-  "refundCashback":     "Hoàn tiền & cashback"
+  "refundCashback":     "Hoàn tiền & cashback",
+  "financialOverview": "Tổng quan tài chính",
+  "balance": "Số dư",
+  "fullInsights": "Phân tích đầy đủ",
+  "savingsGoalProgress": "Tiến độ mục tiêu tiết kiệm"
 }

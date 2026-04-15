@@ -763,4 +763,16 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get refundCashback => 'રિફંડ અને કૅશબૅક';
+
+  @override
+  String get financialOverview => 'નાણાકીય વિહંગাવলોકન';
+
+  @override
+  String get balance => 'બાકી રકમ';
+
+  @override
+  String get fullInsights => 'સંપૂર્ણ વિશ્લેષण';
+
+  @override
+  String get savingsGoalProgress => 'બચત લક્ષ્ય પ્રગતિ';
 }

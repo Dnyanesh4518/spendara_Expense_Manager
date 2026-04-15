@@ -1637,6 +1637,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Refund & Cashback'**
   String get refundCashback;
+
+  /// No description provided for @financialOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Financial overview'**
+  String get financialOverview;
+
+  /// No description provided for @balance.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance'**
+  String get balance;
+
+  /// No description provided for @fullInsights.
+  ///
+  /// In en, this message translates to:
+  /// **'Full insights'**
+  String get fullInsights;
+
+  /// No description provided for @savingsGoalProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings goal progress'**
+  String get savingsGoalProgress;
 }
 
 class _AppLocalizationsDelegate

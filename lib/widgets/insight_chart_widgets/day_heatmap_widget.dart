@@ -84,8 +84,8 @@ class DayHeatmapWidget extends StatelessWidget {
             }),
           ),
           const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            runAlignment: WrapAlignment.spaceBetween,
             children: [
               Text(
                 '${appLocalizations?.highestLabel} ${days[totals.indexOf(maxVal)]} '

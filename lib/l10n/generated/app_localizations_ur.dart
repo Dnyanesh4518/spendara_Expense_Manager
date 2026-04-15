@@ -765,4 +765,16 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get refundCashback => 'واپسی اور کیش بیک';
+
+  @override
+  String get financialOverview => 'مالی جائزہ';
+
+  @override
+  String get balance => 'بیلنس';
+
+  @override
+  String get fullInsights => 'مکمل تجزیہ';
+
+  @override
+  String get savingsGoalProgress => 'بچت ہدف کی پیشرفت';
 }

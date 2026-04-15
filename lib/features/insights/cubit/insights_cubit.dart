@@ -193,16 +193,6 @@ class InsightsCubit extends Cubit<InsightsState> {
           totalTransactions: allTxns.length,
           mostFrequentCategory: mostFrequent, // STORAGE KEY
           // ── New / advanced fields ──
-          smartSummary: _buildSmartSummary(
-            curExp,
-            prevExp,
-            curInc,
-            curByCat,
-            prevByCat,
-            curSav,
-            prevSav,
-            range,
-          ),
           currentPeriodExpenses: curExp,
           prevPeriodExpenses: prevExp,
           currentPeriodIncome: curInc,
@@ -613,108 +603,6 @@ class InsightsCubit extends Cubit<InsightsState> {
       if (p > 0 && e.value > p * 1.2) alerts.add(e.key); // key vs key ✅
     }
     return alerts;
-  }
-
-  // ──────────────────────────────────────────────────────────────────────────
-  // SMART SUMMARY  (template-based, no AI)
-  // ──────────────────────────────────────────────────────────────────────────
-  //
-  // Builds a localized narrative string using separated ARB keys.
-  // Falls back to English when _l10n == null.
-  //
-  // Word-order note:
-  //   The separated-key pattern works well for English and similar languages.
-  //   For languages with very different word order (Telugu, Kannada, Japanese)
-  //   you can introduce a SmartSummaryData model and compose the string in the
-  //   Widget layer instead — the cubit just needs to emit the numbers/enum type.
-  //
-  String _buildSmartSummary(
-    double curExp,
-    double prevExp,
-    double curInc,
-    Map<String, double> curByCat,
-    Map<String, double> prevByCat,
-    double savingsRate,
-    double prevSavingsRate,
-    TimeRange range,
-  ) {
-    final l = _l10n;
-
-    String compact(double v) {
-      if (v >= 100000) return '₹${(v / 100000).toStringAsFixed(1)}L';
-      if (v >= 1000) return '₹${(v / 1000).toStringAsFixed(1)}K';
-      return '₹${v.toStringAsFixed(0)}';
-    }
-
-    final label = _rangeLabel(
-      range,
-    ); // localized 'week'/'month'/'year'/'period'
-    final diff = curExp - prevExp;
-    String body;
-
-    if (prevExp == 0) {
-      // EN: "You spent ₹1.2K this month."
-      body = l == null
-          ? 'You spent ${compact(curExp)} this $label.'
-          : '${l.youSpent} ${compact(curExp)} ${l.thisLabelPrefix} $label.';
-    } else if (diff > 0) {
-      // EN: "This month you spent ₹500 more than last month."
-      body = l == null
-          ? 'This $label you spent ${compact(diff)} more than last $label.'
-          : '${l.thisLabelPrefix} $label ${l.youSpent} ${compact(diff)} ${l.moreThanLast} $label.';
-
-      // Top 2 spending drivers
-      // Driver names: storage key → human-readable ('food_dining' → 'food dining')
-      // UI can further localize these using Constants.expenseCategoryLabel if needed.
-      final drivers = <String>[];
-      for (final e in curByCat.entries) {
-        final p = prevByCat[e.key] ?? 0;
-        if (e.value > p && drivers.length < 2) {
-          final name = e.key.replaceAll('_', ' '); // minimal readable form
-          drivers.add('$name (+${compact(e.value - p)})');
-        }
-      }
-      if (drivers.isNotEmpty) {
-        body += l == null
-            ? ' ${drivers.join(' & ')} drove the increase.'
-            : ' ${drivers.join(' & ')} ${l.driversIncrease}';
-      }
-    } else if (diff < 0) {
-      // EN: "Great job! You spent ₹200 less than last month. 🎉"
-      body = l == null
-          ? 'Great job! You spent ${compact(diff.abs())} less than last $label. 🎉'
-          : '${l.greatJob} ${l.youSpent} ${compact(diff.abs())} ${l.lessThanLast} $label. 🎉';
-    } else {
-      // EN: "Your spending this month matches last month."
-      body = l == null
-          ? 'Your spending this $label matches last $label.'
-          : '${l.yourSpending} ${l.thisLabelPrefix} $label ${l.matchesLast} $label.';
-    }
-
-    // Savings rider
-    if (curInc > 0) {
-      final savChange = savingsRate - prevSavingsRate;
-      // EN: " Saving 32% of income"
-      body += l == null
-          ? ' Saving ${savingsRate.toStringAsFixed(0)}% of income'
-          : ' ${l.saving} ${savingsRate.toStringAsFixed(0)}% ${l.ofIncome}';
-
-      if (savChange > 2) {
-        // EN: " — up from 28% last month. 🎉"
-        body += l == null
-            ? ' — up from ${prevSavingsRate.toStringAsFixed(0)}% last $label. 🎉'
-            : ' ${l.upFrom} ${prevSavingsRate.toStringAsFixed(0)}% $label. 🎉';
-      } else if (savChange < -2) {
-        // EN: " — down from 35% last month."
-        body += l == null
-            ? ' — down from ${prevSavingsRate.toStringAsFixed(0)}% last $label.'
-            : ' ${l.downFrom} ${prevSavingsRate.toStringAsFixed(0)}% $label.';
-      } else {
-        body += '.';
-      }
-    }
-
-    return body;
   }
 
   // ──────────────────────────────────────────────────────────────────────────

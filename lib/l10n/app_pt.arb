@@ -249,5 +249,9 @@
   "bonus":              "Bônus / Incentivo",
   "sideIncome":         "Renda extra",
   "giftReceived":       "Presente / Dinheiro recebido",
-  "refundCashback":     "Reembolso e cashback"
+  "refundCashback":     "Reembolso e cashback",
+  "financialOverview": "Visão financeira",
+  "balance": "Saldo",
+  "fullInsights": "Análise completa",
+  "savingsGoalProgress": "Progresso da meta de economia"
 }

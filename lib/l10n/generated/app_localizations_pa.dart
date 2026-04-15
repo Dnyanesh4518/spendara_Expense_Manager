@@ -763,4 +763,16 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get refundCashback => 'ਰਿਫੰਡ ਅਤੇ ਕੈਸ਼ਬੈਕ';
+
+  @override
+  String get financialOverview => 'ਵਿੱਤੀ ਸੰਖੇਪ';
+
+  @override
+  String get balance => 'ਬਕਾਇਆ';
+
+  @override
+  String get fullInsights => 'ਪੂਰੀ ਜਾਣਕਾਰੀ';
+
+  @override
+  String get savingsGoalProgress => 'ਬੱਚਤ ਟੀਚਾ ਪ੍ਰਗਤੀ';
 }

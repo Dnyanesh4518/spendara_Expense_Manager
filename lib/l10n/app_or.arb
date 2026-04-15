@@ -249,6 +249,10 @@
   "bonus":              "ବୋନସ",
   "sideIncome":         "ପାର୍ଟ-ଟାଇମ ଆୟ",
   "giftReceived":       "ଉପହାର ପ୍ରାପ୍ତ",
-  "refundCashback":     "ରିଫଣ୍ଡ ଓ କ୍ୟାଶବ୍ୟାକ"
+  "refundCashback":     "ରିଫଣ୍ଡ ଓ କ୍ୟାଶବ୍ୟାକ",
+  "financialOverview": "ଆର୍ଥିକ ସମୀକ୍ଷା",
+  "balance": "ଅବଶିଷ୍ଟ",
+  "fullInsights": "ସମ୍ପୂର୍ଣ୍ଣ ବିଶ୍ଳେଷଣ",
+  "savingsGoalProgress": "ସଞ୍ଚୟ ଲକ୍ଷ୍ୟ ଅଗ୍ରଗତି"
 
 }

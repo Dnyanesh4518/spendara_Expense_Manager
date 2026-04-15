@@ -250,6 +250,10 @@
   "bonus":              "Bonus / Incentive",
   "sideIncome":         "Part-time / Side Income",
   "giftReceived":       "Gift / Cash Received",
-  "refundCashback":     "Refund & Cashback"
+  "refundCashback":     "Refund & Cashback",
+  "financialOverview": "Financial overview",
+  "balance": "Balance",
+  "fullInsights": "Full insights",
+  "savingsGoalProgress": "Savings goal progress"
 
 }

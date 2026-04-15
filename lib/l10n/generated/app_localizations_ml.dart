@@ -766,4 +766,16 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get refundCashback => 'റീഫണ്ട് & കാഷ്ബാക്ക്';
+
+  @override
+  String get financialOverview => 'സാമ്പത്തിക അവലോകനം';
+
+  @override
+  String get balance => 'ബാക്കി';
+
+  @override
+  String get fullInsights => 'സമ്പൂർണ്ണ ഉൾക്കാഴ്ച';
+
+  @override
+  String get savingsGoalProgress => 'സേവിങ്സ് ലക്ഷ്യ പുരോഗതി';
 }

@@ -768,4 +768,16 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get refundCashback => 'திரும்பப்பெறல் & கேஷ்பேக்';
+
+  @override
+  String get financialOverview => 'நிதி மேலோட்டம்';
+
+  @override
+  String get balance => 'இருப்பு';
+
+  @override
+  String get fullInsights => 'முழு நுண்ணறிவு';
+
+  @override
+  String get savingsGoalProgress => 'சேமிப்பு இலக்கு முன்னேற்றம்';
 }

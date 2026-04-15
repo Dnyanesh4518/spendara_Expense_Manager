@@ -249,5 +249,9 @@
   "bonus":              "Prim / İkramiye",
   "sideIncome":         "Ek gelir",
   "giftReceived":       "Hediye / Alınan nakit",
-  "refundCashback":     "İade ve cashback"
+  "refundCashback":     "İade ve cashback",
+  "financialOverview": "Finansal genel bakış",
+  "balance": "Bakiye",
+  "fullInsights": "Tam analiz",
+  "savingsGoalProgress": "Tasarruf hedefi ilerlemesi"
 }

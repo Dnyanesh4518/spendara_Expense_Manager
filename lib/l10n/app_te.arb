@@ -249,6 +249,10 @@
   "bonus":              "బోనస్",
   "sideIncome":         "పార్ట్-టైమ్ ఆదాయం",
   "giftReceived":       "బహుమతి పొందినది",
-  "refundCashback":     "రీఫండ్ & కాష్‌బ్యాక్"
+  "refundCashback":     "రీఫండ్ & కాష్‌బ్యాక్",
+  "financialOverview": "ఆర్థిక అవలోకనం",
+  "balance": "నిల్వ",
+  "fullInsights": "పూర్తి విశ్లేషణ",
+  "savingsGoalProgress": "పొదుపు లక్ష్యం పురోగతి"
 
 }

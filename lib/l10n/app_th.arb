@@ -249,5 +249,9 @@
   "bonus":              "โบนัส / ค่าตอบแทน",
   "sideIncome":         "รายได้เสริม",
   "giftReceived":       "ของขวัญ / เงินที่ได้รับ",
-  "refundCashback":     "คืนเงินและแคชแบ็ก"
+  "refundCashback":     "คืนเงินและแคชแบ็ก",
+  "financialOverview": "ภาพรวมทางการเงิน",
+  "balance": "ยอดคงเหลือ",
+  "fullInsights": "วิเคราะห์เชิงลึกทั้งหมด",
+  "savingsGoalProgress": "ความคืบหน้าเป้าหมายการออม"
 }

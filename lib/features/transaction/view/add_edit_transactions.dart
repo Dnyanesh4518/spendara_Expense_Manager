@@ -13,9 +13,14 @@ import '../cubit/transaction_cubit.dart';
 import '../model/transaction_model.dart';
 
 class AddEditTransactionScreen extends StatefulWidget {
+  final String? preSelectedType;
   final TransactionModel? existing; // null = add mode, non-null = edit mode
 
-  const AddEditTransactionScreen({super.key, this.existing});
+  const AddEditTransactionScreen({
+    super.key,
+    this.preSelectedType,
+    this.existing,
+  });
 
   @override
   State<AddEditTransactionScreen> createState() =>
@@ -44,7 +49,7 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
     final e = widget.existing;
 
     // ✅ Safe — no context needed here
-    _selectedType = e?.type ?? 'expense';
+    _selectedType = e?.type ?? widget.preSelectedType ?? 'expense';
     _selectedDate = e?.date ?? DateTime.now();
 
     _typeTabController = TabController(

@@ -249,5 +249,9 @@
   "bonus":              "Prime / Incentive",
   "sideIncome":         "Revenu complémentaire",
   "giftReceived":       "Cadeau / Argent reçu",
-  "refundCashback":     "Remboursement et cashback"
+  "refundCashback":     "Remboursement et cashback",
+  "financialOverview": "Aperçu financier",
+  "balance": "Solde",
+  "fullInsights": "Analyse complète",
+  "savingsGoalProgress": "Progression de l'objectif d'épargne"
 }

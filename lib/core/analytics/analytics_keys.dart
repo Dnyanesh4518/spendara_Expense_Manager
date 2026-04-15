@@ -15,6 +15,9 @@ class AnalyticsKeys {
   static const String seeAll = 'see_all_transactions_clicked';
   static const String profileClicked = 'profile_clicked';
   static const String removeAdsClicked = 'remove_ads_clicked';
+  static const String addIncomeTapped = 'add_income_tapped';
+  static const String addExpenseTapped = 'add_expense_tapped';
+  static const String balanceCardTapped = 'balance_card_tapped';
 
   //Ads
   static const String rewardedAdLoaded = 'rewarded_ad_loaded';

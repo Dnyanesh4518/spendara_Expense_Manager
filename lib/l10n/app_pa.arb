@@ -249,6 +249,10 @@
   "bonus":              "ਬੋਨਸ",
   "sideIncome":         "ਪਾਰਟ-ਟਾਈਮ ਆਮਦਨ",
   "giftReceived":       "ਤੋਹਫ਼ਾ / ਨਕਦ ਮਿਲਿਆ",
-  "refundCashback":     "ਰਿਫੰਡ ਅਤੇ ਕੈਸ਼ਬੈਕ"
+  "refundCashback":     "ਰਿਫੰਡ ਅਤੇ ਕੈਸ਼ਬੈਕ",
+  "financialOverview": "ਵਿੱਤੀ ਸੰਖੇਪ",
+  "balance": "ਬਕਾਇਆ",
+  "fullInsights": "ਪੂਰੀ ਜਾਣਕਾਰੀ",
+  "savingsGoalProgress": "ਬੱਚਤ ਟੀਚਾ ਪ੍ਰਗਤੀ"
 
 }

@@ -109,12 +109,6 @@ class _InsightsScreenState extends State<InsightsScreen> {
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
                 sliver: SliverList(
                   delegate: SliverChildListDelegate([
-                    // ── Smart summary card (all modes) ────────────
-                    // if (state.smartSummary.isNotEmpty) ...[
-                    //   SmartSummaryCard(summary: state.smartSummary),
-                    //   const SizedBox(height: 20),
-                    // ],
-
                     // ── Content switches on viewMode ──────────────
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 280),
@@ -369,6 +363,7 @@ class _ViewModeChip extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               label,
+              maxLines: 1,
               style: TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 10,

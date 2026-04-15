@@ -249,5 +249,9 @@
   "bonus":              "مكافأة / حافز",
   "sideIncome":         "دخل إضافي",
   "giftReceived":       "هدية / نقود مستلمة",
-  "refundCashback":     "استرداد وكاش باك"
+  "refundCashback":     "استرداد وكاش باك",
+  "financialOverview": "نظرة مالية عامة",
+  "balance": "الرصيد",
+  "fullInsights": "تحليل شامل",
+  "savingsGoalProgress": "تقدم هدف الادخار"
 }

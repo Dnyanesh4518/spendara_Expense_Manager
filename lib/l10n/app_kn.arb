@@ -249,6 +249,10 @@
   "bonus":              "ಬೋನಸ್",
   "sideIncome":         "ಪಾರ್ಟ್-ಟೈಮ್ ಆದಾಯ",
   "giftReceived":       "ಉಡುಗೊರೆ ಪಡೆದಿದೆ",
-  "refundCashback":     "ರಿಫಂಡ್ & ಕ್ಯಾಶ್‌ಬ್ಯಾಕ್"
+  "refundCashback":     "ರಿಫಂಡ್ & ಕ್ಯಾಶ್‌ಬ್ಯಾಕ್",
+  "financialOverview": "ಆರ್ಥಿಕ ಅವಲೋಕನ",
+  "balance": "ಬಾಕಿ",
+  "fullInsights": "ಸಂಪೂರ್ಣ ಒಳನೋಟ",
+  "savingsGoalProgress": "ಉಳಿತಾಯ ಗುರಿ ಪ್ರಗತಿ"
 
 }

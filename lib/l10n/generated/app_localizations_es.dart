@@ -767,4 +767,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get refundCashback => 'Devolución y cashback';
+
+  @override
+  String get financialOverview => 'Resumen financiero';
+
+  @override
+  String get balance => 'Saldo';
+
+  @override
+  String get fullInsights => 'Análisis completo';
+
+  @override
+  String get savingsGoalProgress => 'Progreso de meta de ahorro';
 }

@@ -249,5 +249,9 @@
   "bonus":              "Bonus / Insentif",
   "sideIncome":         "Penghasilan Sampingan",
   "giftReceived":       "Hadiah / Uang Diterima",
-  "refundCashback":     "Refund & Cashback"
+  "refundCashback":     "Refund & Cashback",
+  "financialOverview": "Ikhtisar keuangan",
+  "balance": "Saldo",
+  "fullInsights": "Analisis lengkap",
+  "savingsGoalProgress": "Progres target tabungan"
 }

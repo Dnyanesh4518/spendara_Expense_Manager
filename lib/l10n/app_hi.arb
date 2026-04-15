@@ -249,6 +249,10 @@
   "bonus":              "बोनस / प्रोत्साहन",
   "sideIncome":         "पार्ट-टाइम आय",
   "giftReceived":       "उपहार / नकद प्राप्त",
-  "refundCashback":     "रिफंड और कैशबैक"
+  "refundCashback":     "रिफंड और कैशबैक",
+  "financialOverview": "वित्तीय अवलोकन",
+  "balance": "शेष राशि",
+  "fullInsights": "पूर्ण विश्लेषण",
+  "savingsGoalProgress": "बचत लक्ष्य प्रगति"
 
 }

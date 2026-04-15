@@ -249,5 +249,9 @@
   "bonus":              "Премия / Бонус",
   "sideIncome":         "Подработка",
   "giftReceived":       "Подарок / Полученные деньги",
-  "refundCashback":     "Возврат и кешбэк"
+  "refundCashback":     "Возврат и кешбэк",
+  "financialOverview": "Финансовый обзор",
+  "balance": "Баланс",
+  "fullInsights": "Полная аналитика",
+  "savingsGoalProgress": "Прогресс цели сбережений"
 }

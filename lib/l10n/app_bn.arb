@@ -249,6 +249,10 @@
   "bonus":              "বোনাস",
   "sideIncome":         "পার্ট-টাইম আয়",
   "giftReceived":       "উপহার / নগদ প্রাপ্ত",
-  "refundCashback":     "রিফান্ড ও ক্যাশব্যাক"
+  "refundCashback":     "রিফান্ড ও ক্যাশব্যাক",
+  "financialOverview": "আর্থিক সারসংক্ষেপ",
+  "balance": "ব্যালেন্স",
+  "fullInsights": "সম্পূর্ণ বিশ্লেষণ",
+  "savingsGoalProgress": "সঞ্চয় লক্ষ্যমাত্রার অগ্রগতি"
 
 }

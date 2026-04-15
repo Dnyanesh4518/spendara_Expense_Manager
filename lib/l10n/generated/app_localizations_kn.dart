@@ -764,4 +764,16 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get refundCashback => 'ರಿಫಂಡ್ & ಕ್ಯಾಶ್‌ಬ್ಯಾಕ್';
+
+  @override
+  String get financialOverview => 'ಆರ್ಥಿಕ ಅವಲೋಕನ';
+
+  @override
+  String get balance => 'ಬಾಕಿ';
+
+  @override
+  String get fullInsights => 'ಸಂಪೂರ್ಣ ಒಳನೋಟ';
+
+  @override
+  String get savingsGoalProgress => 'ಉಳಿತಾಯ ಗುರಿ ಪ್ರಗತಿ';
 }

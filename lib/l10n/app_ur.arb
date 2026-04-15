@@ -250,6 +250,10 @@
   "bonus":              "بونس / مراعات",
   "sideIncome":         "جز وقتی / اضافی آمدنی",
   "giftReceived":       "تحفہ / نقد موصول",
-  "refundCashback":     "واپسی اور کیش بیک"
+  "refundCashback":     "واپسی اور کیش بیک",
+  "financialOverview": "مالی جائزہ",
+  "balance": "بیلنس",
+  "fullInsights": "مکمل تجزیہ",
+  "savingsGoalProgress": "بچت ہدف کی پیشرفت"
 
 }

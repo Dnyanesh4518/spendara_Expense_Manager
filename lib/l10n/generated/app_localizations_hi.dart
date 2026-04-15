@@ -766,4 +766,16 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get refundCashback => 'रिफंड और कैशबैक';
+
+  @override
+  String get financialOverview => 'वित्तीय अवलोकन';
+
+  @override
+  String get balance => 'शेष राशि';
+
+  @override
+  String get fullInsights => 'पूर्ण विश्लेषण';
+
+  @override
+  String get savingsGoalProgress => 'बचत लक्ष्य प्रगति';
 }

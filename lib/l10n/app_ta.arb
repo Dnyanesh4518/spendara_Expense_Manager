@@ -249,6 +249,10 @@
   "bonus":              "போனஸ்",
   "sideIncome":         "பக்க வருமானம்",
   "giftReceived":       "பரிசு பெற்றது",
-  "refundCashback":     "திரும்பப்பெறல் & கேஷ்பேக்"
+  "refundCashback":     "திரும்பப்பெறல் & கேஷ்பேக்",
+  "financialOverview": "நிதி மேலோட்டம்",
+  "balance": "இருப்பு",
+  "fullInsights": "முழு நுண்ணறிவு",
+  "savingsGoalProgress": "சேமிப்பு இலக்கு முன்னேற்றம்"
 
 }

@@ -249,5 +249,9 @@
   "bonus":              "Bonasi / Zawadi ya kazi",
   "sideIncome":         "Kazi ya ziada",
   "giftReceived":       "Zawadi / Pesa zilizopokelewa",
-  "refundCashback":     "Marejesho na cashback"
+  "refundCashback":     "Marejesho na cashback",
+  "financialOverview": "Muhtasari wa fedha",
+  "balance": "Salio",
+  "fullInsights": "Uchambuzi kamili",
+  "savingsGoalProgress": "Maendeleo ya lengo la akiba"
 }

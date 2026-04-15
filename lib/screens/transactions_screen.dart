@@ -720,6 +720,7 @@ class _EmptyState extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
+            textAlign: TextAlign.center,
             appLocalizations?.noTransactionsFound ?? 'No transactions found',
             style: tt.headlineSmall,
           ),

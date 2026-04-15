@@ -764,4 +764,16 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get refundCashback => 'রিফান্ড ও ক্যাশব্যাক';
+
+  @override
+  String get financialOverview => 'আর্থিক সারসংক্ষেপ';
+
+  @override
+  String get balance => 'ব্যালেন্স';
+
+  @override
+  String get fullInsights => 'সম্পূর্ণ বিশ্লেষণ';
+
+  @override
+  String get savingsGoalProgress => 'সঞ্চয় লক্ষ্যমাত্রার অগ্রগতি';
 }
