@@ -730,6 +730,8 @@ class _EmptyState extends StatelessWidget {
               onPressed: onAdd,
               icon: const Icon(Icons.add, size: 18),
               label: Text(
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
                 appLocalizations?.addTransaction ?? 'Add your transaction',
               ),
               style: ElevatedButton.styleFrom(

@@ -40,12 +40,8 @@ class GoalsEmptyState extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          ElevatedButton.icon(
+          ElevatedButton(
             onPressed: onAdd,
-            icon: const Icon(Icons.add, size: 18),
-            label: Text(
-              appLocalizations?.createFirstGoal ?? 'Create your first goal',
-            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.income,
               foregroundColor: Colors.white,
@@ -54,11 +50,17 @@ class GoalsEmptyState extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 inherit: true, // Forces consistent inheritance
               ),
-              minimumSize: const Size(200, 48),
+              minimumSize: const Size(80, 48),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
               elevation: 0,
+            ),
+            child: Text(
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              appLocalizations?.createFirstGoal ?? 'Create your first goal',
             ),
           ),
         ],

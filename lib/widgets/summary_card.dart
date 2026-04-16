@@ -52,6 +52,8 @@ class SummaryCard extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 amount,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: tt.titleLarge?.copyWith(
                   fontWeight: FontWeight.w700,
                   fontSize: 17,

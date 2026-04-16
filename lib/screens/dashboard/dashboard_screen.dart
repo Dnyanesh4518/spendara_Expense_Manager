@@ -6,9 +6,8 @@ import '../../core/theme/app_colors.dart';
 import '../../core/utils/currency_formatter.dart';
 
 import '../../features/dashboard/cubit/dashboard_cubit.dart';
-import '../../features/transaction/model/transaction_model.dart';
-import '../../features/transaction/view/add_edit_transactions.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../routes/app_routes.dart';
 import '../../widgets/remove_ad_button.dart';
 import '../../widgets/widgets.dart';
 import 'financial_health_sheet.dart';
@@ -23,33 +22,11 @@ class DashboardScreen extends StatefulWidget {
 class DashboardScreenState extends State<DashboardScreen> {
   // ── Open Add Transaction pre-filled by type ──────────────────
   void _openAddTransaction(BuildContext context, String type) {
-    final preTyped = TransactionModel(
-      id: '',
-      amount: 0,
-      type: type,
-      category: type == 'income' ? 'salary' : 'food_delivery',
-      date: DateTime.now(),
-      notes: '',
+    Navigator.pushNamed(
+      context,
+      AppRoutes.addEditTransactionScreen,
+      arguments: [type, true],
     );
-    Navigator.of(context).push(
-      PageRouteBuilder(
-        pageBuilder: (_, __, ___) =>
-            AddEditTransactionScreen(preSelectedType: type, existing: preTyped),
-        transitionDuration: const Duration(milliseconds: 320),
-        reverseTransitionDuration: const Duration(milliseconds: 280),
-        transitionsBuilder: (_, animation, __, child) => SlideTransition(
-          position: Tween(begin: const Offset(0, 1), end: Offset.zero).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeOutCubic,
-              reverseCurve: Curves.easeInCubic,
-            ),
-          ),
-          child: child,
-        ),
-      ),
-    );
-
     FirebaseAnalytics.instance.logEvent(
       name: type == 'income'
           ? AnalyticsKeys.addIncomeTapped
@@ -134,7 +111,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                   ],
                 ),
                 SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
+                  padding: const EdgeInsets.fromLTRB(12, 4, 12, 100),
                   sliver: SliverList(
                     delegate: SliverChildListDelegate([
                       GestureDetector(
@@ -150,7 +127,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                       ),
                       const SizedBox(height: 16),
                       Row(
-                        spacing: 12,
+                        spacing: 4,
                         children: [
                           Expanded(
                             child: SummaryCard(
@@ -184,7 +161,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 12),
                       SectionHeader(
                         title:
                             appLocalizations?.weeklySpending ??
@@ -217,7 +194,9 @@ class DashboardScreenState extends State<DashboardScreen> {
                         title:
                             appLocalizations?.recentTransactions ??
                             'Recent transactions',
-                        actionLabel: appLocalizations?.seeAll ?? 'See all',
+                        actionLabel: state.recentTransactions.isEmpty
+                            ? null
+                            : appLocalizations?.seeAll ?? 'See all',
                         onAction: () {
                           Navigator.of(context).pushNamed('transactions');
                           FirebaseAnalytics.instance.logEvent(

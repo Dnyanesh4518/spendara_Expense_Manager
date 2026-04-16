@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../features/transaction/model/transaction_model.dart';
 import '../features/transaction/view/add_edit_transactions.dart';
 import '../screens/screens.dart';
 import 'app_routes.dart';
@@ -15,7 +16,25 @@ class RouteGenerator {
       case AppRoutes.insightsScreen:
         return customPageRoute(const InsightsScreen());
       case AppRoutes.addEditTransactionScreen:
-        return customPageRoute(const AddEditTransactionScreen());
+        final args = settings.arguments as List?;
+        final String? type = args?[0] as String?;
+        final bool fromHome = args?[1] as bool? ?? false;
+        return customPageRoute(
+          AddEditTransactionScreen(
+            preSelectedType: type,
+            isFromHome: fromHome,
+            existing: type != null
+                ? TransactionModel(
+                    id: '',
+                    amount: 0,
+                    type: type,
+                    category: type == 'income' ? 'salary' : 'food_delivery',
+                    date: DateTime.now(),
+                    notes: '',
+                  )
+                : null,
+          ),
+        );
       case AppRoutes.onBoardingScreen:
         return customPageRoute(const OnboardingScreen());
       case AppRoutes.profileScreen:

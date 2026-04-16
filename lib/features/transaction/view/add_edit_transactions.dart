@@ -14,12 +14,14 @@ import '../model/transaction_model.dart';
 
 class AddEditTransactionScreen extends StatefulWidget {
   final String? preSelectedType;
-  final TransactionModel? existing; // null = add mode, non-null = edit mode
+  final TransactionModel? existing;
+  final bool isFromHome;
 
   const AddEditTransactionScreen({
     super.key,
     this.preSelectedType,
     this.existing,
+    this.isFromHome = false,
   });
 
   @override
@@ -39,7 +41,16 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
   late DateTime _selectedDate;
   bool _isSaving = false;
 
-  bool get _isEditing => widget.existing != null;
+  bool get _isEditing {
+    if (widget.existing != null) {
+      if (widget.isFromHome) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 
   bool _initialized = false; // ← guard flag to run setup only once
 

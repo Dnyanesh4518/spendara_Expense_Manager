@@ -83,13 +83,18 @@ class TransactionRepository {
 
   // Last 7 days daily totals
   List<double> get last7DaysExpenses {
+    final expenseTxns = _box.values.where((t) => t.isExpense).toList();
+
+    if (expenseTxns.isEmpty) {
+      return List<double>.empty();
+    }
+
     final now = DateTime.now();
     return List.generate(7, (i) {
       final day = now.subtract(Duration(days: 6 - i));
-      return _box.values
+      return expenseTxns
           .where(
             (t) =>
-                t.isExpense &&
                 t.date.year == day.year &&
                 t.date.month == day.month &&
                 t.date.day == day.day,
