@@ -775,4 +775,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'Savings goal progress';
+
+  @override
+  String get thisYear => 'This year';
+
+  @override
+  String get lastYear => 'Last year';
+
+  @override
+  String get yearOverview => 'Year overview';
+
+  @override
+  String get lastYearData =>
+      'Last year data will appear once you have transactions from the previous year.';
 }

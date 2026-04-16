@@ -1661,6 +1661,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Savings goal progress'**
   String get savingsGoalProgress;
+
+  /// No description provided for @thisYear.
+  ///
+  /// In en, this message translates to:
+  /// **'This year'**
+  String get thisYear;
+
+  /// No description provided for @lastYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Last year'**
+  String get lastYear;
+
+  /// No description provided for @yearOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Year overview'**
+  String get yearOverview;
+
+  /// No description provided for @lastYearData.
+  ///
+  /// In en, this message translates to:
+  /// **'Last year data will appear once you have transactions from the previous year.'**
+  String get lastYearData;
 }
 
 class _AppLocalizationsDelegate

@@ -253,5 +253,9 @@
   "financialOverview": "Visão financeira",
   "balance": "Saldo",
   "fullInsights": "Análise completa",
-  "savingsGoalProgress": "Progresso da meta de economia"
+  "savingsGoalProgress": "Progresso da meta de economia",
+  "thisYear": "Este ano",
+  "lastYear": "Ano passado",
+  "yearOverview": "Visão anual",
+  "lastYearData": "Os dados do ano anterior aparecerão quando você tiver transações do ano anterior."
 }

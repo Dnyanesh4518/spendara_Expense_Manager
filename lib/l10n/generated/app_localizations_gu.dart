@@ -775,4 +775,17 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'બચત લક્ષ્ય પ્રગતિ';
+
+  @override
+  String get thisYear => 'આ વર્ષ';
+
+  @override
+  String get lastYear => 'ગત વર્ષ';
+
+  @override
+  String get yearOverview => 'વાર્ષિક વિહંગાવલોકન';
+
+  @override
+  String get lastYearData =>
+      'ગત વર્ષનો ડેટા ત્યારે દેખાશે જ્યારે તમારી પાસે પાછલા વર્ષના વ્યવહારો હશે.';
 }

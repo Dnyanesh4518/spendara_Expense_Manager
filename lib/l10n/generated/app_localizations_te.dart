@@ -776,4 +776,17 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'పొదుపు లక్ష్యం పురోగతి';
+
+  @override
+  String get thisYear => 'ఈ సంవత్సరం';
+
+  @override
+  String get lastYear => 'గత సంవత్సరం';
+
+  @override
+  String get yearOverview => 'సంవత్సర అవలోకనం';
+
+  @override
+  String get lastYearData =>
+      'మీకు గత సంవత్సరం నుండి లావాదేవీలు ఉన్నప్పుడు మాత్రమే గత సంవత్సరపు డేటా కనిపిస్తుంది.';
 }

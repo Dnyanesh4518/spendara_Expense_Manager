@@ -253,5 +253,9 @@
   "financialOverview": "Финансовый обзор",
   "balance": "Баланс",
   "fullInsights": "Полная аналитика",
-  "savingsGoalProgress": "Прогресс цели сбережений"
+  "savingsGoalProgress": "Прогресс цели сбережений",
+  "thisYear": "В этом году",
+  "lastYear": "В прошлом году",
+  "yearOverview": "Годовой обзор",
+  "lastYearData": "Данные за прошлый год появятся, когда у вас будут транзакции за предыдущий год."
 }

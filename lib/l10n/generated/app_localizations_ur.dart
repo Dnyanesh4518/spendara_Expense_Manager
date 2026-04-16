@@ -777,4 +777,17 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'بچت ہدف کی پیشرفت';
+
+  @override
+  String get thisYear => 'اس سال';
+
+  @override
+  String get lastYear => 'پچھلے سال';
+
+  @override
+  String get yearOverview => 'سالانہ جائزہ';
+
+  @override
+  String get lastYearData =>
+      'پچھلے سال کا ڈیٹا تب ظاہر ہوگا جب آپ کے پاس گزشتہ سال کے لین دین ہوں گے۔';
 }

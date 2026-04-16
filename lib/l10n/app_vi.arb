@@ -253,5 +253,9 @@
   "financialOverview": "Tổng quan tài chính",
   "balance": "Số dư",
   "fullInsights": "Phân tích đầy đủ",
-  "savingsGoalProgress": "Tiến độ mục tiêu tiết kiệm"
+  "savingsGoalProgress": "Tiến độ mục tiêu tiết kiệm",
+  "thisYear": "Năm nay",
+  "lastYear": "Năm ngoái",
+  "yearOverview": "Tổng quan năm",
+  "lastYearData": "Dữ liệu năm ngoái sẽ xuất hiện khi bạn có giao dịch từ năm trước."
 }

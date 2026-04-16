@@ -253,6 +253,10 @@
   "financialOverview": "আর্থিক সারসংক্ষেপ",
   "balance": "ব্যালেন্স",
   "fullInsights": "সম্পূর্ণ বিশ্লেষণ",
-  "savingsGoalProgress": "সঞ্চয় লক্ষ্যমাত্রার অগ্রগতি"
+  "savingsGoalProgress": "সঞ্চয় লক্ষ্যমাত্রার অগ্রগতি",
+  "thisYear": "এই বছর",
+  "lastYear": "গত বছর",
+  "yearOverview": "বার্ষিক সারসংক্ষেপ",
+  "lastYearData": "আগের বছরের লেনদেন থাকলে তবেই গত বছরের তথ্য দেখা যাবে।"
 
 }

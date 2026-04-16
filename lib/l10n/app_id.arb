@@ -253,5 +253,9 @@
   "financialOverview": "Ikhtisar keuangan",
   "balance": "Saldo",
   "fullInsights": "Analisis lengkap",
-  "savingsGoalProgress": "Progres target tabungan"
+  "savingsGoalProgress": "Progres target tabungan",
+  "thisYear": "Tahun ini",
+  "lastYear": "Tahun lalu",
+  "yearOverview": "Ikhtisar tahunan",
+  "lastYearData": "Data tahun lalu akan muncul setelah Anda memiliki transaksi dari tahun sebelumnya."
 }

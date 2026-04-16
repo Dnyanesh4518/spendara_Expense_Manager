@@ -780,4 +780,17 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'சேமிப்பு இலக்கு முன்னேற்றம்';
+
+  @override
+  String get thisYear => 'இந்த ஆண்டு';
+
+  @override
+  String get lastYear => 'கடந்த ஆண்டு';
+
+  @override
+  String get yearOverview => 'ஆண்டு மேலோட்டம்';
+
+  @override
+  String get lastYearData =>
+      'கடந்த ஆண்டு பரிவர்த்தனைகள் இருந்தால் மட்டுமே முந்தைய ஆண்டு தரவு காண்பிக்கப்படும்.';
 }

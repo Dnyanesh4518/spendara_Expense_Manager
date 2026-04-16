@@ -253,5 +253,9 @@
   "financialOverview": "ภาพรวมทางการเงิน",
   "balance": "ยอดคงเหลือ",
   "fullInsights": "วิเคราะห์เชิงลึกทั้งหมด",
-  "savingsGoalProgress": "ความคืบหน้าเป้าหมายการออม"
+  "savingsGoalProgress": "ความคืบหน้าเป้าหมายการออม",
+  "thisYear": "ปีนี้",
+  "lastYear": "ปีที่แล้ว",
+  "yearOverview": "ภาพรวมประจำปี",
+  "lastYearData": "ข้อมูลปีที่แล้วจะแสดงเมื่อคุณมีรายการจากปีก่อนหน้า"
 }

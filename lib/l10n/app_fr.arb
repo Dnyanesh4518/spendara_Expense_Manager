@@ -253,5 +253,9 @@
   "financialOverview": "Aperçu financier",
   "balance": "Solde",
   "fullInsights": "Analyse complète",
-  "savingsGoalProgress": "Progression de l'objectif d'épargne"
+  "savingsGoalProgress": "Progression de l'objectif d'épargne",
+  "thisYear": "Cette année",
+  "lastYear": "L'année dernière",
+  "yearOverview": "Aperçu annuel",
+  "lastYearData": "Les données de l'année précédente apparaîtront dès que vous aurez des transactions de l'année passée."
 }

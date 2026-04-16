@@ -253,5 +253,9 @@
   "financialOverview": "Resumen financiero",
   "balance": "Saldo",
   "fullInsights": "Análisis completo",
-  "savingsGoalProgress": "Progreso de meta de ahorro"
+  "savingsGoalProgress": "Progreso de meta de ahorro",
+  "thisYear": "Este año",
+  "lastYear": "El año pasado",
+  "yearOverview": "Resumen anual",
+  "lastYearData": "Los datos del año anterior aparecerán cuando tengas transacciones del año previo."
 }

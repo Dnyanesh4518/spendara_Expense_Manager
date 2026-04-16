@@ -776,4 +776,17 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'সঞ্চয় লক্ষ্যমাত্রার অগ্রগতি';
+
+  @override
+  String get thisYear => 'এই বছর';
+
+  @override
+  String get lastYear => 'গত বছর';
+
+  @override
+  String get yearOverview => 'বার্ষিক সারসংক্ষেপ';
+
+  @override
+  String get lastYearData =>
+      'আগের বছরের লেনদেন থাকলে তবেই গত বছরের তথ্য দেখা যাবে।';
 }

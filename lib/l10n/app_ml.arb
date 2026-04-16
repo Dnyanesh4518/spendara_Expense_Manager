@@ -253,6 +253,10 @@
   "financialOverview": "സാമ്പത്തിക അവലോകനം",
   "balance": "ബാക്കി",
   "fullInsights": "സമ്പൂർണ്ണ ഉൾക്കാഴ്ച",
-  "savingsGoalProgress": "സേവിങ്സ് ലക്ഷ്യ പുരോഗതി"
+  "savingsGoalProgress": "സേവിങ്സ് ലക്ഷ്യ പുരോഗതി",
+  "thisYear": "ഈ വർഷം",
+  "lastYear": "കഴിഞ്ഞ വർഷം",
+  "yearOverview": "വാർഷിക അവലോകനം",
+  "lastYearData": "കഴിഞ്ഞ വർഷത്തെ ഇടപാടുകൾ ഉള്ളപ്പോൾ മാത്രം മുൻ വർഷത്തെ ഡേറ്റ കാണിക്കും."
 
 }

@@ -776,4 +776,17 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'ಉಳಿತಾಯ ಗುರಿ ಪ್ರಗತಿ';
+
+  @override
+  String get thisYear => 'ಈ ವರ್ಷ';
+
+  @override
+  String get lastYear => 'ಕಳೆದ ವರ್ಷ';
+
+  @override
+  String get yearOverview => 'ವಾರ್ಷಿಕ ಅವಲೋಕನ';
+
+  @override
+  String get lastYearData =>
+      'ಹಿಂದಿನ ವರ್ಷದ ವ್ಯವಹಾರಗಳು ಇದ್ದಾಗ ಮಾತ್ರ ಕಳೆದ ವರ್ಷದ ಡೇಟಾ ಕಾಣಿಸುತ್ತದೆ.';
 }

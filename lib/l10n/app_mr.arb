@@ -253,6 +253,10 @@
   "financialOverview": "आर्थिक आढावा",
   "balance": "शिल्लक",
   "fullInsights": "संपूर्ण विश्लेषण",
-  "savingsGoalProgress": "बचत उद्दिष्ट प्रगती"
+  "savingsGoalProgress": "बचत उद्दिष्ट प्रगती",
+  "thisYear": "या वर्षी",
+  "lastYear": "गेल्या वर्षी",
+  "yearOverview": "वार्षिक आढावा",
+  "lastYearData": "मागील वर्षाचा डेटा तेव्हा दिसेल जेव्हा तुमच्याकडे मागील वर्षाचे व्यवहार असतील."
 
 }

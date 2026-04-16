@@ -253,5 +253,9 @@
   "financialOverview": "نظرة مالية عامة",
   "balance": "الرصيد",
   "fullInsights": "تحليل شامل",
-  "savingsGoalProgress": "تقدم هدف الادخار"
+  "savingsGoalProgress": "تقدم هدف الادخار",
+  "thisYear": "هذا العام",
+  "lastYear": "العام الماضي",
+  "yearOverview": "نظرة عامة على العام",
+  "lastYearData": "ستظهر بيانات العام الماضي عند توفّر معاملات من العام السابق."
 }

@@ -253,6 +253,10 @@
   "financialOverview": "ಆರ್ಥಿಕ ಅವಲೋಕನ",
   "balance": "ಬಾಕಿ",
   "fullInsights": "ಸಂಪೂರ್ಣ ಒಳನೋಟ",
-  "savingsGoalProgress": "ಉಳಿತಾಯ ಗುರಿ ಪ್ರಗತಿ"
+  "savingsGoalProgress": "ಉಳಿತಾಯ ಗುರಿ ಪ್ರಗತಿ",
+  "thisYear": "ಈ ವರ್ಷ",
+  "lastYear": "ಕಳೆದ ವರ್ಷ",
+  "yearOverview": "ವಾರ್ಷಿಕ ಅವಲೋಕನ",
+  "lastYearData": "ಹಿಂದಿನ ವರ್ಷದ ವ್ಯವಹಾರಗಳು ಇದ್ದಾಗ ಮಾತ್ರ ಕಳೆದ ವರ್ಷದ ಡೇಟಾ ಕಾಣಿಸುತ್ತದೆ."
 
 }

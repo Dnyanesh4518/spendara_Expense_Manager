@@ -254,6 +254,10 @@
   "financialOverview": "Financial overview",
   "balance": "Balance",
   "fullInsights": "Full insights",
-  "savingsGoalProgress": "Savings goal progress"
+  "savingsGoalProgress": "Savings goal progress",
+  "thisYear": "This year",
+  "lastYear": "Last year",
+  "yearOverview": "Year overview",
+  "lastYearData": "Last year data will appear once you have transactions from the previous year."
 
 }

@@ -254,6 +254,10 @@
   "financialOverview": "مالی جائزہ",
   "balance": "بیلنس",
   "fullInsights": "مکمل تجزیہ",
-  "savingsGoalProgress": "بچت ہدف کی پیشرفت"
+  "savingsGoalProgress": "بچت ہدف کی پیشرفت",
+  "thisYear": "اس سال",
+  "lastYear": "پچھلے سال",
+  "yearOverview": "سالانہ جائزہ",
+  "lastYearData": "پچھلے سال کا ڈیٹا تب ظاہر ہوگا جب آپ کے پاس گزشتہ سال کے لین دین ہوں گے۔"
 
 }

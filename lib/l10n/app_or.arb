@@ -253,6 +253,10 @@
   "financialOverview": "ଆର୍ଥିକ ସମୀକ୍ଷା",
   "balance": "ଅବଶିଷ୍ଟ",
   "fullInsights": "ସମ୍ପୂର୍ଣ୍ଣ ବିଶ୍ଳେଷଣ",
-  "savingsGoalProgress": "ସଞ୍ଚୟ ଲକ୍ଷ୍ୟ ଅଗ୍ରଗତି"
+  "savingsGoalProgress": "ସଞ୍ଚୟ ଲକ୍ଷ୍ୟ ଅଗ୍ରଗତି",
+  "thisYear": "ଏ ବର୍ଷ",
+  "lastYear": "ଗତ ବର୍ଷ",
+  "yearOverview": "ବାର୍ଷିକ ସମୀକ୍ଷା",
+  "lastYearData": "ଆଗ ବର୍ଷର ଲେଣଦେଣ ଥିଲେ ହିଁ ଗତ ବର୍ଷର ତଥ୍ୟ ଦେଖାଯିବ।"
 
 }

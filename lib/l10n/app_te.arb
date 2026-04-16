@@ -253,6 +253,10 @@
   "financialOverview": "ఆర్థిక అవలోకనం",
   "balance": "నిల్వ",
   "fullInsights": "పూర్తి విశ్లేషణ",
-  "savingsGoalProgress": "పొదుపు లక్ష్యం పురోగతి"
+  "savingsGoalProgress": "పొదుపు లక్ష్యం పురోగతి",
+  "thisYear": "ఈ సంవత్సరం",
+  "lastYear": "గత సంవత్సరం",
+  "yearOverview": "సంవత్సర అవలోకనం",
+  "lastYearData": "మీకు గత సంవత్సరం నుండి లావాదేవీలు ఉన్నప్పుడు మాత్రమే గత సంవత్సరపు డేటా కనిపిస్తుంది."
 
 }

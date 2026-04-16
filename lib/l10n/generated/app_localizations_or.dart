@@ -777,4 +777,16 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get savingsGoalProgress => 'ସଞ୍ଚୟ ଲକ୍ଷ୍ୟ ଅଗ୍ରଗତି';
+
+  @override
+  String get thisYear => 'ଏ ବର୍ଷ';
+
+  @override
+  String get lastYear => 'ଗତ ବର୍ଷ';
+
+  @override
+  String get yearOverview => 'ବାର୍ଷିକ ସମୀକ୍ଷା';
+
+  @override
+  String get lastYearData => 'ଆଗ ବର୍ଷର ଲେଣଦେଣ ଥିଲେ ହିଁ ଗତ ବର୍ଷର ତଥ୍ୟ ଦେଖାଯିବ।';
 }

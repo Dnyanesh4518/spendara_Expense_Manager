@@ -414,8 +414,9 @@ class _OverviewContent extends StatelessWidget {
         else
           WeekCompareChart(state: state),
         const SizedBox(height: 24),
-
-        MonthCompareCard(state: state),
+        state.timeRange == TimeRange.year
+            ? YearCompareCard(state: state)
+            : MonthCompareCard(state: state),
         const SizedBox(height: 24),
 
         if (state.expensesByCategory.isNotEmpty) ...[

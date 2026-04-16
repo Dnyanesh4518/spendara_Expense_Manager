@@ -253,5 +253,9 @@
   "financialOverview": "Muhtasari wa fedha",
   "balance": "Salio",
   "fullInsights": "Uchambuzi kamili",
-  "savingsGoalProgress": "Maendeleo ya lengo la akiba"
+  "savingsGoalProgress": "Maendeleo ya lengo la akiba",
+  "thisYear": "Mwaka huu",
+  "lastYear": "Mwaka jana",
+  "yearOverview": "Muhtasari wa mwaka",
+  "lastYearData": "Data ya mwaka jana itaonekana ukisha na miamala kutoka mwaka uliopita."
 }
