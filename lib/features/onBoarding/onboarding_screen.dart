@@ -1,5 +1,6 @@
 import 'package:Spendara/core/analytics/analytics_keys.dart';
 import 'package:Spendara/core/crashlytics/crashlytics_keys.dart';
+import 'package:Spendara/core/utils/email_validator.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   bool _isSaving = false;
+  EmailValidator emailValidator = EmailValidator();
 
   @override
   void dispose() {
@@ -121,6 +123,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
+                      maxLength: 50,
                       controller: _nameController,
                       textCapitalization: TextCapitalization.words,
                       decoration: InputDecoration(
@@ -146,6 +149,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
+                      maxLength: 50,
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -153,7 +157,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         hintStyle: theme.textTheme.bodySmall,
                         prefixIcon: Icon(Icons.email_outlined),
                       ),
-                      validator: (val) => validateEmail(val, appLocalizations),
+                      validator: (val) =>
+                          emailValidator.validateEmail(val, appLocalizations),
                     ),
                   ],
                 ),
@@ -192,56 +197,4 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
-}
-
-String? validateEmail(String? val, AppLocalizations? l10n) {
-  final empty = l10n?.pleaseEnterEmail ?? 'Please enter your email';
-  final invalid = l10n?.enterValidEmail ?? 'Enter a valid email address';
-
-  if (val == null || val.trim().isEmpty) return empty;
-
-  final email = val.trim();
-
-  // ── 1. Overall length (RFC 5321 limit) ──────────────────
-  if (email.length > 254) return invalid;
-
-  // ── 2. Must have exactly one @ ───────────────────────────
-  final parts = email.split('@');
-  if (parts.length != 2) return invalid;
-
-  final local = parts[0];
-  final domain = parts[1];
-
-  // ── 3. Local part (before @) ─────────────────────────────
-  if (local.isEmpty || local.length > 64) return invalid;
-  if (local.startsWith('.') || local.endsWith('.')) return invalid;
-  if (local.contains('..')) return invalid; // no consecutive dots
-  // Allowed: letters, digits, and . _ % + -
-  if (!RegExp(r'^[a-zA-Z0-9._%+\-]+$').hasMatch(local)) return invalid;
-
-  // ── 4. Domain part (after @) ─────────────────────────────
-  if (domain.isEmpty || domain.length > 253) return invalid;
-  if (domain.startsWith('.') || domain.endsWith('.')) return invalid;
-  if (domain.startsWith('-')) return invalid;
-  if (domain.contains('..')) return invalid; // no consecutive dots
-
-  // ── 5. Domain must have at least one dot ─────────────────
-  final domainParts = domain.split('.');
-  if (domainParts.length < 2) return invalid;
-
-  // ── 6. Validate each domain label ────────────────────────
-  for (final label in domainParts) {
-    if (label.isEmpty) return invalid;
-    if (label.startsWith('-') || label.endsWith('-')) return invalid;
-    if (label.length > 63) return invalid;
-    // Only letters, digits, hyphens allowed in domain labels
-    if (!RegExp(r'^[a-zA-Z0-9\-]+$').hasMatch(label)) return invalid;
-  }
-
-  // ── 7. TLD must be letters only, min 2 chars ─────────────
-  // Allows .com .in .co.in .photography .museum etc.
-  final tld = domainParts.last;
-  if (tld.length < 2 || !RegExp(r'^[a-zA-Z]+$').hasMatch(tld)) return invalid;
-
-  return null; // ✅ valid
 }

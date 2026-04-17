@@ -1,3 +1,4 @@
+import 'package:Spendara/core/utils/email_validator.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -159,6 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final emailCtrl = TextEditingController(text: _user?.email);
     final formKey = GlobalKey<FormState>();
     AppLocalizations? appLocalizations = AppLocalizations.of(context);
+    EmailValidator emailValidator = EmailValidator();
 
     await showModalBottomSheet(
       context: context,
@@ -214,17 +216,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   labelText: appLocalizations?.emailAddress ?? 'Email Address',
                   prefixIcon: Icon(Icons.email_outlined),
                 ),
-                validator: (v) {
-                  if (v == null || v.trim().isEmpty) {
-                    return appLocalizations?.emailRequired ??
-                        'Email is required';
-                  }
-                  if (!v.contains('@')) {
-                    return appLocalizations?.enterValidEmail ??
-                        'Enter valid email';
-                  }
-                  return null;
-                },
+                validator: (val) =>
+                    emailValidator.validateEmail(val, appLocalizations),
               ),
               const SizedBox(height: 24),
               ElevatedButton(
