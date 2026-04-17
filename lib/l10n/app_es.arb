@@ -259,5 +259,6 @@
   "yearOverview": "Resumen anual",
   "lastYearData": "Los datos del año anterior aparecerán cuando tengas transacciones del año previo.",
   "updateReadyToInstall": "Actualización descargada. Reinicia para aplicarla",
-  "restart": "Reiniciar"
+  "restart": "Reiniciar",
+  "frequentlyUsed": "Usados frecuentemente"
 }

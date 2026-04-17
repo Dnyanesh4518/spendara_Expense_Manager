@@ -796,4 +796,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get restart => 'পুনরায় চালু করুন';
+
+  @override
+  String get frequentlyUsed => 'প্রায়ই ব্যবহৃত';
 }

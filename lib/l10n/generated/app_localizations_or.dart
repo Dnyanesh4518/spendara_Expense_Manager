@@ -796,4 +796,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get restart => 'ପୁନଃଆରମ୍ଭ କରନ୍ତୁ';
+
+  @override
+  String get frequentlyUsed => 'ଅଧିକ ବ୍ୟବହୃତ';
 }

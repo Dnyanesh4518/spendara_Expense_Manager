@@ -28,6 +28,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
   String _filter = 'All';
   String _query = '';
   String? _selectedCategory;
+  // Add at the top of _TransactionsScreenState
+  DateTime? _dateFrom;
+  DateTime? _dateTo;
 
   bool _isSelectionMode = false;
   final Set<String> _selectedIds = {};
@@ -216,10 +219,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                   bottom: _isSelectionMode
                       ? null
                       : PreferredSize(
-                          preferredSize: const Size.fromHeight(112),
+                          preferredSize: const Size.fromHeight(132),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 TextField(
                                   onChanged: (v) => setState(() => _query = v),
@@ -274,10 +278,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                                   labelStyle: TextStyle(
                                                     color: selected
                                                         ? AppColors.primary
-                                                        : Theme.of(context)
-                                                              .textTheme
-                                                              .bodySmall
-                                                              ?.color,
+                                                        : tt.bodySmall?.color,
                                                     fontWeight: selected
                                                         ? FontWeight.w600
                                                         : FontWeight.w400,
@@ -286,33 +287,113 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                                 ),
                                               );
                                             }),
+
+                                            // ── NEW: date range chip ──────────────────────
+                                            GestureDetector(
+                                              onTap: () =>
+                                                  _pickDateRange(context),
+                                              child: AnimatedContainer(
+                                                duration: const Duration(
+                                                  milliseconds: 180,
+                                                ),
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                      horizontal: 10,
+                                                      vertical: 5,
+                                                    ),
+                                                decoration: BoxDecoration(
+                                                  color: (_dateFrom != null)
+                                                      ? AppColors.primary
+                                                            .withValues(
+                                                              alpha: 0.25,
+                                                            )
+                                                      : AppColors.warning
+                                                            .withValues(
+                                                              alpha: 0.20,
+                                                            ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  border: Border.all(
+                                                    color: (_dateFrom != null)
+                                                        ? AppColors.primary
+                                                              .withValues(
+                                                                alpha: 0.5,
+                                                              )
+                                                        : Colors.transparent,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    if (_dateFrom != null) ...[
+                                                      GestureDetector(
+                                                        onTap: _clearDateFilter,
+                                                        child: Icon(
+                                                          Icons
+                                                              .remove_circle_outline,
+                                                          size: 15,
+                                                          color: AppColors
+                                                              .textPrimary,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                    const SizedBox(width: 6),
+                                                    Icon(
+                                                      Icons.date_range_outlined,
+                                                      size: 14,
+                                                      color: (_dateFrom != null)
+                                                          ? AppColors.primary
+                                                          : tt.bodySmall?.color,
+                                                    ),
+                                                    const SizedBox(width: 4),
+                                                    Text(
+                                                      _dateFrom != null
+                                                          ? '${DateFormat('d MMM').format(_dateFrom!)} – '
+                                                                '${DateFormat('d MMM').format(_dateTo ?? _dateFrom!)}'
+                                                          : 'Date',
+                                                      style: TextStyle(
+                                                        fontSize: 13,
+                                                        fontWeight:
+                                                            _dateFrom != null
+                                                            ? FontWeight.w600
+                                                            : FontWeight.w400,
+                                                        color: _dateFrom != null
+                                                            ? AppColors.primary
+                                                            : tt
+                                                                  .bodySmall
+                                                                  ?.color,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                    Badge(
-                                      isLabelVisible: _selectedCategory != null,
-                                      child: IconButton(
-                                        onPressed: () {
-                                          _showCategoryFilter(context);
-                                          FirebaseAnalytics.instance.logEvent(
-                                            name: AnalyticsKeys
-                                                .transactionFilterTap,
-                                          );
-                                        },
-                                        icon: Icon(
-                                          Icons.filter_list_rounded,
-                                          color: _selectedCategory != null
-                                              ? AppColors.primary
-                                              : Theme.of(
-                                                  context,
-                                                ).iconTheme.color,
-                                        ),
-                                        tooltip: 'Filter by category',
-                                        visualDensity: VisualDensity.compact,
-                                      ),
-                                    ),
                                   ],
+                                ),
+                                Badge(
+                                  isLabelVisible: _selectedCategory != null,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      _showCategoryFilter(context);
+                                      FirebaseAnalytics.instance.logEvent(
+                                        name:
+                                            AnalyticsKeys.transactionFilterTap,
+                                      );
+                                    },
+                                    icon: Icon(
+                                      Icons.filter_list_rounded,
+                                      color: _selectedCategory != null
+                                          ? AppColors.primary
+                                          : Theme.of(context).iconTheme.color,
+                                    ),
+                                    tooltip: 'Filter by category',
+                                    visualDensity: VisualDensity.compact,
+                                  ),
                                 ),
                                 if (_selectedCategory != null) ...[
                                   const SizedBox(height: 6),
@@ -576,9 +657,17 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
           t.notes.toLowerCase().contains(_query.toLowerCase());
 
       final matchCategory =
-          _selectedCategory == null || t.category == _selectedCategory;
+          _selectedCategory == null ||
+          Constants.normalizeKey(t.category) ==
+              Constants.normalizeKey(_selectedCategory!);
 
-      return matchFilter && matchQuery && matchCategory;
+      // ── NEW: date range filter ──────────────────────────────
+      final matchDate =
+          (_dateFrom == null || !t.date.isBefore(_dateFrom!)) &&
+          (_dateTo == null ||
+              t.date.isBefore(_dateTo!.add(const Duration(days: 1))));
+
+      return matchFilter && matchQuery && matchCategory && matchDate;
     }).toList();
   }
 
@@ -677,6 +766,43 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         },
       ),
     );
+  }
+
+  Future<void> _pickDateRange(BuildContext context) async {
+    final now = DateTime.now();
+    final picked = await showDateRangePicker(
+      context: context,
+      firstDate: DateTime(2020),
+      lastDate: now,
+      initialDateRange: (_dateFrom != null && _dateTo != null)
+          ? DateTimeRange(start: _dateFrom!, end: _dateTo!)
+          : DateTimeRange(
+              start: now.subtract(const Duration(days: 30)),
+              end: now,
+            ),
+      builder: (ctx, child) => Theme(
+        data: Theme.of(ctx).copyWith(
+          colorScheme: Theme.of(
+            ctx,
+          ).colorScheme.copyWith(primary: AppColors.primary),
+        ),
+        child: child!,
+      ),
+    );
+
+    if (picked != null) {
+      setState(() {
+        _dateFrom = picked.start;
+        _dateTo = picked.end;
+      });
+    }
+  }
+
+  void _clearDateFilter() {
+    setState(() {
+      _dateFrom = null;
+      _dateTo = null;
+    });
   }
 }
 

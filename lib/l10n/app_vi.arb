@@ -259,5 +259,6 @@
   "yearOverview": "Tổng quan năm",
   "lastYearData": "Dữ liệu năm ngoái sẽ xuất hiện khi bạn có giao dịch từ năm trước.",
   "updateReadyToInstall": "Đã tải bản cập nhật. Khởi động lại để áp dụng",
-  "restart": "Khởi động lại"
+  "restart": "Khởi động lại",
+  "frequentlyUsed": "Thường dùng"
 }

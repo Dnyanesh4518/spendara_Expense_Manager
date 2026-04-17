@@ -795,4 +795,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get restart => 'पुन्हा सुरू करा';
+
+  @override
+  String get frequentlyUsed => 'वारंवार वापरलेलेा';
 }

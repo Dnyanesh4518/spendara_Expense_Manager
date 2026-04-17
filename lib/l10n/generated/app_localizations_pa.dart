@@ -795,4 +795,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get restart => 'ਮੁੜ ਚਾਲੂ ਕਰੋ';
+
+  @override
+  String get frequentlyUsed => 'ਅਕਸਰ ਵਰਤੇ';
 }

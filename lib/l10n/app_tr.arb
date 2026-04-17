@@ -259,5 +259,6 @@
   "yearOverview": "Yıllık genel bakış",
   "lastYearData": "Önceki yıldan işlemleriniz olduğunda geçen yılın verileri görünecektir.",
   "updateReadyToInstall": "Güncelleme indirildi. Uygulamak için yeniden başlatın",
-  "restart": "Yeniden başlat"
+  "restart": "Yeniden başlat",
+  "frequentlyUsed": "Sık kullanılanlar"
 }

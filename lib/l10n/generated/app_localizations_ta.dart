@@ -800,4 +800,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get restart => 'மறுதொடக்கம்';
+
+  @override
+  String get frequentlyUsed => 'அடிக்கடி பயன்படுத்தியவை';
 }

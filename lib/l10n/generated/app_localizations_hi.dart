@@ -798,4 +798,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get restart => 'पुनः शुरू करें';
+
+  @override
+  String get frequentlyUsed => 'अक्सर उपयोग किया';
 }

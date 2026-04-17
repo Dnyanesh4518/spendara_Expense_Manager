@@ -40,6 +40,7 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
   late String _selectedCategory;
   late DateTime _selectedDate;
   bool _isSaving = false;
+  List<String> _frequentCategories = [];
 
   bool get _isEditing {
     if (widget.existing != null) {
@@ -53,6 +54,40 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
   }
 
   bool _initialized = false; // ← guard flag to run setup only once
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (!_initialized) {
+      _selectedCategory =
+          widget.existing?.category ?? Constants.expenseCategoryKeys.first;
+
+      // ── Compute frequently used from transaction history ────
+      // Requires access to TransactionCubit which is in context
+      final txns = context.read<TransactionCubit>().state.transactions;
+      _frequentCategories = _computeFrequent(txns, _selectedType);
+
+      _initialized = true;
+    }
+
+    _typeTabController.removeListener(_onTabChanged);
+    _typeTabController.addListener(_onTabChanged);
+  }
+
+  List<String> _computeFrequent(List<TransactionModel> txns, String type) {
+    final freq = <String, int>{};
+    for (final t in txns.where(
+      (t) => type == 'expense' ? t.isExpense : !t.isExpense,
+    )) {
+      final key = Constants.normalizeKey(t.category);
+      freq[key] = (freq[key] ?? 0) + 1;
+    }
+    return (freq.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))
+        .take(4)
+        .map((e) => e.key)
+        .toList();
+  }
 
   @override
   void initState() {
@@ -75,33 +110,17 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
     }
   }
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    // ✅ Safe — context is fully available here
-    // Guard ensures category init runs only once (not on every rebuild)
-    if (!_initialized) {
-      _selectedCategory =
-          widget.existing?.category ?? Constants.expenseCategoryKeys.first;
-      _initialized = true;
-    }
-
-    // ✅ Re-register listener here (safe to use context in listener too)
-    _typeTabController.removeListener(_onTabChanged);
-    _typeTabController.addListener(_onTabChanged);
-  }
-
   // ── Extract listener to a named method ──────────────────────
   void _onTabChanged() {
     if (_typeTabController.indexIsChanging) return;
+    final txns = context.read<TransactionCubit>().state.transactions;
     setState(() {
       _selectedType = _typeTabController.index == 0 ? 'expense' : 'income';
       _selectedCategory = _selectedType == 'expense'
-          ? Constants
-                .expenseCategoryKeys
-                .first // 'food_dining'
-          : Constants.incomeCategoryKeys.first; // 'salary'
+          ? Constants.expenseCategoryKeys.first
+          : Constants.incomeCategoryKeys.first;
+      // Refresh frequent list for the new type
+      _frequentCategories = _computeFrequent(txns, _selectedType);
     });
   }
 
@@ -114,9 +133,33 @@ class _AddEditTransactionScreenState extends State<AddEditTransactionScreen>
     super.dispose();
   }
 
-  List<CategoryGroup> get _categories => _selectedType == 'expense'
-      ? Constants.expenseCategoryGroups(context) // localized labels ✅
-      : Constants.incomeCategoryGroups(context);
+  List<CategoryGroup> get _categories {
+    final base = _selectedType == 'expense'
+        ? Constants.expenseCategoryGroups(context)
+        : Constants.incomeCategoryGroups(context);
+
+    final groups = <CategoryGroup>[];
+
+    // ── 1. Frequently used (top) ────────────────────────────
+    if (_frequentCategories.isNotEmpty) {
+      final l10n = AppLocalizations.of(context)!;
+      groups.add(
+        CategoryGroup(
+          label: l10n.frequentlyUsed, // add ARB key (see below)
+          icon: Icons.star_outline,
+          keys: _frequentCategories,
+          labels: _frequentCategories
+              .map((k) => Constants.categoryLabel(context, k))
+              .toList(),
+        ),
+      );
+    }
+
+    // ── 2. All standard groups ──────────────────────────────
+    groups.addAll(base);
+
+    return groups;
+  }
 
   Color get _typeColor =>
       _selectedType == 'expense' ? AppColors.expense : AppColors.income;

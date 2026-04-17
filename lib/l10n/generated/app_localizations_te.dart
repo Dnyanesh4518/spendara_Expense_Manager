@@ -796,4 +796,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get restart => 'పునఃప్రారంభించు';
+
+  @override
+  String get frequentlyUsed => 'తరచుగా వాడేవి';
 }

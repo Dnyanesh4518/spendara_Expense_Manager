@@ -795,4 +795,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get restart => 'પુનઃ શરૂ કરો';
+
+  @override
+  String get frequentlyUsed => 'পવારંવાર ઉપયોગ';
 }

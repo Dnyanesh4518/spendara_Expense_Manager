@@ -798,4 +798,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get restart => 'പുനരാരംഭിക്കുക';
+
+  @override
+  String get frequentlyUsed => 'പതിവായി ഉപയോഗിക്കുന്നവ';
 }

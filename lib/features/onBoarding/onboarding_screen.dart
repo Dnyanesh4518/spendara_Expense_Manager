@@ -140,8 +140,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       },
                     ),
 
-                    const SizedBox(height: 20),
-
                     // ── Email Field ───────────────────────────────────────
                     Text(
                       appLocalizations?.emailAddress ?? 'Email Address',
@@ -163,7 +161,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ],
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
 
                 // ── CTA Button ────────────────────────────────────────
                 ElevatedButton(

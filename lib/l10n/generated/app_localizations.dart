@@ -1697,6 +1697,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Restart'**
   String get restart;
+
+  /// No description provided for @frequentlyUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequently used'**
+  String get frequentlyUsed;
 }
 
 class _AppLocalizationsDelegate

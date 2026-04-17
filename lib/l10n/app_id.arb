@@ -259,5 +259,6 @@
   "yearOverview": "Ikhtisar tahunan",
   "lastYearData": "Data tahun lalu akan muncul setelah Anda memiliki transaksi dari tahun sebelumnya.",
   "updateReadyToInstall": "Pembaruan diunduh. Mulai ulang untuk menerapkan",
-  "restart": "Mulai ulang"
+  "restart": "Mulai ulang",
+  "frequentlyUsed": "Sering digunakan"
 }

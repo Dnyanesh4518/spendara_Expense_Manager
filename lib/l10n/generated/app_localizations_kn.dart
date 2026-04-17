@@ -796,4 +796,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get restart => 'ಮರುಪ್ರಾರಂಭಿಸಿ';
+
+  @override
+  String get frequentlyUsed => 'ಹೆಚ್ಚು ಬಳಸಿದ';
 }

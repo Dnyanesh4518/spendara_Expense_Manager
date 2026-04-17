@@ -797,4 +797,7 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get restart => 'دوبارہ شروع کریں';
+
+  @override
+  String get frequentlyUsed => 'اکثر استعمال ہونے والے';
 }

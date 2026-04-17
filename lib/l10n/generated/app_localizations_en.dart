@@ -794,4 +794,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restart => 'Restart';
+
+  @override
+  String get frequentlyUsed => 'Frequently used';
 }

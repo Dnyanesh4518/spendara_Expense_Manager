@@ -799,4 +799,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get restart => 'Reiniciar';
+
+  @override
+  String get frequentlyUsed => 'Usados frecuentemente';
 }
