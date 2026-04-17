@@ -257,5 +257,7 @@
   "thisYear": "Mwaka huu",
   "lastYear": "Mwaka jana",
   "yearOverview": "Muhtasari wa mwaka",
-  "lastYearData": "Data ya mwaka jana itaonekana ukisha na miamala kutoka mwaka uliopita."
+  "lastYearData": "Data ya mwaka jana itaonekana ukisha na miamala kutoka mwaka uliopita.",
+  "updateReadyToInstall": "Sasisho limepakuliwa. Anzisha upya ili kutumia",
+  "restart": "Anzisha upya"
 }

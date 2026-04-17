@@ -789,4 +789,11 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get lastYearData => 'ଆଗ ବର୍ଷର ଲେଣଦେଣ ଥିଲେ ହିଁ ଗତ ବର୍ଷର ତଥ୍ୟ ଦେଖାଯିବ।';
+
+  @override
+  String get updateReadyToInstall =>
+      'ଅପଡେଟ ଡାଉନଲୋଡ ହୋଇଗଲା। ପ୍ରୟୋଗ କରିବାକୁ ପୁନଃଆରମ୍ଭ କରନ୍ତୁ';
+
+  @override
+  String get restart => 'ପୁନଃଆରମ୍ଭ କରନ୍ତୁ';
 }

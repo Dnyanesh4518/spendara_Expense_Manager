@@ -791,4 +791,11 @@ class AppLocalizationsMl extends AppLocalizations {
   @override
   String get lastYearData =>
       'കഴിഞ്ഞ വർഷത്തെ ഇടപാടുകൾ ഉള്ളപ്പോൾ മാത്രം മുൻ വർഷത്തെ ഡേറ്റ കാണിക്കും.';
+
+  @override
+  String get updateReadyToInstall =>
+      'അപ്‌ഡേറ്റ് ഡൗൺലോഡ് ആയി. പ്രയോഗിക്കാൻ പുനരാരംഭിക്കുക';
+
+  @override
+  String get restart => 'പുനരാരംഭിക്കുക';
 }

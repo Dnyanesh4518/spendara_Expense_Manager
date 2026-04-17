@@ -258,6 +258,8 @@
   "thisYear": "This year",
   "lastYear": "Last year",
   "yearOverview": "Year overview",
-  "lastYearData": "Last year data will appear once you have transactions from the previous year."
+  "lastYearData": "Last year data will appear once you have transactions from the previous year.",
+  "updateReadyToInstall": "Update downloaded. Restart to apply",
+  "restart": "Restart"
 
 }

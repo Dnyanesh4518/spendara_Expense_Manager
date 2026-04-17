@@ -15,16 +15,18 @@ class CrashlyticsKeys {
   static const String hiveInit = 'hive_init_failed';
   static const String hiveBoxOpen = 'hive_box_open_failed';
   static const String hiveAdapterRegister = 'hive_adapter_register_failed';
-  // static const String adFreeServiceInit = 'ad_free_service_init_failed';
   static const String diSetup = 'dependency_injection_setup_failed';
   static const String appStartup = 'app_startup_failed';
-  // static const String localizationLoad = 'localization_load_failed';
+
+  // ──────────────────────────────────────────────────────────
+  // IN APP UPDATE
+  static const String inAppUpdate = 'in_app_update_failed';
 
   // ──────────────────────────────────────────────────────────
   // ONBOARDING / PROFILE
   static const String onboardingSave = 'onboarding_save_failed';
-  // ──────────────────────────────────────────────────────────
 
+  // ──────────────────────────────────────────────────────────
   // TRANSACTION REPOSITORY
   static const String transactionAdd = 'transaction_add_failed';
   static const String transactionUpdate = 'transaction_update_failed';
@@ -58,7 +60,6 @@ class CrashlyticsKeys {
 
   // ──────────────────────────────────────────────────────────
   // ADD / EDIT TRANSACTION SCREEN
-
   static const String addTransactionSave = 'add_transaction_screen_save_failed';
   static const String editTransactionSave =
       'edit_transaction_screen_save_failed';
@@ -67,8 +68,6 @@ class CrashlyticsKeys {
 
   // ──────────────────────────────────────────────────────────
   // ADS — BANNER
-  // ──────────────────────────────────────────────────────────
-
   static const String bannerAdLoad = 'banner_ad_load_failed';
   static const String bannerAdShow = 'banner_ad_show_failed';
   static const String bannerAdSizeNull = 'banner_ad_size_null';
@@ -77,7 +76,6 @@ class CrashlyticsKeys {
 
   // ──────────────────────────────────────────────────────────
   // ADS — REWARDED
-  // ──────────────────────────────────────────────────────────
   static const String rewardedAdLoad = 'rewarded_ad_load_failed';
   static const String rewardedAdFull = 'rewarded_ad_full_size_failed';
   static const String rewardedAdShow = 'rewarded_ad_show_failed';
@@ -85,8 +83,6 @@ class CrashlyticsKeys {
 
   // ──────────────────────────────────────────────────────────
   // SHARE / REFERRAL
-  // ──────────────────────────────────────────────────────────
-
   static const String shareApp = 'share_app_failed';
   static const String shareGoalAchievement = 'share_goal_achievement_failed';
   static const String shareMonthSummary = 'share_month_summary_failed';
@@ -94,8 +90,6 @@ class CrashlyticsKeys {
 
   // ──────────────────────────────────────────────────────────
   // IN-APP REVIEW
-  // ──────────────────────────────────────────────────────────
-
   static const String inAppReviewRequest = 'in_app_review_request_failed';
   static const String inAppReviewCheck =
       'in_app_review_eligibility_check_failed';

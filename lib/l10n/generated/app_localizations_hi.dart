@@ -791,4 +791,11 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get lastYearData =>
       'पिछले वर्ष का डेटा तब दिखेगा जब आपके पास पिछले वर्ष के लेन-देन होंगे।';
+
+  @override
+  String get updateReadyToInstall =>
+      'अपडेट डाउनलोड हो गया। लागू करने के लिए पुनः शुरू करें';
+
+  @override
+  String get restart => 'पुनः शुरू करें';
 }

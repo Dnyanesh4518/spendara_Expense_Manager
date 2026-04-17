@@ -793,4 +793,11 @@ class AppLocalizationsTa extends AppLocalizations {
   @override
   String get lastYearData =>
       'கடந்த ஆண்டு பரிவர்த்தனைகள் இருந்தால் மட்டுமே முந்தைய ஆண்டு தரவு காண்பிக்கப்படும்.';
+
+  @override
+  String get updateReadyToInstall =>
+      'புதுப்பிப்பு பதிவிறக்கமானது. பயன்படுத்த மறுதொடக்கம் செய்யவும்';
+
+  @override
+  String get restart => 'மறுதொடக்கம்';
 }

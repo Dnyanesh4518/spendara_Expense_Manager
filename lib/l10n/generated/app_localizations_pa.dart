@@ -788,4 +788,11 @@ class AppLocalizationsPa extends AppLocalizations {
   @override
   String get lastYearData =>
       'ਪਿਛਲੇ ਸਾਲ ਦਾ ਡੇਟਾ ਉਦੋਂ ਦਿਖੇਗਾ ਜਦੋਂ ਤੁਹਾਡੇ ਕੋਲ ਪਿਛਲੇ ਸਾਲ ਦੇ ਲੈਣ-ਦੇਣ ਹੋਣਗੇ।';
+
+  @override
+  String get updateReadyToInstall =>
+      'ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਹੋ ਗਿਆ। ਲਾਗੂ ਕਰਨ ਲਈ ਮੁੜ ਚਾਲੂ ਕਰੋ';
+
+  @override
+  String get restart => 'ਮੁੜ ਚਾਲੂ ਕਰੋ';
 }

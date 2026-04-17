@@ -788,4 +788,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get lastYearData =>
       'Last year data will appear once you have transactions from the previous year.';
+
+  @override
+  String get updateReadyToInstall => 'Update downloaded. Restart to apply';
+
+  @override
+  String get restart => 'Restart';
 }

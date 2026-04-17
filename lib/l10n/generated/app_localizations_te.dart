@@ -789,4 +789,11 @@ class AppLocalizationsTe extends AppLocalizations {
   @override
   String get lastYearData =>
       'మీకు గత సంవత్సరం నుండి లావాదేవీలు ఉన్నప్పుడు మాత్రమే గత సంవత్సరపు డేటా కనిపిస్తుంది.';
+
+  @override
+  String get updateReadyToInstall =>
+      'అప్‌డేట్ డౌన్‌లోడ్ అయింది. వర్తింపజేయడానికి పునఃప్రారంభించండి';
+
+  @override
+  String get restart => 'పునఃప్రారంభించు';
 }

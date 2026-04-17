@@ -789,4 +789,11 @@ class AppLocalizationsKn extends AppLocalizations {
   @override
   String get lastYearData =>
       'ಹಿಂದಿನ ವರ್ಷದ ವ್ಯವಹಾರಗಳು ಇದ್ದಾಗ ಮಾತ್ರ ಕಳೆದ ವರ್ಷದ ಡೇಟಾ ಕಾಣಿಸುತ್ತದೆ.';
+
+  @override
+  String get updateReadyToInstall =>
+      'ಅಪ್‌ಡೇಟ್ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ. ಅನ್ವಯಿಸಲು ಮರುಪ್ರಾರಂಭಿಸಿ';
+
+  @override
+  String get restart => 'ಮರುಪ್ರಾರಂಭಿಸಿ';
 }

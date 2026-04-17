@@ -1685,6 +1685,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last year data will appear once you have transactions from the previous year.'**
   String get lastYearData;
+
+  /// No description provided for @updateReadyToInstall.
+  ///
+  /// In en, this message translates to:
+  /// **'Update downloaded. Restart to apply'**
+  String get updateReadyToInstall;
+
+  /// No description provided for @restart.
+  ///
+  /// In en, this message translates to:
+  /// **'Restart'**
+  String get restart;
 }
 
 class _AppLocalizationsDelegate

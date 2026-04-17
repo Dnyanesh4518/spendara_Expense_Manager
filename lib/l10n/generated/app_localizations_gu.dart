@@ -788,4 +788,11 @@ class AppLocalizationsGu extends AppLocalizations {
   @override
   String get lastYearData =>
       'ગત વર્ષનો ડેટા ત્યારે દેખાશે જ્યારે તમારી પાસે પાછલા વર્ષના વ્યવહારો હશે.';
+
+  @override
+  String get updateReadyToInstall =>
+      'અપડેટ ડાઉનલોડ થઈ ગયું. લાગુ કરવા માટે પુનઃ શરૂ કરો';
+
+  @override
+  String get restart => 'પુનઃ શરૂ કરો';
 }

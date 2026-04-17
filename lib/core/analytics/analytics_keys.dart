@@ -7,6 +7,10 @@ class AnalyticsKeys {
   static const String depositToGoal = 'deposit_goal_clicked';
   static const String depositAddedGoal = 'deposit_added_to_goal';
 
+  // In-app-Updates
+  static const String allowedAppUpdate = 'user_allowed_in_app_update';
+  static const String deniedAppUpdate = 'user_denied_in_app_update';
+
   //Insights
   static const String catSelected = 'deposit_goal_clicked';
   static const String viewMode = 'view_mode_clicked';

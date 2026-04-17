@@ -789,4 +789,11 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get lastYearData =>
       'আগের বছরের লেনদেন থাকলে তবেই গত বছরের তথ্য দেখা যাবে।';
+
+  @override
+  String get updateReadyToInstall =>
+      'আপডেট ডাউনলোড হয়েছে। প্রয়োগ করতে পুনরায় চালু করুন';
+
+  @override
+  String get restart => 'পুনরায় চালু করুন';
 }

@@ -16,6 +16,9 @@ dependencies:
   firebase_analytics: ^12.3.0
   firebase_core: ^4.7.0
 
+  # app update
+  in_app_update: ^4.2.5
+
   #connectivity
   connectivity_plus: ^7.1.0
 

@@ -257,5 +257,7 @@
   "thisYear": "Cette année",
   "lastYear": "L'année dernière",
   "yearOverview": "Aperçu annuel",
-  "lastYearData": "Les données de l'année précédente apparaîtront dès que vous aurez des transactions de l'année passée."
+  "lastYearData": "Les données de l'année précédente apparaîtront dès que vous aurez des transactions de l'année passée.",
+  "updateReadyToInstall": "Mise à jour téléchargée. Redémarrez pour l'appliquer",
+  "restart": "Redémarrer"
 }
