@@ -33,7 +33,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
     AppLocalizations? appLocalizations = AppLocalizations.of(context);
     _adService.showAd(
       onRewarded: () {
-        context.read<AdFreeCubit>().activateAdFree(minutes: 60);
+        context.read<AdFreeCubit>().activateAdFree(minutes: 5);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Row(
@@ -118,7 +118,7 @@ class _RemoveAdsButtonState extends State<RemoveAdsButton> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  '🚫Ads(1hr)',
+                  '🚫Ads(5 min)',
                   style: theme.textTheme.labelSmall?.copyWith(
                     color: AppColors.primary,
                     fontWeight: FontWeight.w600,

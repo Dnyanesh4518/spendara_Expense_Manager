@@ -8,7 +8,9 @@ class AdConstants {
   static String rewardedADId =
       dotenv.env['REWARDED_AD_CONSTANT'] ??
       'ca-app-pub-3940256099942544/6300978111';
-  static const bool _isTesting = false;
+  static const bool _isTesting = true;
+
+  /// TODO change in production release
 
   // ── Banner AD
   static String get bannerAdUnitId {
