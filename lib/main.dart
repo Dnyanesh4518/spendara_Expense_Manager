@@ -41,15 +41,8 @@ Future<void> main() async {
         rethrow;
       }
 
-      if (kDebugMode) {
-        await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
-          false,
-        );
-      } else {
-        await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
-          true,
-        );
-      }
+      FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(!kDebugMode);
+
       FlutterError.onError = (errorDetails) {
         FirebaseCrashlytics.instance.log(
           '${CrashlyticsKeys.appStartup} | widget: ${errorDetails.library}',
@@ -79,13 +72,14 @@ Future<void> main() async {
         rethrow;
       }
 
-      // ── 5. Hive box open ──────────────────────────────────────
       try {
-        await TransactionRepository.init();
-        await GoalRepository.init();
-        await AdFreeCubit.init();
-        await Hive.openBox<UserModel>(Constants.userBoxName);
-        await Hive.openBox('settingsBox');
+        await Future.wait([
+          TransactionRepository.init(),
+          GoalRepository.init(),
+          AdFreeCubit.init(),
+          Hive.openBox<UserModel>(Constants.userBoxName),
+          Hive.openBox('settingsBox'),
+        ]);
       } catch (e, s) {
         FirebaseCrashlytics.instance.log(CrashlyticsKeys.hiveBoxOpen);
         FirebaseCrashlytics.instance.recordError(
@@ -110,26 +104,27 @@ Future<void> main() async {
         );
         rethrow;
       }
-
-      await Hive.openBox<UserModel>(Constants.userBoxName);
-      await Hive.openBox('settingsBox');
       final box = Hive.box<UserModel>(Constants.userBoxName);
       final bool isOnboarded = box.get(Constants.userKey) != null;
 
       // ── 7. AdMob init ─────────────────────────────────────────
-      try {
-        await MobileAds.instance.initialize();
-        RewardedAdService().loadAd();
-      } catch (e, s) {
-        // Non-fatal — app works without ads
-        FirebaseCrashlytics.instance.log(CrashlyticsKeys.bannerAdLoad);
-        FirebaseCrashlytics.instance.recordError(
-          e,
-          s,
-          reason: CrashlyticsKeys.bannerAdLoad,
-          fatal: false, // ← false — ads failing ≠ app broken
-        );
-      }
+      unawaited(
+        MobileAds.instance
+            .initialize()
+            .then((_) {
+              RewardedAdService().loadAd();
+            })
+            .catchError((e, s) {
+              FirebaseCrashlytics.instance.log(CrashlyticsKeys.bannerAdLoad);
+              FirebaseCrashlytics.instance.recordError(
+                e,
+                s,
+                reason: CrashlyticsKeys.bannerAdLoad,
+                fatal: false, // ← false — ads failing ≠ app broken
+              );
+            }),
+      );
+
       runApp(FinanceApp(isOnboarded: isOnboarded));
     },
     (error, stack) {
@@ -150,16 +145,10 @@ class FinanceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<TransactionCubit>(
-          create: (_) => getIt<TransactionCubit>()..load(),
-        ),
-        BlocProvider<GoalCubit>(create: (_) => getIt<GoalCubit>()..load()),
-        BlocProvider<DashboardCubit>(
-          create: (_) => getIt<DashboardCubit>()..load(),
-        ),
-        BlocProvider<InsightsCubit>(
-          create: (_) => getIt<InsightsCubit>()..load(),
-        ),
+        BlocProvider(create: (_) => getIt<DashboardCubit>()),
+        BlocProvider(create: (_) => getIt<TransactionCubit>()),
+        BlocProvider(create: (_) => getIt<InsightsCubit>()),
+        BlocProvider(create: (_) => getIt<GoalCubit>()),
         BlocProvider(create: (_) => AdFreeCubit()..restore()),
         BlocProvider(create: (_) => LocaleCubit()),
       ],
@@ -204,6 +193,15 @@ class FinanceApp extends StatelessWidget {
             Locale('th'),
             Locale('sw'),
           ],
+          builder: (context, child) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              context.read<DashboardCubit>().load();
+              context.read<TransactionCubit>().load();
+              context.read<InsightsCubit>().load();
+              context.read<GoalCubit>().load();
+            });
+            return child!;
+          },
         ),
       ),
     );
