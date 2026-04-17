@@ -216,81 +216,77 @@ class _AddEditGoalScreenState extends State<AddEditGoalScreen> {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Label(
-                        appLocalizations?.targetAmount ?? 'Target amount (₹)',
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Label(
+                      appLocalizations?.targetAmount ?? 'Target amount (₹)',
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      controller: _targetCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(
+                        decimal: true,
                       ),
-                      const SizedBox(height: 8),
-                      TextFormField(
-                        controller: _targetCtrl,
-                        keyboardType: const TextInputType.numberWithOptions(
-                          decimal: true,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'^\d+\.?\d{0,2}'),
                         ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(
-                            RegExp(r'^\d+\.?\d{0,2}'),
-                          ),
-                        ],
-                        decoration: InputDecoration(
-                          hintText: '50,000',
-                          hintStyle: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        onChanged: (_) => setState(() {}),
-                        validator: (v) {
-                          if (v == null || v.trim().isEmpty) return 'Required';
-                          final n = double.tryParse(v.replaceAll(',', ''));
-                          if (n == null || n <= 0) return 'Must be > 0';
-                          return null;
-                        },
+                      ],
+                      decoration: InputDecoration(
+                        hintText: '50,000',
+                        hintStyle: Theme.of(context).textTheme.bodySmall,
                       ),
-                    ],
-                  ),
+                      onChanged: (_) => setState(() {}),
+                      validator: (v) {
+                        if (v == null || v.trim().isEmpty) return 'Required';
+                        final n = double.tryParse(v.replaceAll(',', ''));
+                        if (n == null || n <= 0) return 'Must be > 0';
+                        return null;
+                      },
+                    ),
+                  ],
                 ),
                 const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Label(
-                        appLocalizations?.alreadySaved ?? 'Already saved (₹)',
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Label(
+                      appLocalizations?.alreadySaved ?? 'Already saved (₹)',
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      controller: _savedCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(
+                        decimal: true,
                       ),
-                      const SizedBox(height: 8),
-                      TextFormField(
-                        controller: _savedCtrl,
-                        keyboardType: const TextInputType.numberWithOptions(
-                          decimal: true,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'^\d+\.?\d{0,2}'),
                         ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(
-                            RegExp(r'^\d+\.?\d{0,2}'),
-                          ),
-                        ],
-                        decoration: InputDecoration(
-                          hintText: '0',
-                          hintStyle: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        onChanged: (_) => setState(() {}),
-                        validator: (v) {
-                          if (v == null || v.trim().isEmpty) return null;
-                          final saved =
-                              double.tryParse(v.replaceAll(',', '')) ?? 0;
-                          final target =
-                              double.tryParse(
-                                _targetCtrl.text.replaceAll(',', ''),
-                              ) ??
-                              0;
-                          if (saved < 0) return 'Cannot be negative';
-                          if (target > 0 && saved > target) {
-                            return 'Exceeds target';
-                          }
-                          return null;
-                        },
+                      ],
+                      decoration: InputDecoration(
+                        hintText: '0',
+                        hintStyle: Theme.of(context).textTheme.bodySmall,
                       ),
-                    ],
-                  ),
+                      onChanged: (_) => setState(() {}),
+                      validator: (v) {
+                        if (v == null || v.trim().isEmpty) return null;
+                        final saved =
+                            double.tryParse(v.replaceAll(',', '')) ?? 0;
+                        final target =
+                            double.tryParse(
+                              _targetCtrl.text.replaceAll(',', ''),
+                            ) ??
+                            0;
+                        if (saved < 0) return 'Cannot be negative';
+                        if (target > 0 && saved > target) {
+                          return 'Exceeds target';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

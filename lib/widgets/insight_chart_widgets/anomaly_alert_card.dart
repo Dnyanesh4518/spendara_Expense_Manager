@@ -46,7 +46,6 @@ class AnomalyAlertCard extends StatelessWidget {
                       Constants.expenseCategoryLabel(context, item.category),
                       style: tt.labelLarge?.copyWith(color: AppColors.primary),
                     ),
-                    const Spacer(),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 8,
