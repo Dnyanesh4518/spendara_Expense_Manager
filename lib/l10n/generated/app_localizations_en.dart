@@ -797,4 +797,74 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get frequentlyUsed => 'Frequently used';
+
+  @override
+  String get monthlyBudget => 'Monthly Budget';
+
+  @override
+  String get createBudget => 'Create Budget';
+
+  @override
+  String get editBudget => 'Edit Budget';
+
+  @override
+  String get saveBudget => 'Save Budget';
+
+  @override
+  String get deleteBudget => 'Delete budget?';
+
+  @override
+  String get noBudgetYet => 'No budget set';
+
+  @override
+  String get setBudgetTitle => 'Set your budget';
+
+  @override
+  String get setBudgetSubtitle =>
+      'Choose the month and your total spending limit.';
+
+  @override
+  String get allocateBudgetTitle => 'Allocate by category';
+
+  @override
+  String get allocateBudgetSubtitle =>
+      'Assign amounts to each category. Leave blank to skip.';
+
+  @override
+  String get setPrioritiesTitle => 'Set priorities';
+
+  @override
+  String get setPrioritiesSubtitle =>
+      'Mark which categories matter most this month.';
+
+  @override
+  String get noCategoriesAllocated =>
+      'No categories allocated yet. Go back and add amounts.';
+
+  @override
+  String get totalMonthlyBudget => 'Total monthly budget';
+
+  @override
+  String get allocated => 'Allocated';
+
+  @override
+  String get overBudget => 'Over budget';
+
+  @override
+  String get priorityHigh => 'High';
+
+  @override
+  String get priorityMedium => 'Med';
+
+  @override
+  String get priorityLow => 'Low';
+
+  @override
+  String get totalSpent => 'Total spent';
+
+  @override
+  String get used => 'used';
+
+  @override
+  String get next => 'Next';
 }

@@ -800,4 +800,73 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get frequentlyUsed => 'اکثر استعمال ہونے والے';
+
+  @override
+  String get monthlyBudget => 'ماہانہ بجٹ';
+
+  @override
+  String get createBudget => 'بجٹ بنائیں';
+
+  @override
+  String get editBudget => 'بجٹ ترمیم کریں';
+
+  @override
+  String get saveBudget => 'بجٹ محفوظ کریں';
+
+  @override
+  String get deleteBudget => 'بجٹ حذف کریں؟';
+
+  @override
+  String get noBudgetYet => 'کوئی بجٹ مقرر نہیں';
+
+  @override
+  String get setBudgetTitle => 'اپنا بجٹ مقرر کریں';
+
+  @override
+  String get setBudgetSubtitle => 'مہینہ اور کل خرچ کی حد منتخب کریں۔';
+
+  @override
+  String get allocateBudgetTitle => 'زمرے کے مطابق مختص کریں';
+
+  @override
+  String get allocateBudgetSubtitle =>
+      'ہر زمرے کو رقم دیں۔ چھوڑنے کے لیے خالی رکھیں۔';
+
+  @override
+  String get setPrioritiesTitle => 'ترجیحات مقرر کریں';
+
+  @override
+  String get setPrioritiesSubtitle =>
+      'اس مہینے سب سے اہم زمروں کو نشان زد کریں۔';
+
+  @override
+  String get noCategoriesAllocated =>
+      'ابھی تک کوئی زمرہ مختص نہیں۔ واپس جائیں اور رقمیں شامل کریں۔';
+
+  @override
+  String get totalMonthlyBudget => 'کل ماہانہ بجٹ';
+
+  @override
+  String get allocated => 'مختص کردہ';
+
+  @override
+  String get overBudget => 'بجٹ سے زیادہ';
+
+  @override
+  String get priorityHigh => 'زیادہ';
+
+  @override
+  String get priorityMedium => 'درمیانی';
+
+  @override
+  String get priorityLow => 'کم';
+
+  @override
+  String get totalSpent => 'کل خرچ';
+
+  @override
+  String get used => 'استعمال شدہ';
+
+  @override
+  String get next => 'اگلا';
 }

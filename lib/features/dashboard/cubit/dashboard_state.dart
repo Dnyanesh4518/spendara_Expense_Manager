@@ -13,6 +13,7 @@ class DashboardState extends Equatable {
   final DashboardStatus status;
   final String userName;
   final String userEmail;
+  final Map<String, double> expensesByCategory;
 
   const DashboardState({
     this.balance = 0,
@@ -25,6 +26,7 @@ class DashboardState extends Equatable {
     this.status = DashboardStatus.initial,
     this.userName = '',
     this.userEmail = '',
+    this.expensesByCategory = const {},
   });
 
   DashboardState copyWith({
@@ -38,6 +40,7 @@ class DashboardState extends Equatable {
     DashboardStatus? status,
     String? userName,
     String? userEmail,
+    Map<String, double>? expensesByCategory,
   }) => DashboardState(
     balance: balance ?? this.balance,
     totalIncome: totalIncome ?? this.totalIncome,
@@ -49,6 +52,7 @@ class DashboardState extends Equatable {
     status: status ?? this.status,
     userName: userName ?? this.userName,
     userEmail: userEmail ?? this.userEmail,
+    expensesByCategory: expensesByCategory ?? this.expensesByCategory,
   );
 
   @override
@@ -63,5 +67,6 @@ class DashboardState extends Equatable {
     userName,
     userEmail,
     weekDayLabels,
+    expensesByCategory,
   ];
 }

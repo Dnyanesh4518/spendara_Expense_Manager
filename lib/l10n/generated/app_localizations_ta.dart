@@ -803,4 +803,74 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get frequentlyUsed => 'அடிக்கடி பயன்படுத்தியவை';
+
+  @override
+  String get monthlyBudget => 'மாதாந்திர பட்ஜெட்';
+
+  @override
+  String get createBudget => 'பட்ஜெட் உருவாக்கு';
+
+  @override
+  String get editBudget => 'பட்ஜெட் திருத்து';
+
+  @override
+  String get saveBudget => 'பட்ஜெட் சேமி';
+
+  @override
+  String get deleteBudget => 'பட்ஜெட்டை நீக்கவா?';
+
+  @override
+  String get noBudgetYet => 'பட்ஜெட் எதுவும் இல்லை';
+
+  @override
+  String get setBudgetTitle => 'உங்கள் பட்ஜெட்டை அமைக்கவும்';
+
+  @override
+  String get setBudgetSubtitle =>
+      'மாதம் மற்றும் மொத்த செலவு வரம்பை தேர்வு செய்யவும்.';
+
+  @override
+  String get allocateBudgetTitle => 'வகைப்படுத்தி ஒதுக்கவும்';
+
+  @override
+  String get allocateBudgetSubtitle =>
+      'ஒவ்வொரு வகைக்கும் தொகை நிர்ணயிக்கவும். தவிர்க்க காலியாக விடவும்.';
+
+  @override
+  String get setPrioritiesTitle => 'முன்னுரிமைகளை அமைக்கவும்';
+
+  @override
+  String get setPrioritiesSubtitle =>
+      'இந்த மாதம் மிக முக்கியமான வகைகளை குறிக்கவும்.';
+
+  @override
+  String get noCategoriesAllocated =>
+      'இன்னும் வகைகள் எதுவும் ஒதுக்கப்படவில்லை. திரும்பி தொகைகளை சேர்க்கவும்.';
+
+  @override
+  String get totalMonthlyBudget => 'மொத்த மாதாந்திர பட்ஜெட்';
+
+  @override
+  String get allocated => 'ஒதுக்கப்பட்டது';
+
+  @override
+  String get overBudget => 'பட்ஜெட் தாண்டியது';
+
+  @override
+  String get priorityHigh => 'அதிகம்';
+
+  @override
+  String get priorityMedium => 'நடுத்தரம்';
+
+  @override
+  String get priorityLow => 'குறைவு';
+
+  @override
+  String get totalSpent => 'மொத்த செலவு';
+
+  @override
+  String get used => 'பயன்படுத்தியது';
+
+  @override
+  String get next => 'அடுத்து';
 }

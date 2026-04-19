@@ -255,25 +255,6 @@ class InsightsCubit extends Cubit<InsightsState> {
     ];
   }
 
-  /// Returns localized period label ('week' / 'month' / 'year' / 'period').
-  String _rangeLabel(TimeRange range) {
-    final l = _l10n;
-    if (l == null) {
-      return switch (range) {
-        TimeRange.week => 'week',
-        TimeRange.month => 'month',
-        TimeRange.year => 'year',
-        TimeRange.custom => 'period',
-      };
-    }
-    return switch (range) {
-      TimeRange.week => l.week,
-      TimeRange.month => l.month,
-      TimeRange.year => l.year,
-      TimeRange.custom => l.period,
-    };
-  }
-
   // ──────────────────────────────────────────────────────────────────────────
   // PERIOD BOUNDS
   // ──────────────────────────────────────────────────────────────────────────

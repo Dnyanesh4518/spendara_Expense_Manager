@@ -32,9 +32,11 @@ class GoalPreviewCard extends StatelessWidget {
       if (diff <= 0) return appLocalizations?.dueToday ?? 'Due today';
       if (diff == 1) return '1 ${appLocalizations?.daysLeft}';
       if (diff < 30) return '$diff ${appLocalizations?.daysLeft}';
-      if (diff < 365)
+      if (diff < 365) {
         return '${(diff / 30).round()} ${appLocalizations?.monthsLeft}';
-      return '${(diff / 365).round()} ${appLocalizations?.yrLeft}';
+      } else {
+        return '${(diff / 365).round()} ${appLocalizations?.yrLeft}';
+      }
     }
 
     return Container(

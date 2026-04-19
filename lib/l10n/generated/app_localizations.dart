@@ -1703,6 +1703,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Frequently used'**
   String get frequentlyUsed;
+
+  /// No description provided for @monthlyBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Budget'**
+  String get monthlyBudget;
+
+  /// No description provided for @createBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Budget'**
+  String get createBudget;
+
+  /// No description provided for @editBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Budget'**
+  String get editBudget;
+
+  /// No description provided for @saveBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Budget'**
+  String get saveBudget;
+
+  /// No description provided for @deleteBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete budget?'**
+  String get deleteBudget;
+
+  /// No description provided for @noBudgetYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No budget set'**
+  String get noBudgetYet;
+
+  /// No description provided for @setBudgetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your budget'**
+  String get setBudgetTitle;
+
+  /// No description provided for @setBudgetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the month and your total spending limit.'**
+  String get setBudgetSubtitle;
+
+  /// No description provided for @allocateBudgetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allocate by category'**
+  String get allocateBudgetTitle;
+
+  /// No description provided for @allocateBudgetSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Assign amounts to each category. Leave blank to skip.'**
+  String get allocateBudgetSubtitle;
+
+  /// No description provided for @setPrioritiesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set priorities'**
+  String get setPrioritiesTitle;
+
+  /// No description provided for @setPrioritiesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark which categories matter most this month.'**
+  String get setPrioritiesSubtitle;
+
+  /// No description provided for @noCategoriesAllocated.
+  ///
+  /// In en, this message translates to:
+  /// **'No categories allocated yet. Go back and add amounts.'**
+  String get noCategoriesAllocated;
+
+  /// No description provided for @totalMonthlyBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Total monthly budget'**
+  String get totalMonthlyBudget;
+
+  /// No description provided for @allocated.
+  ///
+  /// In en, this message translates to:
+  /// **'Allocated'**
+  String get allocated;
+
+  /// No description provided for @overBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Over budget'**
+  String get overBudget;
+
+  /// No description provided for @priorityHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get priorityHigh;
+
+  /// No description provided for @priorityMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Med'**
+  String get priorityMedium;
+
+  /// No description provided for @priorityLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get priorityLow;
+
+  /// No description provided for @totalSpent.
+  ///
+  /// In en, this message translates to:
+  /// **'Total spent'**
+  String get totalSpent;
+
+  /// No description provided for @used.
+  ///
+  /// In en, this message translates to:
+  /// **'used'**
+  String get used;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
 }
 
 class _AppLocalizationsDelegate

@@ -13,6 +13,7 @@ import '../../core/utils/currency_formatter.dart';
 import '../../features/dashboard/cubit/dashboard_cubit.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../routes/app_routes.dart';
+import '../../widgets/budget/budget_overview_card.dart';
 import '../../widgets/remove_ad_button.dart';
 import '../../widgets/widgets.dart';
 import 'financial_health_sheet.dart';
@@ -179,7 +180,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                     RemoveAdsButton(),
                     SizedBox(width: 6),
                     Padding(
-                      padding: const EdgeInsets.only(right: 16),
+                      padding: const EdgeInsets.only(right: 8, left: 8),
                       child: InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, 'profileScreen');
@@ -216,9 +217,9 @@ class DashboardScreenState extends State<DashboardScreen> {
                           savingsProgress: state.savingsProgress,
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 12),
                       Row(
-                        spacing: 4,
+                        spacing: 12,
                         children: [
                           Expanded(
                             child: SummaryCard(
@@ -251,6 +252,10 @@ class DashboardScreenState extends State<DashboardScreen> {
                             ),
                           ),
                         ],
+                      ),
+                      const SizedBox(height: 12),
+                      BudgetOverviewCard(
+                        spentByCategory: state.expensesByCategory,
                       ),
                       const SizedBox(height: 12),
                       SectionHeader(

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:Spendara/repository/budget_repository.dart';
 import 'package:Spendara/repository/goal_repository.dart';
 import 'package:Spendara/repository/transaction_repository.dart';
 import 'package:Spendara/routes/app_routes.dart';
@@ -21,6 +22,8 @@ import 'core/di/injections.dart';
 import 'core/theme/app_theme.dart';
 import 'data/models/user_model.dart';
 import 'features/ads/cubit/ad_free_cubit.dart';
+import 'features/budget/cubit/budget_cubit.dart';
+import 'features/budget/model/budget_model.dart';
 import 'features/dashboard/cubit/dashboard_cubit.dart';
 import 'features/goals/cubit/goal_cubit.dart';
 import 'features/goals/model/goals_model.dart';
@@ -58,6 +61,7 @@ Future<void> main() async {
       try {
         await dotenv.load(fileName: ".env");
         await Hive.initFlutter();
+        Hive.registerAdapter(BudgetModelAdapter());
         Hive.registerAdapter(TransactionModelAdapter());
         Hive.registerAdapter(GoalModelAdapter());
         Hive.registerAdapter(UserModelAdapter());
@@ -74,6 +78,7 @@ Future<void> main() async {
 
       try {
         await Future.wait([
+          BudgetRepository.init(),
           TransactionRepository.init(),
           GoalRepository.init(),
           AdFreeCubit.init(),
@@ -151,6 +156,7 @@ class FinanceApp extends StatelessWidget {
         BlocProvider(create: (_) => getIt<GoalCubit>()),
         BlocProvider(create: (_) => AdFreeCubit()..restore()),
         BlocProvider(create: (_) => LocaleCubit()),
+        BlocProvider<BudgetCubit>(create: (_) => getIt<BudgetCubit>()),
       ],
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, local) => MaterialApp(
@@ -199,6 +205,7 @@ class FinanceApp extends StatelessWidget {
               context.read<TransactionCubit>().load();
               context.read<InsightsCubit>().load();
               context.read<GoalCubit>().load();
+              context.read<BudgetCubit>().load();
             });
             return child!;
           },

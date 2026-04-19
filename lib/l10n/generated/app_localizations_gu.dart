@@ -798,4 +798,72 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get frequentlyUsed => 'পવારંવાર ઉપયોગ';
+
+  @override
+  String get monthlyBudget => 'માસિક બજેટ';
+
+  @override
+  String get createBudget => 'બજેટ બનાવો';
+
+  @override
+  String get editBudget => 'બજેટ સંપાદિત કરો';
+
+  @override
+  String get saveBudget => 'બજેટ સાચવો';
+
+  @override
+  String get deleteBudget => 'બજેટ કાઢી નાખવું?';
+
+  @override
+  String get noBudgetYet => 'કોઈ બજેટ નિર્ધારિત નથી';
+
+  @override
+  String get setBudgetTitle => 'તમારું બજેટ સેટ કરો';
+
+  @override
+  String get setBudgetSubtitle => 'મહિનો અને કુલ ખર્ચ મર્યાદા પસંદ કરો.';
+
+  @override
+  String get allocateBudgetTitle => 'શ્રેણી પ્રમાણે ફાળવો';
+
+  @override
+  String get allocateBudgetSubtitle =>
+      'દરેક શ્રેણીને રકમ આપો. છોડવા માટે ખાલી રાખો.';
+
+  @override
+  String get setPrioritiesTitle => 'પ્રાથમિકતા નક્કી કરો';
+
+  @override
+  String get setPrioritiesSubtitle => 'આ મહિने સૌથી જરૂરી શ્રેણીઓ ચિહ્નિત કરો.';
+
+  @override
+  String get noCategoriesAllocated =>
+      'હજુ કોઈ શ્રેણી ફાળવાઈ નથી. પાછા જઈ રકમ ઉમેરો.';
+
+  @override
+  String get totalMonthlyBudget => 'કુલ માસિક બજેટ';
+
+  @override
+  String get allocated => 'ફાળવ્યું';
+
+  @override
+  String get overBudget => 'બજેટ કરતાં વધુ';
+
+  @override
+  String get priorityHigh => 'ઉચ્ચ';
+
+  @override
+  String get priorityMedium => 'મધ્યમ';
+
+  @override
+  String get priorityLow => 'ઓછું';
+
+  @override
+  String get totalSpent => 'કુલ ખર્ચ';
+
+  @override
+  String get used => 'વપરાયેલ';
+
+  @override
+  String get next => 'આગળ';
 }

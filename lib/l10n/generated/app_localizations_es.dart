@@ -802,4 +802,73 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get frequentlyUsed => 'Usados frecuentemente';
+
+  @override
+  String get monthlyBudget => 'Presupuesto mensual';
+
+  @override
+  String get createBudget => 'Crear presupuesto';
+
+  @override
+  String get editBudget => 'Editar presupuesto';
+
+  @override
+  String get saveBudget => 'Guardar presupuesto';
+
+  @override
+  String get deleteBudget => '¿Eliminar presupuesto?';
+
+  @override
+  String get noBudgetYet => 'Sin presupuesto definido';
+
+  @override
+  String get setBudgetTitle => 'Establece tu presupuesto';
+
+  @override
+  String get setBudgetSubtitle => 'Elige el mes y tu límite total de gasto.';
+
+  @override
+  String get allocateBudgetTitle => 'Asignar por categoría';
+
+  @override
+  String get allocateBudgetSubtitle =>
+      'Asigna montos a cada categoría. Deja en blanco para omitir.';
+
+  @override
+  String get setPrioritiesTitle => 'Establece prioridades';
+
+  @override
+  String get setPrioritiesSubtitle =>
+      'Marca qué categorías son más importantes este mes.';
+
+  @override
+  String get noCategoriesAllocated =>
+      'Aún no hay categorías asignadas. Vuelve atrás y añade montos.';
+
+  @override
+  String get totalMonthlyBudget => 'Presupuesto mensual total';
+
+  @override
+  String get allocated => 'Asignado';
+
+  @override
+  String get overBudget => 'Presupuesto excedido';
+
+  @override
+  String get priorityHigh => 'Alta';
+
+  @override
+  String get priorityMedium => 'Med';
+
+  @override
+  String get priorityLow => 'Baja';
+
+  @override
+  String get totalSpent => 'Total gastado';
+
+  @override
+  String get used => 'usado';
+
+  @override
+  String get next => 'Siguiente';
 }

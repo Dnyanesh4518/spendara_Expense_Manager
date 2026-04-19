@@ -799,4 +799,73 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get frequentlyUsed => 'తరచుగా వాడేవి';
+
+  @override
+  String get monthlyBudget => 'నెలవారీ బడ్జెట్';
+
+  @override
+  String get createBudget => 'బడ్జెట్ తయారుచేయి';
+
+  @override
+  String get editBudget => 'బడ్జెట్ సవరించు';
+
+  @override
+  String get saveBudget => 'బడ్జెట్ సేవ్ చేయి';
+
+  @override
+  String get deleteBudget => 'బడ్జెట్ తొలగించాలా?';
+
+  @override
+  String get noBudgetYet => 'బడ్జెట్ ఏదీ నిర్ణయించలేదు';
+
+  @override
+  String get setBudgetTitle => 'మీ బడ్జెట్ నిర్ణయించండి';
+
+  @override
+  String get setBudgetSubtitle => 'నెల మరియు మొత్తం వ్యయ పరిమితిని ఎంచుకోండి.';
+
+  @override
+  String get allocateBudgetTitle => 'వర్గం వారీగా కేటాయించండి';
+
+  @override
+  String get allocateBudgetSubtitle =>
+      'ప్రతి వర్గానికి మొత్తం నిర్ణయించండి. దాటవేయడానికి ఖాళీగా వదలండి.';
+
+  @override
+  String get setPrioritiesTitle => 'ప్రాధాన్యతలు నిర్ణయించండి';
+
+  @override
+  String get setPrioritiesSubtitle =>
+      'ఈ నెల అత్యంత ముఖ్యమైన వర్గాలను గుర్తించండి.';
+
+  @override
+  String get noCategoriesAllocated =>
+      'ఇంకా వర్గాలు కేటాయించలేదు. వెనక్కి వెళ్ళి మొత్తాలు జోడించండి.';
+
+  @override
+  String get totalMonthlyBudget => 'మొత్తం నెలవారీ బడ్జెట్';
+
+  @override
+  String get allocated => 'కేటాయించబడింది';
+
+  @override
+  String get overBudget => 'బడ్జెట్ మించిపోయింది';
+
+  @override
+  String get priorityHigh => 'అధిక';
+
+  @override
+  String get priorityMedium => 'మధ్యమ';
+
+  @override
+  String get priorityLow => 'తక్కువ';
+
+  @override
+  String get totalSpent => 'మొత్తం ఖర్చు';
+
+  @override
+  String get used => 'వినియోగించబడింది';
+
+  @override
+  String get next => 'తదుపరి';
 }

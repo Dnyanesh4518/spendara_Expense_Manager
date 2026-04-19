@@ -47,6 +47,7 @@ class DashboardCubit extends Cubit<DashboardState> {
           status: DashboardStatus.success,
           userName: user?.name ?? '',
           userEmail: user?.email ?? '',
+          expensesByCategory: _txnRepo.expensesByCategory,
         ),
       );
     } catch (e) {

@@ -1,8 +1,10 @@
 import 'package:get_it/get_it.dart';
+import '../../features/budget/cubit/budget_cubit.dart';
 import '../../features/dashboard/cubit/dashboard_cubit.dart';
 import '../../features/goals/cubit/goal_cubit.dart';
 import '../../features/insights/cubit/insights_cubit.dart';
 import '../../features/transaction/cubit/transaction_cubit.dart';
+import '../../repository/budget_repository.dart';
 import '../../repository/goal_repository.dart';
 import '../../repository/transaction_repository.dart';
 
@@ -26,5 +28,10 @@ void setupDI() {
   );
   getIt.registerFactory<InsightsCubit>(
     () => InsightsCubit(getIt<TransactionRepository>()),
+  );
+
+  getIt.registerLazySingleton<BudgetRepository>(() => BudgetRepository());
+  getIt.registerFactory<BudgetCubit>(
+    () => BudgetCubit(getIt<BudgetRepository>()),
   );
 }
