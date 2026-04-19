@@ -2,7 +2,7 @@ name: Spendara
 description: "A personal finance companion app"
 
 
-version: 1.0.1+7
+version: 1.0.1+8
 
 environment:
   sdk: ^3.9.0-32.0.dev
