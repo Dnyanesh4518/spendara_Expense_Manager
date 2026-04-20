@@ -22,12 +22,12 @@ class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => DashboardScreenState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends State<DashboardScreen>
+    with WidgetsBindingObserver {
   StreamSubscription<InstallStatus>? _installStatusSub;
-  bool _flexibleUpdateDownloaded = false;
 
   // ── Open Add Transaction pre-filled by type ──────────────────
   void _openAddTransaction(BuildContext context, String type) {
@@ -43,7 +43,6 @@ class DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  // Check of Update
   Future<void> _checkForUpdate() async {
     try {
       final info = await InAppUpdate.checkForUpdate();
@@ -74,21 +73,36 @@ class DashboardScreenState extends State<DashboardScreen> {
 
   Future<void> _startFlexibleUpdate() async {
     try {
-      await InAppUpdate.startFlexibleUpdate();
-
-      // Listen for download completion
-      _installStatusSub = InAppUpdate.installUpdateListener.listen((status) {
+      await _installStatusSub?.cancel();
+      _installStatusSub = InAppUpdate.installUpdateListener.listen((
+        InstallStatus status,
+      ) {
         if (status == InstallStatus.downloaded) {
           if (mounted) {
-            setState(() => _flexibleUpdateDownloaded = true);
             _showUpdateSnackbar();
           }
         }
       });
+      await InAppUpdate.startFlexibleUpdate();
     } catch (_) {}
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      InAppUpdate.checkForUpdate()
+          .then((info) {
+            if (info.installStatus == InstallStatus.downloaded) {
+              if (mounted) _showUpdateSnackbar();
+            }
+          })
+          .catchError((_) {});
+    }
+  }
+
   void _showUpdateSnackbar() {
+    ScaffoldMessenger.of(context).clearSnackBars();
     final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -130,12 +144,13 @@ class DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
-    // Check after first frame so the dashboard is visible first
+    WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) => _checkForUpdate());
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _installStatusSub?.cancel();
     super.dispose();
   }
@@ -144,10 +159,7 @@ class DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     AppLocalizations? appLocalizations = AppLocalizations.of(context);
     final tt = Theme.of(context).textTheme;
-    return BlocConsumer<DashboardCubit, DashboardState>(
-      listener: (context, state) {
-        if (_flexibleUpdateDownloaded) _showUpdateSnackbar();
-      },
+    return BlocBuilder<DashboardCubit, DashboardState>(
       builder: (context, state) {
         if (state.status == DashboardStatus.loading ||
             state.status == DashboardStatus.initial) {
